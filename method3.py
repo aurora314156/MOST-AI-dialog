@@ -1,20 +1,20 @@
 
 # coding: utf-8
 
-# In[25]:
+# In[205]:
 
 
 # -*- coding: UTF-8 -*-
 import time
 import jieba
+import os
 from gensim.models import word2vec
 from gensim import models
 import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
 from scipy import spatial
 
 
-# In[26]:
+# In[206]:
 
 
 # 精確模式 ：將句子最精確地切開，叫適合文本分析, cut_all=False
@@ -22,7 +22,8 @@ from scipy import spatial
 # 搜索引擎模式：在精確模式的基礎上對長詞再次切分，提高召回率，適合用於搜尋引擎分詞, jieba.cut_for_search(Content)            
 # call jieba api
 def jiebaCut(s):
-    words = jieba.cut(s, cut_all=False)
+    words = jieba.cut_for_search(s)
+#    words = jieba.cut(s, cut_all=False)
     result = removeStopWords(words)
     return result
 
@@ -52,13 +53,13 @@ def state(s,flag):
     return flag, nextline
 
 
-# In[27]:
+# In[207]:
 
 
 def main():
     sTime = time.time()
     print("Start process CQA dataset")
-    cNum = 0
+    cNum, accuracy = 0, 0
     with open('CQA.txt', 'r') as file:
         flag, end = 0, 0
         cList, qList, aList = [],[],[]
@@ -69,14 +70,19 @@ def main():
             flag, nextline = state(s,flag)
             # one corpus process done!
             if end == 4:
-                cNum +=1
                 ans = s
-                word2VecSum(cList, qList, aList, cNum)
                 print("Corpus: %d" % cNum)
+                guessAns = word2VecSum(cList, qList, aList, cNum)
+                if guessAns == ans:
+                    accuracy +=1
+                print("====== Final result ======")
+                print("Correct answer is: %s." %(ans))
+                print("Guess answer is: %s.\n" %(guessAns))
                 #print("corpus:\n",cList,'\nquestion:\n',qList,'\nanswer:\n',aList,'\ncorrect ans:\n',ans,'\n')
                 cList, qList, aList = [],[],[]
                 flag, end = 0, 0
                 ans = ""
+                cNum +=1
                 continue
             # still on state
             if nextline != 1:
@@ -113,32 +119,33 @@ def main():
                 for c in cutRes:
                     tempL.append(c)
                 aList.append(tempL)
+        
+    print("\nTotal corpus numbers: %d" % cNum)
+    print("Accuracy is %.3f percent" % (accuracy/cNum*100))
+    print("Processing all CQA dataset corpus took %.2fs" % (time.time()- sTime))
+        
 
-        print("\nTotal corpus numbers: %d" % cNum)
-        print("Processing all CQA dataset corpus took %.2fs" % (time.time()- sTime))
 
-
-# In[28]:
+# In[208]:
 
 
 
 def word2VecSum(cList, qList, aList, cNum):
 
     sTime = time.time()
-    print("Start process words vector sum, corpus : %d" % (cNum))
+    print("====== Start process words vector sum ======")
     nc = np.zeros((len(cList),250),dtype=float)
     nq = np.zeros(250,dtype=float)
     na = np.zeros((len(aList),250),dtype=float)
-    count, ind = 0 , 0
+    count, ind, notExist = 0 , 0 , 0
     # take all element from corpus List
     for c in cList:
         for w in c:
             # take word vector from word2vec model
-            print(w)
             try:
                 m = model[w]
             except KeyError as e:
-                print('this word is not in model.')
+                notExist +=1
                 continue
             # calculate word vector sum from corpus list
             for n in range(250):
@@ -150,7 +157,7 @@ def word2VecSum(cList, qList, aList, cNum):
         try:
             m = model[w]
         except KeyError as e:
-            print('this word is not in model.')
+            notExist +=1
             continue
         # calculate word vector sum from question list
         for n in range(250):
@@ -164,7 +171,7 @@ def word2VecSum(cList, qList, aList, cNum):
             try:
                 m = model[w]
             except KeyError as e:
-                print('this word is not in model.')
+                notExist +=1
                 continue
              # calculate word vector sum from answer list
             for n in range(250):
@@ -173,55 +180,72 @@ def word2VecSum(cList, qList, aList, cNum):
         ind +=1
         
     print("This corpus has total %d split words." % (count))
-    print("Process all corpus content took %.2fs.\n" % (time.time()- sTime))
+    print("This corpus has %d words not in word2vec model." % (notExist))
+    print("Process all corpus content took %.2fs." % (time.time()- sTime))
     # go to final step, calculate similarity
-    #similarity(nc, nq, na, cNum)
-    
+    guessAns = similarity(nc, nq, na, cNum)
+    return guessAns
     
 
 
-# In[ ]:
+# In[209]:
 
 
 def similarity(nc, nq, na, cNum):
-    sTime = time.time()
-    print("Start process vector similarity, corpus : %d" % (cNum))
-    print(nc)
-    print(nq)
-    for q in nq:
-        for c in nc:
-            highSim = 0
-            #cosSim = cosine_similarity(c,q)
-            cosSim =  1 - spatial.distance.cosine(c, q)
-            if cosSim > highSim:
-                highSim = cosSim
-                highC = c
-        print(highSim)
     
+    sTime = time.time()
+    l = ['A','B','C','D']
+    print("====== Start process vector similarity ======")
+    # highest corpus/answer similarity
+    h_c_Sim, h_a_Sim, highCorpus, ans = 0, 0, 0, 0
+    
+    # calculate the most similar corpus and question
+    for c in nc:
+        cosSim = 1 - spatial.distance.cosine(c, nq)
+        if cosSim > h_c_Sim:
+            h_c_Sim = cosSim
+            # record highest similarity corpus
+            highCorpus = c
+            
+    # calculate the most similar corpus and answer
+    i = 0
+    for a in na:
+        cosSim = 1 - spatial.distance.cosine(a, highCorpus)
+        if cosSim > h_a_Sim:
+            h_a_Sim = cosSim
+            ans = i
+        i += 1
+        
+    print("The best match answer to this CQA is %s." %(l[ans]))
+    print("The best match answer similarity to this CQA is %.2f." %(h_a_Sim))
     print("Process all similarity calculation took %.2fs.\n" % (time.time()- sTime))
+    return l[ans]
 
 
-# In[ ]:
+# In[210]:
 
 
 # ====== initial setting ======
 
 print("Start loading initial setting!")
 # jieba setting
+print("Start loading jieba dictionary!")
 relativePath = os.getcwd()
 jieba.set_dictionary(relativePath + '/jieba_setting/dict.txt.big')
 # add user dictionary to improve jieba cut precision
 # jieba.load_userdict(relativePath + '/jieba_setting/yourfile.txt')
 
 # stopwords setting
+print("Start add stopwords!")
 stopWordsSet = set()
 with open(relativePath + '/jieba_setting/stopwords.txt', 'r') as stop:
     for i in stop:
         stopWordsSet.add(i.strip('\n'))
 
 # load word2vec model
+print("Start loading word2vec model!")
 sTime = time.time()
-model = models.Word2Vec.load(relativePath + '/wiki/python/word2vec.model')
+model = models.Word2Vec.load(relativePath + '/gigaword/python/word2vec.model')
 print("Load word2vec model success! took %.2fs" % (time.time()-sTime))
 
 # ====== initial setting ======
