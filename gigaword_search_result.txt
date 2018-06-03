@@ -412,291 +412,291 @@ Correct answer is: C
 Predict answer is: C
 
 Corpus :103
-Correct answer is: （D）不常運動
-Predict answer is: A
-
-Corpus :104
 Correct answer is: A
 Predict answer is: C
 
-Corpus :105
+Corpus :104
 Correct answer is: C
+Predict answer is: B
+
+Corpus :105
+Correct answer is: A
 Predict answer is: C
 
 Corpus :106
-Correct answer is: B
-Predict answer is: B
+Correct answer is: C
+Predict answer is: C
 
 Corpus :107
-Correct answer is: C
+Correct answer is: B
 Predict answer is: B
 
 Corpus :108
+Correct answer is: C
+Predict answer is: B
+
+Corpus :109
 Correct answer is: D
 Predict answer is: D
 
-Corpus :109
+Corpus :110
 Correct answer is: A
 Predict answer is: B
 
-Corpus :110
-Correct answer is: B
-Predict answer is: D
-
 Corpus :111
-Correct answer is: A
+Correct answer is: B
 Predict answer is: D
 
 Corpus :112
-Correct answer is: B
-Predict answer is: B
+Correct answer is: A
+Predict answer is: D
 
 Corpus :113
-Correct answer is: C
+Correct answer is: B
 Predict answer is: B
 
 Corpus :114
 Correct answer is: C
-Predict answer is: D
+Predict answer is: B
 
 Corpus :115
-Correct answer is: A
-Predict answer is: C
+Correct answer is: C
+Predict answer is: D
 
 Corpus :116
 Correct answer is: A
-Predict answer is: B
+Predict answer is: C
 
 Corpus :117
+Correct answer is: A
+Predict answer is: B
+
+Corpus :118
 Correct answer is: B
 Predict answer is: A
 
-Corpus :118
+Corpus :119
 Correct answer is: D
 Predict answer is: A
-
-Corpus :119
-Correct answer is: C
-Predict answer is: D
 
 Corpus :120
 Correct answer is: C
 Predict answer is: D
 
 Corpus :121
-Correct answer is: D
+Correct answer is: C
 Predict answer is: D
 
 Corpus :122
-Correct answer is: B
-Predict answer is: A
+Correct answer is: D
+Predict answer is: D
 
 Corpus :123
 Correct answer is: B
-Predict answer is: D
+Predict answer is: A
 
 Corpus :124
-Correct answer is: A
-Predict answer is: C
+Correct answer is: B
+Predict answer is: D
 
 Corpus :125
-Correct answer is: D
+Correct answer is: A
 Predict answer is: C
 
 Corpus :126
-Correct answer is: A
+Correct answer is: D
 Predict answer is: C
 
 Corpus :127
+Correct answer is: A
+Predict answer is: C
+
+Corpus :128
 Correct answer is: C
 Predict answer is: B
 
-Corpus :128
+Corpus :129
 Correct answer is: B
 Predict answer is: D
 
-Corpus :129
+Corpus :130
 Correct answer is: D
 Predict answer is: A
 
-Corpus :130
+Corpus :131
 Correct answer is: C
 Predict answer is: C
-
-Corpus :131
-Correct answer is: B
-Predict answer is: D
 
 Corpus :132
 Correct answer is: B
-Predict answer is: A
+Predict answer is: D
 
 Corpus :133
+Correct answer is: B
+Predict answer is: A
+
+Corpus :134
 Correct answer is: D
 Predict answer is: D
 
-Corpus :134
-Correct answer is: C
-Predict answer is: C
-
 Corpus :135
-Correct answer is: A
+Correct answer is: C
 Predict answer is: C
 
 Corpus :136
-Correct answer is: B
-Predict answer is: D
+Correct answer is: A
+Predict answer is: C
 
 Corpus :137
-Correct answer is: A
+Correct answer is: B
 Predict answer is: D
 
 Corpus :138
-Correct answer is: C
+Correct answer is: A
 Predict answer is: D
 
 Corpus :139
+Correct answer is: C
+Predict answer is: D
+
+Corpus :140
 Correct answer is: D
 Predict answer is: A
 
-Corpus :140
+Corpus :141
 Correct answer is: C
 Predict answer is: B
 
-Corpus :141
-Correct answer is: A
-Predict answer is: C
-
 Corpus :142
-Correct answer is: C
+Correct answer is: A
 Predict answer is: C
 
 Corpus :143
-Correct answer is: A
+Correct answer is: C
 Predict answer is: C
 
 Corpus :144
+Correct answer is: A
+Predict answer is: C
+
+Corpus :145
 Correct answer is: D
 Predict answer is: D
 
-Corpus :145
-Correct answer is: A
-Predict answer is: A
-
 Corpus :146
-Correct answer is: B
+Correct answer is: A
 Predict answer is: A
 
 Corpus :147
-Correct answer is: D
+Correct answer is: B
 Predict answer is: A
 
 Corpus :148
-Correct answer is: B
-Predict answer is: D
+Correct answer is: D
+Predict answer is: A
 
 Corpus :149
-Correct answer is: C
+Correct answer is: B
 Predict answer is: D
 
 Corpus :150
-Correct answer is: D
-Predict answer is: C
+Correct answer is: C
+Predict answer is: D
 
 Corpus :151
 Correct answer is: D
-Predict answer is: A
+Predict answer is: C
 
 Corpus :152
+Correct answer is: D
+Predict answer is: A
+
+Corpus :153
 Correct answer is: C
 Predict answer is: C
 
-Corpus :153
+Corpus :154
 Correct answer is: A
 Predict answer is: D
 
-Corpus :154
+Corpus :155
 Correct answer is: D
 Predict answer is: B
 
-Corpus :155
+Corpus :156
 Correct answer is: B
 Predict answer is: D
 
-Corpus :156
+Corpus :157
 Correct answer is: A
 Predict answer is: A
-
-Corpus :157
-Correct answer is: D
-Predict answer is: B
 
 Corpus :158
 Correct answer is: D
-Predict answer is: A
+Predict answer is: B
 
 Corpus :159
-Correct answer is: C
-Predict answer is: D
+Correct answer is: D
+Predict answer is: A
 
 Corpus :160
-Correct answer is: D
+Correct answer is: C
 Predict answer is: D
 
 Corpus :161
-Correct answer is: B
-Predict answer is: B
+Correct answer is: D
+Predict answer is: D
 
 Corpus :162
-Correct answer is: A
-Predict answer is: D
+Correct answer is: B
+Predict answer is: B
 
 Corpus :163
 Correct answer is: A
-Predict answer is: A
+Predict answer is: D
 
 Corpus :164
-Correct answer is: C
-Predict answer is: C
+Correct answer is: A
+Predict answer is: A
 
 Corpus :165
 Correct answer is: C
-Predict answer is: D
+Predict answer is: C
 
 Corpus :166
 Correct answer is: C
-Predict answer is: A
-
-Corpus :167
-Correct answer is: D
-Predict answer is: A
-
-Corpus :168
-Correct answer is: A
-Predict answer is: B
-
-Corpus :169
-Correct answer is: A
 Predict answer is: D
 
-Corpus :170
+Corpus :167
 Correct answer is: C
 Predict answer is: A
 
+Corpus :168
+Correct answer is: D
+Predict answer is: A
+
+Corpus :169
+Correct answer is: A
+Predict answer is: B
+
+Corpus :170
+Correct answer is: A
+Predict answer is: D
+
 Corpus :171
+Correct answer is: C
+Predict answer is: A
+
+Corpus :172
 Correct answer is: D
 Predict answer is: D
 
-Corpus :172
-Correct answer is: B
-Predict answer is: C
-
 Corpus :173
-Correct answer is: D
+Correct answer is: B
 Predict answer is: C
 
 Corpus :174
-Correct answer is: B
+Correct answer is: D
 Predict answer is: C
 
 Corpus :175
@@ -704,135 +704,135 @@ Correct answer is: B
 Predict answer is: C
 
 Corpus :176
-Correct answer is: C
-Predict answer is: D
+Correct answer is: B
+Predict answer is: C
 
 Corpus :177
 Correct answer is: C
 Predict answer is: D
 
 Corpus :178
-Correct answer is: B
-Predict answer is: C
+Correct answer is: C
+Predict answer is: D
 
 Corpus :179
 Correct answer is: B
 Predict answer is: C
 
 Corpus :180
-Correct answer is: A
+Correct answer is: B
 Predict answer is: C
 
 Corpus :181
-Correct answer is: D
-Predict answer is: B
+Correct answer is: A
+Predict answer is: C
 
 Corpus :182
 Correct answer is: D
-Predict answer is: D
+Predict answer is: B
 
 Corpus :183
-Correct answer is: B
+Correct answer is: D
 Predict answer is: D
 
 Corpus :184
 Correct answer is: B
-Predict answer is: A
+Predict answer is: D
 
 Corpus :185
-Correct answer is: C
-Predict answer is: C
+Correct answer is: B
+Predict answer is: A
 
 Corpus :186
-Correct answer is: D
-Predict answer is: D
+Correct answer is: C
+Predict answer is: C
 
 Corpus :187
 Correct answer is: D
 Predict answer is: D
 
 Corpus :188
-Correct answer is: B
+Correct answer is: D
 Predict answer is: D
 
 Corpus :189
-Correct answer is: A
-Predict answer is: A
+Correct answer is: B
+Predict answer is: D
 
 Corpus :190
 Correct answer is: A
-Predict answer is: D
+Predict answer is: A
 
 Corpus :191
-Correct answer is: C
-Predict answer is: C
+Correct answer is: A
+Predict answer is: D
 
 Corpus :192
 Correct answer is: C
-Predict answer is: D
+Predict answer is: C
 
 Corpus :193
-Correct answer is: D
-Predict answer is: C
-
-Corpus :194
-Correct answer is: A
-Predict answer is: A
-
-Corpus :195
 Correct answer is: C
 Predict answer is: D
 
+Corpus :194
+Correct answer is: D
+Predict answer is: C
+
+Corpus :195
+Correct answer is: A
+Predict answer is: A
+
 Corpus :196
+Correct answer is: C
+Predict answer is: D
+
+Corpus :197
 Correct answer is: A
 Predict answer is: C
 
-Corpus :197
+Corpus :198
 Correct answer is: D
 Predict answer is: B
 
-Corpus :198
+Corpus :199
 Correct answer is: C
 Predict answer is: A
 
-Corpus :199
-Correct answer is: A
-Predict answer is: B
-
 Corpus :200
-Correct answer is: D
+Correct answer is: A
 Predict answer is: B
 
 Corpus :201
 Correct answer is: D
-Predict answer is: A
+Predict answer is: B
 
 Corpus :202
+Correct answer is: D
+Predict answer is: A
+
+Corpus :203
 Correct answer is: A
 Predict answer is: B
 
-Corpus :203
+Corpus :204
 Correct answer is: B
 Predict answer is: C
 
-Corpus :204
-Correct answer is: C
-Predict answer is: B
-
 Corpus :205
-Correct answer is: D
+Correct answer is: C
 Predict answer is: B
 
 Corpus :206
-Correct answer is: A
-Predict answer is: D
-
-Corpus :207
 Correct answer is: D
 Predict answer is: B
 
+Corpus :207
+Correct answer is: A
+Predict answer is: D
+
 Corpus :208
-Correct answer is: C
+Correct answer is: D
 Predict answer is: B
 
 Corpus :209
@@ -841,62 +841,62 @@ Predict answer is: B
 
 Corpus :210
 Correct answer is: C
-Predict answer is: D
+Predict answer is: B
 
 Corpus :211
+Correct answer is: C
+Predict answer is: D
+
+Corpus :212
 Correct answer is: A
 Predict answer is: C
 
-Corpus :212
-Correct answer is: B
-Predict answer is: D
-
 Corpus :213
-Correct answer is: A
+Correct answer is: B
 Predict answer is: D
 
 Corpus :214
 Correct answer is: A
-Predict answer is: B
+Predict answer is: D
 
 Corpus :215
+Correct answer is: A
+Predict answer is: B
+
+Corpus :216
 Correct answer is: C
 Predict answer is: C
 
-Corpus :216
-Correct answer is: A
-Predict answer is: D
-
 Corpus :217
-Correct answer is: C
+Correct answer is: A
 Predict answer is: D
 
 Corpus :218
+Correct answer is: C
+Predict answer is: D
+
+Corpus :219
 Correct answer is: B
 Predict answer is: C
 
-Corpus :219
+Corpus :220
 Correct answer is: D
 Predict answer is: C
 
-Corpus :220
+Corpus :221
 Correct answer is: C
 Predict answer is: B
 
-Corpus :221
-Correct answer is: A
-Predict answer is: D
-
 Corpus :222
-Correct answer is: D
+Correct answer is: A
 Predict answer is: D
 
 Corpus :223
 Correct answer is: D
-Predict answer is: B
+Predict answer is: D
 
 Corpus :224
-Correct answer is: A
+Correct answer is: D
 Predict answer is: B
 
 Corpus :225
@@ -904,95 +904,95 @@ Correct answer is: A
 Predict answer is: B
 
 Corpus :226
+Correct answer is: A
+Predict answer is: B
+
+Corpus :227
 Correct answer is: D
 Predict answer is: C
 
-Corpus :227
+Corpus :228
 Correct answer is: A
 Predict answer is: A
 
-Corpus :228
+Corpus :229
 Correct answer is: C
 Predict answer is: C
 
-Corpus :229
+Corpus :230
 Correct answer is: B
 Predict answer is: B
 
-Corpus :230
+Corpus :231
 Correct answer is: B
 Predict answer is: A
 
-Corpus :231
+Corpus :232
 Correct answer is: A
 Predict answer is: A
-
-Corpus :232
-Correct answer is: C
-Predict answer is: D
 
 Corpus :233
 Correct answer is: C
 Predict answer is: D
 
 Corpus :234
-Correct answer is: D
+Correct answer is: C
 Predict answer is: D
 
 Corpus :235
-Correct answer is: A
+Correct answer is: D
 Predict answer is: D
 
 Corpus :236
+Correct answer is: A
+Predict answer is: D
+
+Corpus :237
 Correct answer is: D
 Predict answer is: C
 
-Corpus :237
+Corpus :238
 Correct answer is: B
 Predict answer is: A
 
-Corpus :238
+Corpus :239
 Correct answer is: C
 Predict answer is: A
 
-Corpus :239
+Corpus :240
 Correct answer is: D
 Predict answer is: D
-
-Corpus :240
-Correct answer is: A
-Predict answer is: C
 
 Corpus :241
 Correct answer is: A
-Predict answer is: D
+Predict answer is: C
 
 Corpus :242
-Correct answer is: C
-Predict answer is: A
+Correct answer is: A
+Predict answer is: D
 
 Corpus :243
 Correct answer is: C
-Predict answer is: C
+Predict answer is: A
 
 Corpus :244
-Correct answer is: D
+Correct answer is: C
 Predict answer is: C
 
 Corpus :245
-Correct answer is: A
-Predict answer is: B
-
-Corpus :246
 Correct answer is: D
 Predict answer is: C
 
-Corpus :247
+Corpus :246
 Correct answer is: A
-Predict answer is: D
+Predict answer is: B
+
+Corpus :247
+Correct answer is: D
+Predict answer is: C
 
 Corpus :248
-Correct answer is: C
+Correct answer is: A
 Predict answer is: D
 
 Corpus :249
@@ -1000,487 +1000,487 @@ Correct answer is: C
 Predict answer is: D
 
 Corpus :250
-Correct answer is: A
-Predict answer is: B
+Correct answer is: C
+Predict answer is: D
 
 Corpus :251
-Correct answer is: D
-Predict answer is: A
+Correct answer is: A
+Predict answer is: B
 
 Corpus :252
 Correct answer is: D
-Predict answer is: C
+Predict answer is: A
 
 Corpus :253
+Correct answer is: D
+Predict answer is: C
+
+Corpus :254
 Correct answer is: B
 Predict answer is: D
 
-Corpus :254
+Corpus :255
 Correct answer is: D
 Predict answer is: B
-
-Corpus :255
-Correct answer is: A
-Predict answer is: D
 
 Corpus :256
 Correct answer is: A
 Predict answer is: D
 
 Corpus :257
-Correct answer is: B
+Correct answer is: A
 Predict answer is: D
 
 Corpus :258
-Correct answer is: D
+Correct answer is: B
 Predict answer is: D
 
 Corpus :259
+Correct answer is: D
+Predict answer is: D
+
+Corpus :260
 Correct answer is: B
 Predict answer is: C
 
-Corpus :260
+Corpus :261
 Correct answer is: D
 Predict answer is: A
 
-Corpus :261
+Corpus :262
 Correct answer is: C
 Predict answer is: C
 
-Corpus :262
+Corpus :263
 Correct answer is: B
 Predict answer is: D
 
-Corpus :263
+Corpus :264
 Correct answer is: D
 Predict answer is: B
 
-Corpus :264
+Corpus :265
 Correct answer is: C
 Predict answer is: C
 
-Corpus :265
+Corpus :266
 Correct answer is: B
 Predict answer is: C
-
-Corpus :266
-Correct answer is: A
-Predict answer is: D
 
 Corpus :267
 Correct answer is: A
 Predict answer is: D
 
 Corpus :268
-Correct answer is: C
+Correct answer is: A
 Predict answer is: D
 
 Corpus :269
 Correct answer is: C
-Predict answer is: C
+Predict answer is: D
 
 Corpus :270
+Correct answer is: C
+Predict answer is: C
+
+Corpus :271
 Correct answer is: D
 Predict answer is: D
 
-Corpus :271
+Corpus :272
 Correct answer is: B
 Predict answer is: A
-
-Corpus :272
-Correct answer is: A
-Predict answer is: B
 
 Corpus :273
 Correct answer is: A
-Predict answer is: C
+Predict answer is: B
 
 Corpus :274
+Correct answer is: A
+Predict answer is: C
+
+Corpus :275
 Correct answer is: B
 Predict answer is: B
 
-Corpus :275
+Corpus :276
 Correct answer is: C
 Predict answer is: A
 
-Corpus :276
-Correct answer is: D
-Predict answer is: D
-
 Corpus :277
-Correct answer is: B
+Correct answer is: D
 Predict answer is: D
 
 Corpus :278
 Correct answer is: B
-Predict answer is: A
+Predict answer is: D
 
 Corpus :279
 Correct answer is: B
-Predict answer is: C
+Predict answer is: A
 
 Corpus :280
-Correct answer is: D
+Correct answer is: B
 Predict answer is: C
 
 Corpus :281
+Correct answer is: D
+Predict answer is: C
+
+Corpus :282
 Correct answer is: （D）悶悶不樂
 Predict answer is: B
 
-Corpus :282
-Correct answer is: C
-Predict answer is: C
-
 Corpus :283
-Correct answer is: B
+Correct answer is: C
 Predict answer is: C
 
 Corpus :284
-Correct answer is: D
+Correct answer is: B
 Predict answer is: C
 
 Corpus :285
+Correct answer is: D
+Predict answer is: C
+
+Corpus :286
 Correct answer is: B
 Predict answer is: D
 
-Corpus :286
+Corpus :287
 Correct answer is: C
 Predict answer is: C
 
-Corpus :287
-Correct answer is: B
-Predict answer is: A
-
 Corpus :288
-Correct answer is: A
+Correct answer is: B
 Predict answer is: A
 
 Corpus :289
-Correct answer is: B
+Correct answer is: A
 Predict answer is: A
 
 Corpus :290
-Correct answer is: C
-Predict answer is: D
-
-Corpus :291
-Correct answer is: D
-Predict answer is: D
-
-Corpus :292
-Correct answer is: A
-Predict answer is: A
-
-Corpus :293
-Correct answer is: C
-Predict answer is: C
-
-Corpus :294
-Correct answer is: A
-Predict answer is: C
-
-Corpus :295
-Correct answer is: D
-Predict answer is: D
-
-Corpus :296
 Correct answer is: B
 Predict answer is: A
 
-Corpus :297
-Correct answer is: A
-Predict answer is: C
-
-Corpus :298
+Corpus :291
 Correct answer is: C
-Predict answer is: B
+Predict answer is: D
 
-Corpus :299
+Corpus :292
 Correct answer is: D
 Predict answer is: D
 
-Corpus :300
+Corpus :293
+Correct answer is: A
+Predict answer is: A
+
+Corpus :294
+Correct answer is: C
+Predict answer is: C
+
+Corpus :295
+Correct answer is: A
+Predict answer is: C
+
+Corpus :296
 Correct answer is: D
+Predict answer is: D
+
+Corpus :297
+Correct answer is: B
+Predict answer is: A
+
+Corpus :298
+Correct answer is: A
+Predict answer is: C
+
+Corpus :299
+Correct answer is: C
 Predict answer is: B
 
+Corpus :300
+Correct answer is: D
+Predict answer is: D
+
 Corpus :301
-Correct answer is: C
+Correct answer is: D
 Predict answer is: B
 
 Corpus :302
 Correct answer is: C
-Predict answer is: D
+Predict answer is: B
 
 Corpus :303
-Correct answer is: B
+Correct answer is: C
 Predict answer is: D
 
 Corpus :304
-Correct answer is: C
-Predict answer is: C
-
-Corpus :305
 Correct answer is: B
 Predict answer is: D
+
+Corpus :305
+Correct answer is: C
+Predict answer is: C
 
 Corpus :306
 Correct answer is: B
-Predict answer is: B
+Predict answer is: D
 
 Corpus :307
+Correct answer is: B
+Predict answer is: B
+
+Corpus :308
 Correct answer is: A
 Predict answer is: A
 
-Corpus :308
+Corpus :309
 Correct answer is: D
 Predict answer is: C
-
-Corpus :309
-Correct answer is: C
-Predict answer is: A
 
 Corpus :310
 Correct answer is: C
-Predict answer is: C
+Predict answer is: A
 
 Corpus :311
+Correct answer is: C
+Predict answer is: C
+
+Corpus :312
 Correct answer is: D
 Predict answer is: D
 
-Corpus :312
+Corpus :313
 Correct answer is: C
 Predict answer is: B
-
-Corpus :313
-Correct answer is: A
-Predict answer is: A
 
 Corpus :314
 Correct answer is: A
-Predict answer is: C
+Predict answer is: A
 
 Corpus :315
 Correct answer is: A
-Predict answer is: D
+Predict answer is: C
 
 Corpus :316
+Correct answer is: A
+Predict answer is: D
+
+Corpus :317
 Correct answer is: D
 Predict answer is: C
 
-Corpus :317
-Correct answer is: A
-Predict answer is: B
-
 Corpus :318
-Correct answer is: C
+Correct answer is: A
 Predict answer is: B
 
 Corpus :319
 Correct answer is: C
-Predict answer is: D
-
-Corpus :320
-Correct answer is: D
 Predict answer is: B
 
+Corpus :320
+Correct answer is: C
+Predict answer is: D
+
 Corpus :321
-Correct answer is: B
+Correct answer is: D
 Predict answer is: B
 
 Corpus :322
+Correct answer is: B
+Predict answer is: B
+
+Corpus :323
 Correct answer is: A
 Predict answer is: D
 
-Corpus :323
+Corpus :324
 Correct answer is: C
 Predict answer is: A
 
-Corpus :324
+Corpus :325
 Correct answer is: B
 Predict answer is: B
-
-Corpus :325
-Correct answer is: A
-Predict answer is: C
 
 Corpus :326
-Correct answer is: B
-Predict answer is: B
+Correct answer is: A
+Predict answer is: C
 
 Corpus :327
 Correct answer is: B
-Predict answer is: C
+Predict answer is: B
 
 Corpus :328
+Correct answer is: B
+Predict answer is: C
+
+Corpus :329
 Correct answer is: C
 Predict answer is: A
 
-Corpus :329
+Corpus :330
 Correct answer is: D
 Predict answer is: D
 
-Corpus :330
-Correct answer is: A
-Predict answer is: C
-
 Corpus :331
-Correct answer is: C
+Correct answer is: A
 Predict answer is: C
 
 Corpus :332
+Correct answer is: C
+Predict answer is: C
+
+Corpus :333
 Correct answer is: D
 Predict answer is: B
 
-Corpus :333
-Correct answer is: A
-Predict answer is: A
-
 Corpus :334
-Correct answer is: D
+Correct answer is: A
 Predict answer is: A
 
 Corpus :335
-Correct answer is: B
-Predict answer is: D
+Correct answer is: D
+Predict answer is: A
 
 Corpus :336
-Correct answer is: D
+Correct answer is: B
 Predict answer is: D
 
 Corpus :337
+Correct answer is: D
+Predict answer is: D
+
+Corpus :338
 Correct answer is: B
 Predict answer is: C
 
-Corpus :338
+Corpus :339
 Correct answer is: A
 Predict answer is: A
 
-Corpus :339
+Corpus :340
 Correct answer is: C
 Predict answer is: C
 
-Corpus :340
+Corpus :341
 Correct answer is: D
 Predict answer is: B
-
-Corpus :341
-Correct answer is: A
-Predict answer is: C
 
 Corpus :342
 Correct answer is: A
-Predict answer is: D
+Predict answer is: C
 
 Corpus :343
-Correct answer is: B
-Predict answer is: B
+Correct answer is: A
+Predict answer is: D
 
 Corpus :344
 Correct answer is: B
-Predict answer is: D
+Predict answer is: B
 
 Corpus :345
+Correct answer is: B
+Predict answer is: D
+
+Corpus :346
 Correct answer is: D
 Predict answer is: A
 
-Corpus :346
+Corpus :347
 Correct answer is: C
 Predict answer is: C
 
-Corpus :347
-Correct answer is: D
-Predict answer is: D
-
 Corpus :348
-Correct answer is: B
+Correct answer is: D
 Predict answer is: D
 
 Corpus :349
+Correct answer is: B
+Predict answer is: D
+
+Corpus :350
 Correct answer is: C
 Predict answer is: B
 
-Corpus :350
+Corpus :351
 Correct answer is: B
 Predict answer is: C
 
-Corpus :351
+Corpus :352
 Correct answer is: A
 Predict answer is: D
 
-Corpus :352
-Correct answer is: D
-Predict answer is: B
-
 Corpus :353
-Correct answer is: C
+Correct answer is: D
 Predict answer is: B
 
 Corpus :354
-Correct answer is: D
+Correct answer is: C
 Predict answer is: B
 
 Corpus :355
-Correct answer is: A
-Predict answer is: D
+Correct answer is: D
+Predict answer is: B
 
 Corpus :356
 Correct answer is: A
 Predict answer is: D
 
 Corpus :357
-Correct answer is: C
-Predict answer is: B
+Correct answer is: A
+Predict answer is: D
 
 Corpus :358
-Correct answer is: B
+Correct answer is: C
 Predict answer is: B
 
 Corpus :359
 Correct answer is: B
-Predict answer is: D
+Predict answer is: B
 
 Corpus :360
+Correct answer is: B
+Predict answer is: D
+
+Corpus :361
 Correct answer is: C
 Predict answer is: C
 
-Corpus :361
+Corpus :362
 Correct answer is: B
 Predict answer is: B
-
-Corpus :362
-Correct answer is: A
-Predict answer is: C
 
 Corpus :363
 Correct answer is: A
 Predict answer is: C
 
 Corpus :364
-Correct answer is: D
-Predict answer is: D
+Correct answer is: A
+Predict answer is: C
 
 Corpus :365
 Correct answer is: D
 Predict answer is: D
 
 Corpus :366
+Correct answer is: D
+Predict answer is: D
+
+Corpus :367
 Correct answer is: A
 Predict answer is: A
 
-Corpus :367
+Corpus :368
 Correct answer is: B
 Predict answer is: D
 
-Corpus :368
+Corpus :369
 Correct answer is: C
 Predict answer is: A
 
-Corpus :369
-Correct answer is: B
-Predict answer is: C
-
 Corpus :370
-Correct answer is: D
+Correct answer is: B
 Predict answer is: C
 
 Corpus :371
@@ -1488,11 +1488,11 @@ Correct answer is: D
 Predict answer is: C
 
 Corpus :372
-Correct answer is: C
-Predict answer is: D
+Correct answer is: D
+Predict answer is: C
 
 Corpus :373
-Correct answer is: A
+Correct answer is: C
 Predict answer is: D
 
 Corpus :374
@@ -1500,81 +1500,85 @@ Correct answer is: A
 Predict answer is: D
 
 Corpus :375
-Correct answer is: D
+Correct answer is: A
 Predict answer is: D
 
 Corpus :376
 Correct answer is: D
-Predict answer is: B
+Predict answer is: D
 
 Corpus :377
-Correct answer is: A
-Predict answer is: D
-
-Corpus :378
-Correct answer is: B
-Predict answer is: D
-
-Corpus :379
-Correct answer is: C
-Predict answer is: D
-
-Corpus :380
-Correct answer is: B
-Predict answer is: C
-
-Corpus :381
-Correct answer is: A
-Predict answer is: B
-
-Corpus :382
-Correct answer is: C
-Predict answer is: A
-
-Corpus :383
 Correct answer is: D
 Predict answer is: B
 
-Corpus :384
+Corpus :378
+Correct answer is: A
+Predict answer is: D
+
+Corpus :379
 Correct answer is: B
 Predict answer is: D
+
+Corpus :380
+Correct answer is: C
+Predict answer is: D
+
+Corpus :381
+Correct answer is: B
+Predict answer is: C
+
+Corpus :382
+Correct answer is: A
+Predict answer is: B
+
+Corpus :383
+Correct answer is: C
+Predict answer is: A
+
+Corpus :384
+Correct answer is: D
+Predict answer is: B
 
 Corpus :385
 Correct answer is: B
 Predict answer is: D
 
 Corpus :386
-Correct answer is: C
+Correct answer is: B
 Predict answer is: D
 
 Corpus :387
-Correct answer is: B
+Correct answer is: C
 Predict answer is: D
 
 Corpus :388
-Correct answer is: C
+Correct answer is: B
 Predict answer is: D
 
 Corpus :389
-Correct answer is: B
-Predict answer is: B
-
-Corpus :390
-Correct answer is: D
-Predict answer is: C
-
-Corpus :391
-Correct answer is: B
-Predict answer is: D
-
-Corpus :392
 Correct answer is: C
 Predict answer is: D
 
+Corpus :390
+Correct answer is: B
+Predict answer is: B
+
+Corpus :391
+Correct answer is: D
+Predict answer is: C
+
+Corpus :392
+Correct answer is: B
+Predict answer is: D
+
 Corpus :393
+Correct answer is: C
+Predict answer is: D
+
+Corpus :394
 Correct answer is: A
 Predict answer is: C
 
-Corpus :394
+Corpus :395
 Correct answer is: A
 Predict answer is: C
