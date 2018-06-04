@@ -1,0 +1,26 @@
+Wiki ave (true)
+
+Total corpus number :396
+
+Accuracy is :27.27272727272727
+
+
+Gigaword ave(search)
+
+Total corpus number :396
+
+Accuracy is :27.02020202020202
+
+
+
+Wiki sum (true)
+
+Total corpus number :396
+
+Accuracy is :27.27272727272727
+
+
+Gigaword sum (search)
+Total corpus number :396
+
+Accuracy is :27.02020202020202
