@@ -1,0 +1,3171 @@
+
+Corpus :0
+Correct answer is: B
+Predict answer is: A
+
+Corpus :1
+Correct answer is: C
+Predict answer is: D
+
+Corpus :2
+Correct answer is: D
+Predict answer is: D
+
+Corpus :3
+Correct answer is: A
+Predict answer is: C
+
+Corpus :4
+Correct answer is: C
+Predict answer is: C
+
+Corpus :5
+Correct answer is: D
+Predict answer is: B
+
+Corpus :6
+Correct answer is: A
+Predict answer is: C
+
+Corpus :7
+Correct answer is: B
+Predict answer is: A
+
+Corpus :8
+Correct answer is: C
+Predict answer is: D
+
+Corpus :9
+Correct answer is: A
+Predict answer is: D
+
+Corpus :10
+Correct answer is: D
+Predict answer is: D
+
+Corpus :11
+Correct answer is: C
+Predict answer is: C
+
+Corpus :12
+Correct answer is: B
+Predict answer is: A
+
+Corpus :13
+Correct answer is: C
+Predict answer is: D
+
+Corpus :14
+Correct answer is: C
+Predict answer is: A
+
+Corpus :15
+Correct answer is: C
+Predict answer is: A
+
+Corpus :16
+Correct answer is: A
+Predict answer is: A
+
+Corpus :17
+Correct answer is: C
+Predict answer is: B
+
+Corpus :18
+Correct answer is: B
+Predict answer is: B
+
+Corpus :19
+Correct answer is: A
+Predict answer is: C
+
+Corpus :20
+Correct answer is: B
+Predict answer is: B
+
+Corpus :21
+Correct answer is: B
+Predict answer is: D
+
+Corpus :22
+Correct answer is: C
+Predict answer is: C
+
+Corpus :23
+Correct answer is: C
+Predict answer is: B
+
+Corpus :24
+Correct answer is: B
+Predict answer is: B
+
+Corpus :25
+Correct answer is: A
+Predict answer is: D
+
+Corpus :26
+Correct answer is: C
+Predict answer is: D
+
+Corpus :27
+Correct answer is: B
+Predict answer is: B
+
+Corpus :28
+Correct answer is: D
+Predict answer is: D
+
+Corpus :29
+Correct answer is: D
+Predict answer is: B
+
+Corpus :30
+Correct answer is: A
+Predict answer is: D
+
+Corpus :31
+Correct answer is: D
+Predict answer is: B
+
+Corpus :32
+Correct answer is: B
+Predict answer is: D
+
+Corpus :33
+Correct answer is: A
+Predict answer is: C
+
+Corpus :34
+Correct answer is: B
+Predict answer is: C
+
+Corpus :35
+Correct answer is: C
+Predict answer is: D
+
+Corpus :36
+Correct answer is: A
+Predict answer is: D
+
+Corpus :37
+Correct answer is: A
+Predict answer is: D
+
+Corpus :38
+Correct answer is: C
+Predict answer is: C
+
+Corpus :39
+Correct answer is: B
+Predict answer is: A
+
+Corpus :40
+Correct answer is: C
+Predict answer is: D
+
+Corpus :41
+Correct answer is: C
+Predict answer is: B
+
+Corpus :42
+Correct answer is: D
+Predict answer is: D
+
+Corpus :43
+Correct answer is: D
+Predict answer is: D
+
+Corpus :44
+Correct answer is: B
+Predict answer is: D
+
+Corpus :45
+Correct answer is: C
+Predict answer is: D
+
+Corpus :46
+Correct answer is: A
+Predict answer is: D
+
+Corpus :47
+Correct answer is: C
+Predict answer is: D
+
+Corpus :48
+Correct answer is: B
+Predict answer is: D
+
+Corpus :49
+Correct answer is: C
+Predict answer is: C
+
+Corpus :50
+Correct answer is: C
+Predict answer is: B
+
+Corpus :51
+Correct answer is: D
+Predict answer is: D
+
+Corpus :52
+Correct answer is: A
+Predict answer is: C
+
+Corpus :53
+Correct answer is: B
+Predict answer is: B
+
+Corpus :54
+Correct answer is: A
+Predict answer is: C
+
+Corpus :55
+Correct answer is: D
+Predict answer is: C
+
+Corpus :56
+Correct answer is: D
+Predict answer is: A
+
+Corpus :57
+Correct answer is: C
+Predict answer is: C
+
+Corpus :58
+Correct answer is: D
+Predict answer is: C
+
+Corpus :59
+Correct answer is: A
+Predict answer is: D
+
+Corpus :60
+Correct answer is: C
+Predict answer is: D
+
+Corpus :61
+Correct answer is: C
+Predict answer is: C
+
+Corpus :62
+Correct answer is: A
+Predict answer is: C
+
+Corpus :63
+Correct answer is: C
+Predict answer is: C
+
+Corpus :64
+Correct answer is: A
+Predict answer is: C
+
+Corpus :65
+Correct answer is: A
+Predict answer is: D
+
+Corpus :66
+Correct answer is: B
+Predict answer is: B
+
+Corpus :67
+Correct answer is: C
+Predict answer is: C
+
+Corpus :68
+Correct answer is: D
+Predict answer is: D
+
+Corpus :69
+Correct answer is: B
+Predict answer is: A
+
+Corpus :70
+Correct answer is: D
+Predict answer is: C
+
+Corpus :71
+Correct answer is: C
+Predict answer is: C
+
+Corpus :72
+Correct answer is: A
+Predict answer is: D
+
+Corpus :73
+Correct answer is: B
+Predict answer is: D
+
+Corpus :74
+Correct answer is: B
+Predict answer is: B
+
+Corpus :75
+Correct answer is: D
+Predict answer is: B
+
+Corpus :76
+Correct answer is: D
+Predict answer is: A
+
+Corpus :77
+Correct answer is: D
+Predict answer is: C
+
+Corpus :78
+Correct answer is: D
+Predict answer is: D
+
+Corpus :79
+Correct answer is: D
+Predict answer is: B
+
+Corpus :80
+Correct answer is: B
+Predict answer is: D
+
+Corpus :81
+Correct answer is: D
+Predict answer is: D
+
+Corpus :82
+Correct answer is: B
+Predict answer is: C
+
+Corpus :83
+Correct answer is: D
+Predict answer is: C
+
+Corpus :84
+Correct answer is: C
+Predict answer is: A
+
+Corpus :85
+Correct answer is: C
+Predict answer is: D
+
+Corpus :86
+Correct answer is: D
+Predict answer is: A
+
+Corpus :87
+Correct answer is: C
+Predict answer is: B
+
+Corpus :88
+Correct answer is: A
+Predict answer is: D
+
+Corpus :89
+Correct answer is: A
+Predict answer is: A
+
+Corpus :90
+Correct answer is: B
+Predict answer is: D
+
+Corpus :91
+Correct answer is: A
+Predict answer is: C
+
+Corpus :92
+Correct answer is: D
+Predict answer is: D
+
+Corpus :93
+Correct answer is: D
+Predict answer is: D
+
+Corpus :94
+Correct answer is: （D）她和丈夫過得很快樂
+Predict answer is: A
+
+Corpus :95
+Correct answer is: A
+Predict answer is: B
+
+Corpus :96
+Correct answer is: B
+Predict answer is: C
+
+Corpus :97
+Correct answer is: A
+Predict answer is: B
+
+Corpus :98
+Correct answer is: D
+Predict answer is: C
+
+Corpus :99
+Correct answer is: D
+Predict answer is: B
+
+Corpus :100
+Correct answer is: A
+Predict answer is: C
+
+Corpus :101
+Correct answer is: B
+Predict answer is: D
+
+Corpus :102
+Correct answer is: C
+Predict answer is: C
+
+Corpus :103
+Correct answer is: A
+Predict answer is: C
+
+Corpus :104
+Correct answer is: C
+Predict answer is: A
+
+Corpus :105
+Correct answer is: A
+Predict answer is: B
+
+Corpus :106
+Correct answer is: C
+Predict answer is: A
+
+Corpus :107
+Correct answer is: B
+Predict answer is: D
+
+Corpus :108
+Correct answer is: C
+Predict answer is: D
+
+Corpus :109
+Correct answer is: D
+Predict answer is: D
+
+Corpus :110
+Correct answer is: A
+Predict answer is: B
+
+Corpus :111
+Correct answer is: B
+Predict answer is: C
+
+Corpus :112
+Correct answer is: A
+Predict answer is: D
+
+Corpus :113
+Correct answer is: B
+Predict answer is: C
+
+Corpus :114
+Correct answer is: C
+Predict answer is: C
+
+Corpus :115
+Correct answer is: C
+Predict answer is: D
+
+Corpus :116
+Correct answer is: A
+Predict answer is: C
+
+Corpus :117
+Correct answer is: A
+Predict answer is: A
+
+Corpus :118
+Correct answer is: B
+Predict answer is: A
+
+Corpus :119
+Correct answer is: D
+Predict answer is: A
+
+Corpus :120
+Correct answer is: C
+Predict answer is: B
+
+Corpus :121
+Correct answer is: C
+Predict answer is: C
+
+Corpus :122
+Correct answer is: D
+Predict answer is: C
+
+Corpus :123
+Correct answer is: B
+Predict answer is: B
+
+Corpus :124
+Correct answer is: B
+Predict answer is: A
+
+Corpus :125
+Correct answer is: A
+Predict answer is: B
+
+Corpus :126
+Correct answer is: D
+Predict answer is: C
+
+Corpus :127
+Correct answer is: A
+Predict answer is: C
+
+Corpus :128
+Correct answer is: C
+Predict answer is: B
+
+Corpus :129
+Correct answer is: B
+Predict answer is: D
+
+Corpus :130
+Correct answer is: D
+Predict answer is: D
+
+Corpus :131
+Correct answer is: C
+Predict answer is: C
+
+Corpus :132
+Correct answer is: B
+Predict answer is: D
+
+Corpus :133
+Correct answer is: B
+Predict answer is: C
+
+Corpus :134
+Correct answer is: D
+Predict answer is: D
+
+Corpus :135
+Correct answer is: C
+Predict answer is: D
+
+Corpus :136
+Correct answer is: A
+Predict answer is: C
+
+Corpus :137
+Correct answer is: B
+Predict answer is: A
+
+Corpus :138
+Correct answer is: A
+Predict answer is: C
+
+Corpus :139
+Correct answer is: C
+Predict answer is: C
+
+Corpus :140
+Correct answer is: D
+Predict answer is: B
+
+Corpus :141
+Correct answer is: C
+Predict answer is: B
+
+Corpus :142
+Correct answer is: A
+Predict answer is: C
+
+Corpus :143
+Correct answer is: C
+Predict answer is: A
+
+Corpus :144
+Correct answer is: A
+Predict answer is: B
+
+Corpus :145
+Correct answer is: D
+Predict answer is: D
+
+Corpus :146
+Correct answer is: A
+Predict answer is: D
+
+Corpus :147
+Correct answer is: B
+Predict answer is: A
+
+Corpus :148
+Correct answer is: D
+Predict answer is: C
+
+Corpus :149
+Correct answer is: B
+Predict answer is: B
+
+Corpus :150
+Correct answer is: C
+Predict answer is: D
+
+Corpus :151
+Correct answer is: D
+Predict answer is: D
+
+Corpus :152
+Correct answer is: D
+Predict answer is: A
+
+Corpus :153
+Correct answer is: C
+Predict answer is: B
+
+Corpus :154
+Correct answer is: A
+Predict answer is: D
+
+Corpus :155
+Correct answer is: D
+Predict answer is: C
+
+Corpus :156
+Correct answer is: B
+Predict answer is: D
+
+Corpus :157
+Correct answer is: A
+Predict answer is: A
+
+Corpus :158
+Correct answer is: D
+Predict answer is: A
+
+Corpus :159
+Correct answer is: D
+Predict answer is: B
+
+Corpus :160
+Correct answer is: C
+Predict answer is: D
+
+Corpus :161
+Correct answer is: D
+Predict answer is: A
+
+Corpus :162
+Correct answer is: B
+Predict answer is: B
+
+Corpus :163
+Correct answer is: A
+Predict answer is: B
+
+Corpus :164
+Correct answer is: A
+Predict answer is: A
+
+Corpus :165
+Correct answer is: C
+Predict answer is: C
+
+Corpus :166
+Correct answer is: C
+Predict answer is: A
+
+Corpus :167
+Correct answer is: C
+Predict answer is: A
+
+Corpus :168
+Correct answer is: D
+Predict answer is: C
+
+Corpus :169
+Correct answer is: A
+Predict answer is: D
+
+Corpus :170
+Correct answer is: A
+Predict answer is: A
+
+Corpus :171
+Correct answer is: C
+Predict answer is: C
+
+Corpus :172
+Correct answer is: D
+Predict answer is: D
+
+Corpus :173
+Correct answer is: B
+Predict answer is: A
+
+Corpus :174
+Correct answer is: D
+Predict answer is: C
+
+Corpus :175
+Correct answer is: B
+Predict answer is: D
+
+Corpus :176
+Correct answer is: B
+Predict answer is: A
+
+Corpus :177
+Correct answer is: C
+Predict answer is: D
+
+Corpus :178
+Correct answer is: C
+Predict answer is: D
+
+Corpus :179
+Correct answer is: B
+Predict answer is: B
+
+Corpus :180
+Correct answer is: B
+Predict answer is: C
+
+Corpus :181
+Correct answer is: A
+Predict answer is: C
+
+Corpus :182
+Correct answer is: D
+Predict answer is: B
+
+Corpus :183
+Correct answer is: D
+Predict answer is: C
+
+Corpus :184
+Correct answer is: B
+Predict answer is: C
+
+Corpus :185
+Correct answer is: B
+Predict answer is: A
+
+Corpus :186
+Correct answer is: C
+Predict answer is: C
+
+Corpus :187
+Correct answer is: D
+Predict answer is: D
+
+Corpus :188
+Correct answer is: D
+Predict answer is: A
+
+Corpus :189
+Correct answer is: B
+Predict answer is: C
+
+Corpus :190
+Correct answer is: A
+Predict answer is: C
+
+Corpus :191
+Correct answer is: A
+Predict answer is: D
+
+Corpus :192
+Correct answer is: C
+Predict answer is: C
+
+Corpus :193
+Correct answer is: C
+Predict answer is: D
+
+Corpus :194
+Correct answer is: D
+Predict answer is: C
+
+Corpus :195
+Correct answer is: A
+Predict answer is: A
+
+Corpus :196
+Correct answer is: C
+Predict answer is: D
+
+Corpus :197
+Correct answer is: A
+Predict answer is: A
+
+Corpus :198
+Correct answer is: D
+Predict answer is: A
+
+Corpus :199
+Correct answer is: C
+Predict answer is: A
+
+Corpus :200
+Correct answer is: A
+Predict answer is: C
+
+Corpus :201
+Correct answer is: D
+Predict answer is: D
+
+Corpus :202
+Correct answer is: D
+Predict answer is: A
+
+Corpus :203
+Correct answer is: A
+Predict answer is: C
+
+Corpus :204
+Correct answer is: B
+Predict answer is: D
+
+Corpus :205
+Correct answer is: C
+Predict answer is: C
+
+Corpus :206
+Correct answer is: D
+Predict answer is: D
+
+Corpus :207
+Correct answer is: A
+Predict answer is: A
+
+Corpus :208
+Correct answer is: D
+Predict answer is: C
+
+Corpus :209
+Correct answer is: C
+Predict answer is: C
+
+Corpus :210
+Correct answer is: C
+Predict answer is: B
+
+Corpus :211
+Correct answer is: C
+Predict answer is: D
+
+Corpus :212
+Correct answer is: A
+Predict answer is: C
+
+Corpus :213
+Correct answer is: B
+Predict answer is: D
+
+Corpus :214
+Correct answer is: A
+Predict answer is: D
+
+Corpus :215
+Correct answer is: A
+Predict answer is: D
+
+Corpus :216
+Correct answer is: C
+Predict answer is: C
+
+Corpus :217
+Correct answer is: A
+Predict answer is: C
+
+Corpus :218
+Correct answer is: C
+Predict answer is: C
+
+Corpus :219
+Correct answer is: B
+Predict answer is: B
+
+Corpus :220
+Correct answer is: D
+Predict answer is: D
+
+Corpus :221
+Correct answer is: C
+Predict answer is: D
+
+Corpus :222
+Correct answer is: A
+Predict answer is: D
+
+Corpus :223
+Correct answer is: D
+Predict answer is: D
+
+Corpus :224
+Correct answer is: D
+Predict answer is: C
+
+Corpus :225
+Correct answer is: A
+Predict answer is: D
+
+Corpus :226
+Correct answer is: A
+Predict answer is: D
+
+Corpus :227
+Correct answer is: D
+Predict answer is: C
+
+Corpus :228
+Correct answer is: A
+Predict answer is: A
+
+Corpus :229
+Correct answer is: C
+Predict answer is: D
+
+Corpus :230
+Correct answer is: B
+Predict answer is: D
+
+Corpus :231
+Correct answer is: B
+Predict answer is: D
+
+Corpus :232
+Correct answer is: A
+Predict answer is: D
+
+Corpus :233
+Correct answer is: C
+Predict answer is: D
+
+Corpus :234
+Correct answer is: C
+Predict answer is: D
+
+Corpus :235
+Correct answer is: D
+Predict answer is: B
+
+Corpus :236
+Correct answer is: A
+Predict answer is: C
+
+Corpus :237
+Correct answer is: D
+Predict answer is: C
+
+Corpus :238
+Correct answer is: B
+Predict answer is: A
+
+Corpus :239
+Correct answer is: C
+Predict answer is: A
+
+Corpus :240
+Correct answer is: D
+Predict answer is: A
+
+Corpus :241
+Correct answer is: A
+Predict answer is: C
+
+Corpus :242
+Correct answer is: A
+Predict answer is: D
+
+Corpus :243
+Correct answer is: C
+Predict answer is: B
+
+Corpus :244
+Correct answer is: C
+Predict answer is: A
+
+Corpus :245
+Correct answer is: D
+Predict answer is: C
+
+Corpus :246
+Correct answer is: A
+Predict answer is: C
+
+Corpus :247
+Correct answer is: D
+Predict answer is: B
+
+Corpus :248
+Correct answer is: A
+Predict answer is: D
+
+Corpus :249
+Correct answer is: C
+Predict answer is: D
+
+Corpus :250
+Correct answer is: C
+Predict answer is: D
+
+Corpus :251
+Correct answer is: A
+Predict answer is: D
+
+Corpus :252
+Correct answer is: D
+Predict answer is: A
+
+Corpus :253
+Correct answer is: D
+Predict answer is: B
+
+Corpus :254
+Correct answer is: B
+Predict answer is: D
+
+Corpus :255
+Correct answer is: D
+Predict answer is: B
+
+Corpus :256
+Correct answer is: A
+Predict answer is: C
+
+Corpus :257
+Correct answer is: A
+Predict answer is: D
+
+Corpus :258
+Correct answer is: B
+Predict answer is: C
+
+Corpus :259
+Correct answer is: D
+Predict answer is: D
+
+Corpus :260
+Correct answer is: B
+Predict answer is: D
+
+Corpus :261
+Correct answer is: D
+Predict answer is: D
+
+Corpus :262
+Correct answer is: C
+Predict answer is: B
+
+Corpus :263
+Correct answer is: B
+Predict answer is: D
+
+Corpus :264
+Correct answer is: D
+Predict answer is: B
+
+Corpus :265
+Correct answer is: C
+Predict answer is: A
+
+Corpus :266
+Correct answer is: B
+Predict answer is: C
+
+Corpus :267
+Correct answer is: A
+Predict answer is: D
+
+Corpus :268
+Correct answer is: A
+Predict answer is: D
+
+Corpus :269
+Correct answer is: C
+Predict answer is: A
+
+Corpus :270
+Correct answer is: C
+Predict answer is: C
+
+Corpus :271
+Correct answer is: D
+Predict answer is: C
+
+Corpus :272
+Correct answer is: B
+Predict answer is: C
+
+Corpus :273
+Correct answer is: A
+Predict answer is: D
+
+Corpus :274
+Correct answer is: A
+Predict answer is: A
+
+Corpus :275
+Correct answer is: B
+Predict answer is: B
+
+Corpus :276
+Correct answer is: C
+Predict answer is: B
+
+Corpus :277
+Correct answer is: D
+Predict answer is: B
+
+Corpus :278
+Correct answer is: B
+Predict answer is: D
+
+Corpus :279
+Correct answer is: B
+Predict answer is: D
+
+Corpus :280
+Correct answer is: B
+Predict answer is: C
+
+Corpus :281
+Correct answer is: D
+Predict answer is: D
+
+Corpus :282
+Correct answer is: （D）悶悶不樂
+Predict answer is: D
+
+Corpus :283
+Correct answer is: C
+Predict answer is: B
+
+Corpus :284
+Correct answer is: B
+Predict answer is: D
+
+Corpus :285
+Correct answer is: D
+Predict answer is: B
+
+Corpus :286
+Correct answer is: B
+Predict answer is: C
+
+Corpus :287
+Correct answer is: C
+Predict answer is: C
+
+Corpus :288
+Correct answer is: B
+Predict answer is: A
+
+Corpus :289
+Correct answer is: A
+Predict answer is: D
+
+Corpus :290
+Correct answer is: B
+Predict answer is: D
+
+Corpus :291
+Correct answer is: C
+Predict answer is: D
+
+Corpus :292
+Correct answer is: D
+Predict answer is: D
+
+Corpus :293
+Correct answer is: A
+Predict answer is: B
+
+Corpus :294
+Correct answer is: C
+Predict answer is: D
+
+Corpus :295
+Correct answer is: A
+Predict answer is: B
+
+Corpus :296
+Correct answer is: D
+Predict answer is: B
+
+Corpus :297
+Correct answer is: B
+Predict answer is: A
+
+Corpus :298
+Correct answer is: A
+Predict answer is: D
+
+Corpus :299
+Correct answer is: C
+Predict answer is: D
+
+Corpus :300
+Correct answer is: D
+Predict answer is: B
+
+Corpus :301
+Correct answer is: D
+Predict answer is: D
+
+Corpus :302
+Correct answer is: C
+Predict answer is: C
+
+Corpus :303
+Correct answer is: C
+Predict answer is: D
+
+Corpus :304
+Correct answer is: B
+Predict answer is: B
+
+Corpus :305
+Correct answer is: C
+Predict answer is: D
+
+Corpus :306
+Correct answer is: B
+Predict answer is: C
+
+Corpus :307
+Correct answer is: B
+Predict answer is: B
+
+Corpus :308
+Correct answer is: A
+Predict answer is: A
+
+Corpus :309
+Correct answer is: D
+Predict answer is: C
+
+Corpus :310
+Correct answer is: C
+Predict answer is: C
+
+Corpus :311
+Correct answer is: C
+Predict answer is: A
+
+Corpus :312
+Correct answer is: D
+Predict answer is: B
+
+Corpus :313
+Correct answer is: C
+Predict answer is: C
+
+Corpus :314
+Correct answer is: A
+Predict answer is: A
+
+Corpus :315
+Correct answer is: A
+Predict answer is: A
+
+Corpus :316
+Correct answer is: A
+Predict answer is: A
+
+Corpus :317
+Correct answer is: D
+Predict answer is: C
+
+Corpus :318
+Correct answer is: A
+Predict answer is: B
+
+Corpus :319
+Correct answer is: C
+Predict answer is: B
+
+Corpus :320
+Correct answer is: C
+Predict answer is: B
+
+Corpus :321
+Correct answer is: D
+Predict answer is: D
+
+Corpus :322
+Correct answer is: B
+Predict answer is: D
+
+Corpus :323
+Correct answer is: A
+Predict answer is: D
+
+Corpus :324
+Correct answer is: C
+Predict answer is: A
+
+Corpus :325
+Correct answer is: B
+Predict answer is: B
+
+Corpus :326
+Correct answer is: A
+Predict answer is: D
+
+Corpus :327
+Correct answer is: B
+Predict answer is: B
+
+Corpus :328
+Correct answer is: B
+Predict answer is: C
+
+Corpus :329
+Correct answer is: C
+Predict answer is: B
+
+Corpus :330
+Correct answer is: D
+Predict answer is: D
+
+Corpus :331
+Correct answer is: A
+Predict answer is: C
+
+Corpus :332
+Correct answer is: C
+Predict answer is: B
+
+Corpus :333
+Correct answer is: D
+Predict answer is: B
+
+Corpus :334
+Correct answer is: A
+Predict answer is: D
+
+Corpus :335
+Correct answer is: D
+Predict answer is: A
+
+Corpus :336
+Correct answer is: B
+Predict answer is: D
+
+Corpus :337
+Correct answer is: D
+Predict answer is: D
+
+Corpus :338
+Correct answer is: B
+Predict answer is: D
+
+Corpus :339
+Correct answer is: A
+Predict answer is: C
+
+Corpus :340
+Correct answer is: C
+Predict answer is: D
+
+Corpus :341
+Correct answer is: D
+Predict answer is: A
+
+Corpus :342
+Correct answer is: A
+Predict answer is: D
+
+Corpus :343
+Correct answer is: A
+Predict answer is: C
+
+Corpus :344
+Correct answer is: B
+Predict answer is: A
+
+Corpus :345
+Correct answer is: B
+Predict answer is: D
+
+Corpus :346
+Correct answer is: D
+Predict answer is: D
+
+Corpus :347
+Correct answer is: C
+Predict answer is: C
+
+Corpus :348
+Correct answer is: D
+Predict answer is: D
+
+Corpus :349
+Correct answer is: B
+Predict answer is: C
+
+Corpus :350
+Correct answer is: C
+Predict answer is: D
+
+Corpus :351
+Correct answer is: B
+Predict answer is: D
+
+Corpus :352
+Correct answer is: A
+Predict answer is: D
+
+Corpus :353
+Correct answer is: D
+Predict answer is: A
+
+Corpus :354
+Correct answer is: C
+Predict answer is: B
+
+Corpus :355
+Correct answer is: D
+Predict answer is: D
+
+Corpus :356
+Correct answer is: A
+Predict answer is: A
+
+Corpus :357
+Correct answer is: A
+Predict answer is: D
+
+Corpus :358
+Correct answer is: C
+Predict answer is: D
+
+Corpus :359
+Correct answer is: B
+Predict answer is: B
+
+Corpus :360
+Correct answer is: B
+Predict answer is: C
+
+Corpus :361
+Correct answer is: C
+Predict answer is: D
+
+Corpus :362
+Correct answer is: B
+Predict answer is: C
+
+Corpus :363
+Correct answer is: A
+Predict answer is: D
+
+Corpus :364
+Correct answer is: A
+Predict answer is: D
+
+Corpus :365
+Correct answer is: D
+Predict answer is: D
+
+Corpus :366
+Correct answer is: D
+Predict answer is: D
+
+Corpus :367
+Correct answer is: A
+Predict answer is: C
+
+Corpus :368
+Correct answer is: B
+Predict answer is: C
+
+Corpus :369
+Correct answer is: C
+Predict answer is: D
+
+Corpus :370
+Correct answer is: B
+Predict answer is: C
+
+Corpus :371
+Correct answer is: D
+Predict answer is: B
+
+Corpus :372
+Correct answer is: D
+Predict answer is: D
+
+Corpus :373
+Correct answer is: C
+Predict answer is: D
+
+Corpus :374
+Correct answer is: A
+Predict answer is: C
+
+Corpus :375
+Correct answer is: A
+Predict answer is: D
+
+Corpus :376
+Correct answer is: D
+Predict answer is: D
+
+Corpus :377
+Correct answer is: D
+Predict answer is: A
+
+Corpus :378
+Correct answer is: A
+Predict answer is: A
+
+Corpus :379
+Correct answer is: B
+Predict answer is: D
+
+Corpus :380
+Correct answer is: C
+Predict answer is: D
+
+Corpus :381
+Correct answer is: B
+Predict answer is: B
+
+Corpus :382
+Correct answer is: A
+Predict answer is: B
+
+Corpus :383
+Correct answer is: C
+Predict answer is: B
+
+Corpus :384
+Correct answer is: D
+Predict answer is: D
+
+Corpus :385
+Correct answer is: B
+Predict answer is: C
+
+Corpus :386
+Correct answer is: B
+Predict answer is: C
+
+Corpus :387
+Correct answer is: C
+Predict answer is: C
+
+Corpus :388
+Correct answer is: B
+Predict answer is: B
+
+Corpus :389
+Correct answer is: C
+Predict answer is: A
+
+Corpus :390
+Correct answer is: B
+Predict answer is: A
+
+Corpus :391
+Correct answer is: D
+Predict answer is: B
+
+Corpus :392
+Correct answer is: B
+Predict answer is: B
+
+Corpus :393
+Correct answer is: C
+Predict answer is: D
+
+Corpus :394
+Correct answer is: A
+Predict answer is: A
+
+Corpus :395
+Correct answer is: A
+Predict answer is: A
+
+Corpus :0
+Correct answer is: B
+Predict answer is: A
+
+Corpus :1
+Correct answer is: C
+Predict answer is: D
+
+Corpus :2
+Correct answer is: D
+Predict answer is: D
+
+Corpus :3
+Correct answer is: A
+Predict answer is: C
+
+Corpus :4
+Correct answer is: C
+Predict answer is: C
+
+Corpus :5
+Correct answer is: D
+Predict answer is: B
+
+Corpus :6
+Correct answer is: A
+Predict answer is: C
+
+Corpus :7
+Correct answer is: B
+Predict answer is: A
+
+Corpus :8
+Correct answer is: C
+Predict answer is: D
+
+Corpus :9
+Correct answer is: A
+Predict answer is: D
+
+Corpus :10
+Correct answer is: D
+Predict answer is: D
+
+Corpus :11
+Correct answer is: C
+Predict answer is: C
+
+Corpus :12
+Correct answer is: B
+Predict answer is: A
+
+Corpus :13
+Correct answer is: C
+Predict answer is: D
+
+Corpus :14
+Correct answer is: C
+Predict answer is: A
+
+Corpus :15
+Correct answer is: C
+Predict answer is: A
+
+Corpus :16
+Correct answer is: A
+Predict answer is: A
+
+Corpus :17
+Correct answer is: C
+Predict answer is: B
+
+Corpus :18
+Correct answer is: B
+Predict answer is: B
+
+Corpus :19
+Correct answer is: A
+Predict answer is: C
+
+Corpus :20
+Correct answer is: B
+Predict answer is: B
+
+Corpus :21
+Correct answer is: B
+Predict answer is: D
+
+Corpus :22
+Correct answer is: C
+Predict answer is: C
+
+Corpus :23
+Correct answer is: C
+Predict answer is: B
+
+Corpus :24
+Correct answer is: B
+Predict answer is: B
+
+Corpus :25
+Correct answer is: A
+Predict answer is: D
+
+Corpus :26
+Correct answer is: C
+Predict answer is: D
+
+Corpus :27
+Correct answer is: B
+Predict answer is: B
+
+Corpus :28
+Correct answer is: D
+Predict answer is: D
+
+Corpus :29
+Correct answer is: D
+Predict answer is: B
+
+Corpus :30
+Correct answer is: A
+Predict answer is: D
+
+Corpus :31
+Correct answer is: D
+Predict answer is: B
+
+Corpus :32
+Correct answer is: B
+Predict answer is: D
+
+Corpus :33
+Correct answer is: A
+Predict answer is: C
+
+Corpus :34
+Correct answer is: B
+Predict answer is: C
+
+Corpus :35
+Correct answer is: C
+Predict answer is: D
+
+Corpus :36
+Correct answer is: A
+Predict answer is: D
+
+Corpus :37
+Correct answer is: A
+Predict answer is: D
+
+Corpus :38
+Correct answer is: C
+Predict answer is: C
+
+Corpus :39
+Correct answer is: B
+Predict answer is: A
+
+Corpus :40
+Correct answer is: C
+Predict answer is: D
+
+Corpus :41
+Correct answer is: C
+Predict answer is: B
+
+Corpus :42
+Correct answer is: D
+Predict answer is: D
+
+Corpus :43
+Correct answer is: D
+Predict answer is: D
+
+Corpus :44
+Correct answer is: B
+Predict answer is: D
+
+Corpus :45
+Correct answer is: C
+Predict answer is: D
+
+Corpus :46
+Correct answer is: A
+Predict answer is: D
+
+Corpus :47
+Correct answer is: C
+Predict answer is: D
+
+Corpus :48
+Correct answer is: B
+Predict answer is: D
+
+Corpus :49
+Correct answer is: C
+Predict answer is: C
+
+Corpus :50
+Correct answer is: C
+Predict answer is: B
+
+Corpus :51
+Correct answer is: D
+Predict answer is: D
+
+Corpus :52
+Correct answer is: A
+Predict answer is: C
+
+Corpus :53
+Correct answer is: B
+Predict answer is: B
+
+Corpus :54
+Correct answer is: A
+Predict answer is: C
+
+Corpus :55
+Correct answer is: D
+Predict answer is: C
+
+Corpus :56
+Correct answer is: D
+Predict answer is: A
+
+Corpus :57
+Correct answer is: C
+Predict answer is: C
+
+Corpus :58
+Correct answer is: D
+Predict answer is: C
+
+Corpus :59
+Correct answer is: A
+Predict answer is: D
+
+Corpus :60
+Correct answer is: C
+Predict answer is: D
+
+Corpus :61
+Correct answer is: C
+Predict answer is: C
+
+Corpus :62
+Correct answer is: A
+Predict answer is: C
+
+Corpus :63
+Correct answer is: C
+Predict answer is: C
+
+Corpus :64
+Correct answer is: A
+Predict answer is: C
+
+Corpus :65
+Correct answer is: A
+Predict answer is: D
+
+Corpus :66
+Correct answer is: B
+Predict answer is: B
+
+Corpus :67
+Correct answer is: C
+Predict answer is: C
+
+Corpus :68
+Correct answer is: D
+Predict answer is: D
+
+Corpus :69
+Correct answer is: B
+Predict answer is: A
+
+Corpus :70
+Correct answer is: D
+Predict answer is: C
+
+Corpus :71
+Correct answer is: C
+Predict answer is: C
+
+Corpus :72
+Correct answer is: A
+Predict answer is: D
+
+Corpus :73
+Correct answer is: B
+Predict answer is: D
+
+Corpus :74
+Correct answer is: B
+Predict answer is: B
+
+Corpus :75
+Correct answer is: D
+Predict answer is: B
+
+Corpus :76
+Correct answer is: D
+Predict answer is: A
+
+Corpus :77
+Correct answer is: D
+Predict answer is: C
+
+Corpus :78
+Correct answer is: D
+Predict answer is: D
+
+Corpus :79
+Correct answer is: D
+Predict answer is: B
+
+Corpus :80
+Correct answer is: B
+Predict answer is: D
+
+Corpus :81
+Correct answer is: D
+Predict answer is: D
+
+Corpus :82
+Correct answer is: B
+Predict answer is: C
+
+Corpus :83
+Correct answer is: D
+Predict answer is: C
+
+Corpus :84
+Correct answer is: C
+Predict answer is: A
+
+Corpus :85
+Correct answer is: C
+Predict answer is: D
+
+Corpus :86
+Correct answer is: D
+Predict answer is: A
+
+Corpus :87
+Correct answer is: C
+Predict answer is: B
+
+Corpus :88
+Correct answer is: A
+Predict answer is: D
+
+Corpus :89
+Correct answer is: A
+Predict answer is: A
+
+Corpus :90
+Correct answer is: B
+Predict answer is: D
+
+Corpus :91
+Correct answer is: A
+Predict answer is: C
+
+Corpus :92
+Correct answer is: D
+Predict answer is: D
+
+Corpus :93
+Correct answer is: D
+Predict answer is: D
+
+Corpus :94
+Correct answer is: （D）她和丈夫過得很快樂
+Predict answer is: A
+
+Corpus :95
+Correct answer is: A
+Predict answer is: B
+
+Corpus :96
+Correct answer is: B
+Predict answer is: C
+
+Corpus :97
+Correct answer is: A
+Predict answer is: B
+
+Corpus :98
+Correct answer is: D
+Predict answer is: C
+
+Corpus :99
+Correct answer is: D
+Predict answer is: B
+
+Corpus :100
+Correct answer is: A
+Predict answer is: C
+
+Corpus :101
+Correct answer is: B
+Predict answer is: D
+
+Corpus :102
+Correct answer is: C
+Predict answer is: C
+
+Corpus :103
+Correct answer is: A
+Predict answer is: C
+
+Corpus :104
+Correct answer is: C
+Predict answer is: A
+
+Corpus :105
+Correct answer is: A
+Predict answer is: B
+
+Corpus :106
+Correct answer is: C
+Predict answer is: A
+
+Corpus :107
+Correct answer is: B
+Predict answer is: D
+
+Corpus :108
+Correct answer is: C
+Predict answer is: D
+
+Corpus :109
+Correct answer is: D
+Predict answer is: D
+
+Corpus :110
+Correct answer is: A
+Predict answer is: B
+
+Corpus :111
+Correct answer is: B
+Predict answer is: C
+
+Corpus :112
+Correct answer is: A
+Predict answer is: D
+
+Corpus :113
+Correct answer is: B
+Predict answer is: C
+
+Corpus :114
+Correct answer is: C
+Predict answer is: C
+
+Corpus :115
+Correct answer is: C
+Predict answer is: D
+
+Corpus :116
+Correct answer is: A
+Predict answer is: C
+
+Corpus :117
+Correct answer is: A
+Predict answer is: A
+
+Corpus :118
+Correct answer is: B
+Predict answer is: A
+
+Corpus :119
+Correct answer is: D
+Predict answer is: A
+
+Corpus :120
+Correct answer is: C
+Predict answer is: B
+
+Corpus :121
+Correct answer is: C
+Predict answer is: C
+
+Corpus :122
+Correct answer is: D
+Predict answer is: C
+
+Corpus :123
+Correct answer is: B
+Predict answer is: B
+
+Corpus :124
+Correct answer is: B
+Predict answer is: A
+
+Corpus :125
+Correct answer is: A
+Predict answer is: B
+
+Corpus :126
+Correct answer is: D
+Predict answer is: C
+
+Corpus :127
+Correct answer is: A
+Predict answer is: C
+
+Corpus :128
+Correct answer is: C
+Predict answer is: B
+
+Corpus :129
+Correct answer is: B
+Predict answer is: D
+
+Corpus :130
+Correct answer is: D
+Predict answer is: D
+
+Corpus :131
+Correct answer is: C
+Predict answer is: C
+
+Corpus :132
+Correct answer is: B
+Predict answer is: D
+
+Corpus :133
+Correct answer is: B
+Predict answer is: C
+
+Corpus :134
+Correct answer is: D
+Predict answer is: D
+
+Corpus :135
+Correct answer is: C
+Predict answer is: D
+
+Corpus :136
+Correct answer is: A
+Predict answer is: C
+
+Corpus :137
+Correct answer is: B
+Predict answer is: A
+
+Corpus :138
+Correct answer is: A
+Predict answer is: C
+
+Corpus :139
+Correct answer is: C
+Predict answer is: C
+
+Corpus :140
+Correct answer is: D
+Predict answer is: B
+
+Corpus :141
+Correct answer is: C
+Predict answer is: B
+
+Corpus :142
+Correct answer is: A
+Predict answer is: C
+
+Corpus :143
+Correct answer is: C
+Predict answer is: A
+
+Corpus :144
+Correct answer is: A
+Predict answer is: B
+
+Corpus :145
+Correct answer is: D
+Predict answer is: D
+
+Corpus :146
+Correct answer is: A
+Predict answer is: D
+
+Corpus :147
+Correct answer is: B
+Predict answer is: A
+
+Corpus :148
+Correct answer is: D
+Predict answer is: C
+
+Corpus :149
+Correct answer is: B
+Predict answer is: B
+
+Corpus :150
+Correct answer is: C
+Predict answer is: D
+
+Corpus :151
+Correct answer is: D
+Predict answer is: D
+
+Corpus :152
+Correct answer is: D
+Predict answer is: A
+
+Corpus :153
+Correct answer is: C
+Predict answer is: B
+
+Corpus :154
+Correct answer is: A
+Predict answer is: D
+
+Corpus :155
+Correct answer is: D
+Predict answer is: C
+
+Corpus :156
+Correct answer is: B
+Predict answer is: D
+
+Corpus :157
+Correct answer is: A
+Predict answer is: A
+
+Corpus :158
+Correct answer is: D
+Predict answer is: A
+
+Corpus :159
+Correct answer is: D
+Predict answer is: B
+
+Corpus :160
+Correct answer is: C
+Predict answer is: D
+
+Corpus :161
+Correct answer is: D
+Predict answer is: A
+
+Corpus :162
+Correct answer is: B
+Predict answer is: B
+
+Corpus :163
+Correct answer is: A
+Predict answer is: B
+
+Corpus :164
+Correct answer is: A
+Predict answer is: A
+
+Corpus :165
+Correct answer is: C
+Predict answer is: C
+
+Corpus :166
+Correct answer is: C
+Predict answer is: A
+
+Corpus :167
+Correct answer is: C
+Predict answer is: A
+
+Corpus :168
+Correct answer is: D
+Predict answer is: C
+
+Corpus :169
+Correct answer is: A
+Predict answer is: D
+
+Corpus :170
+Correct answer is: A
+Predict answer is: A
+
+Corpus :171
+Correct answer is: C
+Predict answer is: C
+
+Corpus :172
+Correct answer is: D
+Predict answer is: D
+
+Corpus :173
+Correct answer is: B
+Predict answer is: A
+
+Corpus :174
+Correct answer is: D
+Predict answer is: C
+
+Corpus :175
+Correct answer is: B
+Predict answer is: D
+
+Corpus :176
+Correct answer is: B
+Predict answer is: A
+
+Corpus :177
+Correct answer is: C
+Predict answer is: D
+
+Corpus :178
+Correct answer is: C
+Predict answer is: D
+
+Corpus :179
+Correct answer is: B
+Predict answer is: B
+
+Corpus :180
+Correct answer is: B
+Predict answer is: C
+
+Corpus :181
+Correct answer is: A
+Predict answer is: C
+
+Corpus :182
+Correct answer is: D
+Predict answer is: B
+
+Corpus :183
+Correct answer is: D
+Predict answer is: C
+
+Corpus :184
+Correct answer is: B
+Predict answer is: C
+
+Corpus :185
+Correct answer is: B
+Predict answer is: A
+
+Corpus :186
+Correct answer is: C
+Predict answer is: C
+
+Corpus :187
+Correct answer is: D
+Predict answer is: D
+
+Corpus :188
+Correct answer is: D
+Predict answer is: A
+
+Corpus :189
+Correct answer is: B
+Predict answer is: C
+
+Corpus :190
+Correct answer is: A
+Predict answer is: C
+
+Corpus :191
+Correct answer is: A
+Predict answer is: D
+
+Corpus :192
+Correct answer is: C
+Predict answer is: C
+
+Corpus :193
+Correct answer is: C
+Predict answer is: D
+
+Corpus :194
+Correct answer is: D
+Predict answer is: C
+
+Corpus :195
+Correct answer is: A
+Predict answer is: A
+
+Corpus :196
+Correct answer is: C
+Predict answer is: D
+
+Corpus :197
+Correct answer is: A
+Predict answer is: A
+
+Corpus :198
+Correct answer is: D
+Predict answer is: A
+
+Corpus :199
+Correct answer is: C
+Predict answer is: A
+
+Corpus :200
+Correct answer is: A
+Predict answer is: C
+
+Corpus :201
+Correct answer is: D
+Predict answer is: D
+
+Corpus :202
+Correct answer is: D
+Predict answer is: A
+
+Corpus :203
+Correct answer is: A
+Predict answer is: C
+
+Corpus :204
+Correct answer is: B
+Predict answer is: D
+
+Corpus :205
+Correct answer is: C
+Predict answer is: C
+
+Corpus :206
+Correct answer is: D
+Predict answer is: D
+
+Corpus :207
+Correct answer is: A
+Predict answer is: A
+
+Corpus :208
+Correct answer is: D
+Predict answer is: C
+
+Corpus :209
+Correct answer is: C
+Predict answer is: C
+
+Corpus :210
+Correct answer is: C
+Predict answer is: B
+
+Corpus :211
+Correct answer is: C
+Predict answer is: D
+
+Corpus :212
+Correct answer is: A
+Predict answer is: C
+
+Corpus :213
+Correct answer is: B
+Predict answer is: D
+
+Corpus :214
+Correct answer is: A
+Predict answer is: D
+
+Corpus :215
+Correct answer is: A
+Predict answer is: D
+
+Corpus :216
+Correct answer is: C
+Predict answer is: C
+
+Corpus :217
+Correct answer is: A
+Predict answer is: C
+
+Corpus :218
+Correct answer is: C
+Predict answer is: C
+
+Corpus :219
+Correct answer is: B
+Predict answer is: B
+
+Corpus :220
+Correct answer is: D
+Predict answer is: D
+
+Corpus :221
+Correct answer is: C
+Predict answer is: D
+
+Corpus :222
+Correct answer is: A
+Predict answer is: D
+
+Corpus :223
+Correct answer is: D
+Predict answer is: D
+
+Corpus :224
+Correct answer is: D
+Predict answer is: C
+
+Corpus :225
+Correct answer is: A
+Predict answer is: D
+
+Corpus :226
+Correct answer is: A
+Predict answer is: D
+
+Corpus :227
+Correct answer is: D
+Predict answer is: C
+
+Corpus :228
+Correct answer is: A
+Predict answer is: A
+
+Corpus :229
+Correct answer is: C
+Predict answer is: D
+
+Corpus :230
+Correct answer is: B
+Predict answer is: D
+
+Corpus :231
+Correct answer is: B
+Predict answer is: D
+
+Corpus :232
+Correct answer is: A
+Predict answer is: D
+
+Corpus :233
+Correct answer is: C
+Predict answer is: D
+
+Corpus :234
+Correct answer is: C
+Predict answer is: D
+
+Corpus :235
+Correct answer is: D
+Predict answer is: B
+
+Corpus :236
+Correct answer is: A
+Predict answer is: C
+
+Corpus :237
+Correct answer is: D
+Predict answer is: C
+
+Corpus :238
+Correct answer is: B
+Predict answer is: A
+
+Corpus :239
+Correct answer is: C
+Predict answer is: A
+
+Corpus :240
+Correct answer is: D
+Predict answer is: A
+
+Corpus :241
+Correct answer is: A
+Predict answer is: C
+
+Corpus :242
+Correct answer is: A
+Predict answer is: D
+
+Corpus :243
+Correct answer is: C
+Predict answer is: B
+
+Corpus :244
+Correct answer is: C
+Predict answer is: A
+
+Corpus :245
+Correct answer is: D
+Predict answer is: C
+
+Corpus :246
+Correct answer is: A
+Predict answer is: C
+
+Corpus :247
+Correct answer is: D
+Predict answer is: B
+
+Corpus :248
+Correct answer is: A
+Predict answer is: D
+
+Corpus :249
+Correct answer is: C
+Predict answer is: D
+
+Corpus :250
+Correct answer is: C
+Predict answer is: D
+
+Corpus :251
+Correct answer is: A
+Predict answer is: D
+
+Corpus :252
+Correct answer is: D
+Predict answer is: A
+
+Corpus :253
+Correct answer is: D
+Predict answer is: B
+
+Corpus :254
+Correct answer is: B
+Predict answer is: D
+
+Corpus :255
+Correct answer is: D
+Predict answer is: B
+
+Corpus :256
+Correct answer is: A
+Predict answer is: C
+
+Corpus :257
+Correct answer is: A
+Predict answer is: D
+
+Corpus :258
+Correct answer is: B
+Predict answer is: C
+
+Corpus :259
+Correct answer is: D
+Predict answer is: D
+
+Corpus :260
+Correct answer is: B
+Predict answer is: D
+
+Corpus :261
+Correct answer is: D
+Predict answer is: D
+
+Corpus :262
+Correct answer is: C
+Predict answer is: B
+
+Corpus :263
+Correct answer is: B
+Predict answer is: D
+
+Corpus :264
+Correct answer is: D
+Predict answer is: B
+
+Corpus :265
+Correct answer is: C
+Predict answer is: A
+
+Corpus :266
+Correct answer is: B
+Predict answer is: C
+
+Corpus :267
+Correct answer is: A
+Predict answer is: D
+
+Corpus :268
+Correct answer is: A
+Predict answer is: D
+
+Corpus :269
+Correct answer is: C
+Predict answer is: A
+
+Corpus :270
+Correct answer is: C
+Predict answer is: C
+
+Corpus :271
+Correct answer is: D
+Predict answer is: C
+
+Corpus :272
+Correct answer is: B
+Predict answer is: C
+
+Corpus :273
+Correct answer is: A
+Predict answer is: D
+
+Corpus :274
+Correct answer is: A
+Predict answer is: A
+
+Corpus :275
+Correct answer is: B
+Predict answer is: B
+
+Corpus :276
+Correct answer is: C
+Predict answer is: B
+
+Corpus :277
+Correct answer is: D
+Predict answer is: B
+
+Corpus :278
+Correct answer is: B
+Predict answer is: D
+
+Corpus :279
+Correct answer is: B
+Predict answer is: D
+
+Corpus :280
+Correct answer is: B
+Predict answer is: C
+
+Corpus :281
+Correct answer is: D
+Predict answer is: D
+
+Corpus :282
+Correct answer is: （D）悶悶不樂
+Predict answer is: D
+
+Corpus :283
+Correct answer is: C
+Predict answer is: B
+
+Corpus :284
+Correct answer is: B
+Predict answer is: D
+
+Corpus :285
+Correct answer is: D
+Predict answer is: B
+
+Corpus :286
+Correct answer is: B
+Predict answer is: C
+
+Corpus :287
+Correct answer is: C
+Predict answer is: C
+
+Corpus :288
+Correct answer is: B
+Predict answer is: A
+
+Corpus :289
+Correct answer is: A
+Predict answer is: D
+
+Corpus :290
+Correct answer is: B
+Predict answer is: D
+
+Corpus :291
+Correct answer is: C
+Predict answer is: D
+
+Corpus :292
+Correct answer is: D
+Predict answer is: D
+
+Corpus :293
+Correct answer is: A
+Predict answer is: B
+
+Corpus :294
+Correct answer is: C
+Predict answer is: D
+
+Corpus :295
+Correct answer is: A
+Predict answer is: B
+
+Corpus :296
+Correct answer is: D
+Predict answer is: B
+
+Corpus :297
+Correct answer is: B
+Predict answer is: A
+
+Corpus :298
+Correct answer is: A
+Predict answer is: D
+
+Corpus :299
+Correct answer is: C
+Predict answer is: D
+
+Corpus :300
+Correct answer is: D
+Predict answer is: B
+
+Corpus :301
+Correct answer is: D
+Predict answer is: D
+
+Corpus :302
+Correct answer is: C
+Predict answer is: C
+
+Corpus :303
+Correct answer is: C
+Predict answer is: D
+
+Corpus :304
+Correct answer is: B
+Predict answer is: B
+
+Corpus :305
+Correct answer is: C
+Predict answer is: D
+
+Corpus :306
+Correct answer is: B
+Predict answer is: C
+
+Corpus :307
+Correct answer is: B
+Predict answer is: B
+
+Corpus :308
+Correct answer is: A
+Predict answer is: A
+
+Corpus :309
+Correct answer is: D
+Predict answer is: C
+
+Corpus :310
+Correct answer is: C
+Predict answer is: C
+
+Corpus :311
+Correct answer is: C
+Predict answer is: A
+
+Corpus :312
+Correct answer is: D
+Predict answer is: B
+
+Corpus :313
+Correct answer is: C
+Predict answer is: C
+
+Corpus :314
+Correct answer is: A
+Predict answer is: A
+
+Corpus :315
+Correct answer is: A
+Predict answer is: A
+
+Corpus :316
+Correct answer is: A
+Predict answer is: A
+
+Corpus :317
+Correct answer is: D
+Predict answer is: C
+
+Corpus :318
+Correct answer is: A
+Predict answer is: B
+
+Corpus :319
+Correct answer is: C
+Predict answer is: B
+
+Corpus :320
+Correct answer is: C
+Predict answer is: B
+
+Corpus :321
+Correct answer is: D
+Predict answer is: D
+
+Corpus :322
+Correct answer is: B
+Predict answer is: D
+
+Corpus :323
+Correct answer is: A
+Predict answer is: D
+
+Corpus :324
+Correct answer is: C
+Predict answer is: A
+
+Corpus :325
+Correct answer is: B
+Predict answer is: B
+
+Corpus :326
+Correct answer is: A
+Predict answer is: D
+
+Corpus :327
+Correct answer is: B
+Predict answer is: B
+
+Corpus :328
+Correct answer is: B
+Predict answer is: C
+
+Corpus :329
+Correct answer is: C
+Predict answer is: B
+
+Corpus :330
+Correct answer is: D
+Predict answer is: D
+
+Corpus :331
+Correct answer is: A
+Predict answer is: C
+
+Corpus :332
+Correct answer is: C
+Predict answer is: B
+
+Corpus :333
+Correct answer is: D
+Predict answer is: B
+
+Corpus :334
+Correct answer is: A
+Predict answer is: D
+
+Corpus :335
+Correct answer is: D
+Predict answer is: A
+
+Corpus :336
+Correct answer is: B
+Predict answer is: D
+
+Corpus :337
+Correct answer is: D
+Predict answer is: D
+
+Corpus :338
+Correct answer is: B
+Predict answer is: D
+
+Corpus :339
+Correct answer is: A
+Predict answer is: C
+
+Corpus :340
+Correct answer is: C
+Predict answer is: D
+
+Corpus :341
+Correct answer is: D
+Predict answer is: A
+
+Corpus :342
+Correct answer is: A
+Predict answer is: D
+
+Corpus :343
+Correct answer is: A
+Predict answer is: C
+
+Corpus :344
+Correct answer is: B
+Predict answer is: A
+
+Corpus :345
+Correct answer is: B
+Predict answer is: D
+
+Corpus :346
+Correct answer is: D
+Predict answer is: D
+
+Corpus :347
+Correct answer is: C
+Predict answer is: C
+
+Corpus :348
+Correct answer is: D
+Predict answer is: D
+
+Corpus :349
+Correct answer is: B
+Predict answer is: C
+
+Corpus :350
+Correct answer is: C
+Predict answer is: D
+
+Corpus :351
+Correct answer is: B
+Predict answer is: D
+
+Corpus :352
+Correct answer is: A
+Predict answer is: D
+
+Corpus :353
+Correct answer is: D
+Predict answer is: A
+
+Corpus :354
+Correct answer is: C
+Predict answer is: B
+
+Corpus :355
+Correct answer is: D
+Predict answer is: D
+
+Corpus :356
+Correct answer is: A
+Predict answer is: A
+
+Corpus :357
+Correct answer is: A
+Predict answer is: D
+
+Corpus :358
+Correct answer is: C
+Predict answer is: D
+
+Corpus :359
+Correct answer is: B
+Predict answer is: B
+
+Corpus :360
+Correct answer is: B
+Predict answer is: C
+
+Corpus :361
+Correct answer is: C
+Predict answer is: D
+
+Corpus :362
+Correct answer is: B
+Predict answer is: C
+
+Corpus :363
+Correct answer is: A
+Predict answer is: D
+
+Corpus :364
+Correct answer is: A
+Predict answer is: D
+
+Corpus :365
+Correct answer is: D
+Predict answer is: D
+
+Corpus :366
+Correct answer is: D
+Predict answer is: D
+
+Corpus :367
+Correct answer is: A
+Predict answer is: C
+
+Corpus :368
+Correct answer is: B
+Predict answer is: C
+
+Corpus :369
+Correct answer is: C
+Predict answer is: D
+
+Corpus :370
+Correct answer is: B
+Predict answer is: C
+
+Corpus :371
+Correct answer is: D
+Predict answer is: B
+
+Corpus :372
+Correct answer is: D
+Predict answer is: D
+
+Corpus :373
+Correct answer is: C
+Predict answer is: D
+
+Corpus :374
+Correct answer is: A
+Predict answer is: C
+
+Corpus :375
+Correct answer is: A
+Predict answer is: D
+
+Corpus :376
+Correct answer is: D
+Predict answer is: D
+
+Corpus :377
+Correct answer is: D
+Predict answer is: A
+
+Corpus :378
+Correct answer is: A
+Predict answer is: A
+
+Corpus :379
+Correct answer is: B
+Predict answer is: D
+
+Corpus :380
+Correct answer is: C
+Predict answer is: D
+
+Corpus :381
+Correct answer is: B
+Predict answer is: B
+
+Corpus :382
+Correct answer is: A
+Predict answer is: B
+
+Corpus :383
+Correct answer is: C
+Predict answer is: B
+
+Corpus :384
+Correct answer is: D
+Predict answer is: D
+
+Corpus :385
+Correct answer is: B
+Predict answer is: C
+
+Corpus :386
+Correct answer is: B
+Predict answer is: C
+
+Corpus :387
+Correct answer is: C
+Predict answer is: C
+
+Corpus :388
+Correct answer is: B
+Predict answer is: B
+
+Corpus :389
+Correct answer is: C
+Predict answer is: A
+
+Corpus :390
+Correct answer is: B
+Predict answer is: A
+
+Corpus :391
+Correct answer is: D
+Predict answer is: B
+
+Corpus :392
+Correct answer is: B
+Predict answer is: B
+
+Corpus :393
+Correct answer is: C
+Predict answer is: D
+
+Corpus :394
+Correct answer is: A
+Predict answer is: A
+
+Corpus :395
+Correct answer is: A
+Predict answer is: A
+
+Total corpus number :396
+Accuracy is :27.27272727272727

@@ -1582,3 +1582,6 @@ Predict answer is: C
 Corpus :395
 Correct answer is: A
 Predict answer is: C
+
+Total corpus number :396
+Accuracy is :27.02020202020202
