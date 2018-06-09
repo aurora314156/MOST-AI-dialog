@@ -1,9 +1,4 @@
 
-# coding: utf-8
-
-# In[205]:
-
-
 # -*- coding: UTF-8 -*-
 import time
 import jieba
@@ -14,16 +9,13 @@ import numpy as np
 from scipy import spatial
 
 
-# In[206]:
-
-
 # 精確模式 ：將句子最精確地切開，叫適合文本分析, cut_all=False
 # 全模式：把句子中所有的可以成詞的詞語都掃描出來, 速度快, cut_all=True
 # 搜索引擎模式：在精確模式的基礎上對長詞再次切分，提高召回率，適合用於搜尋引擎分詞, jieba.cut_for_search(Content)            
 # call jieba api
 def jiebaCut(s):
+    #words = jieba.cut(s,cut_all=True)
     words = jieba.cut_for_search(s)
-#    words = jieba.cut(s, cut_all=False)
     result = removeStopWords(words)
     return result
 
@@ -53,11 +45,10 @@ def state(s,flag):
     return flag, nextline
 
 
-# In[207]:
-
 
 def main():
     sTime = time.time()
+    result = 'gigaword_sum_search_result.txt'
     print("Start process CQA dataset")
     cNum, accuracy = 0, 0
     with open('CQA.txt', 'r') as file:
@@ -73,11 +64,17 @@ def main():
                 ans = s
                 print("Corpus: %d" % cNum)
                 guessAns = word2VecSum(cList, qList, aList, cNum)
+                #guessAns = word2VecAve(cList, qList, aList, cNum)
+                with open(result, 'a') as res:
+                    res.write("\nCorpus :" + str(cNum))
+                    res.write("\nCorrect answer is: " + ans)
+                    res.write("\nPredict answer is: " + guessAns)
+                    res.write('\n')
                 if guessAns == ans:
                     accuracy +=1
                 print("====== Final result ======")
                 print("Correct answer is: %s." %(ans))
-                print("Guess answer is: %s.\n" %(guessAns))
+                print("Predict answer is: %s.\n" %(guessAns))
                 #print("corpus:\n",cList,'\nquestion:\n',qList,'\nanswer:\n',aList,'\ncorrect ans:\n',ans,'\n')
                 cList, qList, aList = [],[],[]
                 flag, end = 0, 0
@@ -119,15 +116,79 @@ def main():
                 for c in cutRes:
                     tempL.append(c)
                 aList.append(tempL)
-        
+    
+    with open(result, 'a') as res:
+        res.write("\nTotal corpus number :" + str(cNum))
+        res.write("\nAccuracy is :" + str(accuracy/cNum*100))
     print("\nTotal corpus numbers: %d" % cNum)
     print("Accuracy is %.3f percent" % (accuracy/cNum*100))
     print("Processing all CQA dataset corpus took %.2fs" % (time.time()- sTime))
         
 
 
-# In[208]:
+def word2VecAve(cList, qList, aList, cNum):
 
+    sTime = time.time()
+    print("====== Start process words vector sum ======")
+    nc = np.zeros((len(cList),250),dtype=float)
+    nq = np.zeros(250,dtype=float)
+    na = np.zeros((len(aList),250),dtype=float)
+    count, ind, notExist = 0 , 0 , 0
+    # take all element from corpus List
+    for c in cList:
+        for w in c:
+            # take word vector from word2vec model
+            try:
+                m = model[w]
+            except KeyError as e:
+                notExist +=1
+                continue
+            # calculate word vector sum from corpus list
+            for n in range(250):
+                nc[ind][n] += m[n]
+            count +=1
+        for m in range(250):
+            nc[ind][m] /= len(c)
+        ind +=1
+    # take all element from question List
+    for w in qList:
+        try:
+            m = model[w]
+        except KeyError as e:
+            notExist +=1
+            continue
+        # calculate word vector sum from question list
+        for n in range(250):
+            nq[n] += m[n]
+        count +=1
+    for m in range(250):
+        nq[m] /= len(qList)
+        
+    
+    ind = 0
+     # take all element from answer List
+    for a in aList:
+        for w in a:
+            try:
+                m = model[w]
+            except KeyError as e:
+                notExist +=1
+                continue
+             # calculate word vector sum from answer list
+            for n in range(250):
+                na[ind][n] += m[n]
+            count +=1
+        for m in range(250):
+            na[ind][m] /= len(aList)
+        ind +=1
+        
+    print("This corpus has total %d split words." % (count))
+    print("This corpus has %d words not in word2vec model." % (notExist))
+    print("Process all corpus content took %.2fs." % (time.time()- sTime))
+    # go to final step, calculate similarity
+    guessAns = similarity(nc, nq, na, cNum)
+    return guessAns
+    
 
 
 def word2VecSum(cList, qList, aList, cNum):
@@ -188,9 +249,6 @@ def word2VecSum(cList, qList, aList, cNum):
     
 
 
-# In[209]:
-
-
 def similarity(nc, nq, na, cNum):
     
     sTime = time.time()
@@ -215,14 +273,12 @@ def similarity(nc, nq, na, cNum):
             h_a_Sim = cosSim
             ans = i
         i += 1
-        
+    
     print("The best match answer to this CQA is %s." %(l[ans]))
     print("The best match answer similarity to this CQA is %.2f." %(h_a_Sim))
     print("Process all similarity calculation took %.2fs.\n" % (time.time()- sTime))
     return l[ans]
 
-
-# In[210]:
 
 
 # ====== initial setting ======
