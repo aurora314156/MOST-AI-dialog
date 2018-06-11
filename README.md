@@ -15,4 +15,5 @@ This repository is for MOST AI dialog contest.
 
 5. load 不同的word2vec model 需找到 models.Word2Vec.load 更改後方路徑參數
 
-# 最終同一層的檔案名稱有: CQA, gigaword, jieba_setting, wiki, CQA.txt, formatOutput.py
+6. 最終同一層的檔案名稱有: CQA, gigaword, jieba_setting, wiki, CQA.txt, formatOutput.py
+

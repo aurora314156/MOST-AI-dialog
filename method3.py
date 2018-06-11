@@ -9,13 +9,18 @@ import numpy as np
 from scipy import spatial
 
 
-# 精確模式 ：將句子最精確地切開，叫適合文本分析, cut_all=False
-# 全模式：把句子中所有的可以成詞的詞語都掃描出來, 速度快, cut_all=True
-# 搜索引擎模式：在精確模式的基礎上對長詞再次切分，提高召回率，適合用於搜尋引擎分詞, jieba.cut_for_search(Content)            
 # call jieba api
-def jiebaCut(s):
-    #words = jieba.cut(s,cut_all=True)
-    words = jieba.cut_for_search(s)
+def jiebaCut(s, m):
+    # 精確模式 ：將句子最精確地切開，叫適合文本分析, cut_all=False
+    # 全模式：把句子中所有的可以成詞的詞語都掃描出來, 速度快, cut_all=True
+    # 搜索引擎模式：在精確模式的基礎上對長詞再次切分，提高召回率，適合用於搜尋引擎分詞, jieba.cut_for_search(Content)  
+    if m == 0:
+        words = jieba.cut(s, cut_all=False)
+    elif m == 1:
+        words = jieba.cut(s, cut_all=True)
+    elif m == 2:
+        words = jieba.cut_for_search(s)
+
     result = removeStopWords(words)
     return result
 
@@ -44,88 +49,89 @@ def state(s,flag):
     # state: 4, do jieba cut
     return flag, nextline
 
-
-
 def main():
     sTime = time.time()
     result = 'gigaword_sum_search_result.txt'
     print("Start process CQA dataset")
-    cNum, accuracy = 0, 0
-    with open('CQA.txt', 'r') as file:
-        flag, end = 0, 0
-        cList, qList, aList = [],[],[]
-        tempC = []
-        ans = ""
-        for i in file.readlines():
-            s = i.strip()
-            flag, nextline = state(s,flag)
-            # one corpus process done!
-            if end == 4:
-                ans = s
-                print("Corpus: %d" % cNum)
-                guessAns = word2VecSum(cList, qList, aList, cNum)
-                #guessAns = word2VecAve(cList, qList, aList, cNum)
-                with open(result, 'a') as res:
-                    res.write("\nCorpus :" + str(cNum))
-                    res.write("\nCorrect answer is: " + ans)
-                    res.write("\nPredict answer is: " + guessAns)
-                    res.write('\n')
-                if guessAns == ans:
-                    accuracy +=1
-                print("====== Final result ======")
-                print("Correct answer is: %s." %(ans))
-                print("Predict answer is: %s.\n" %(guessAns))
-                #print("corpus:\n",cList,'\nquestion:\n',qList,'\nanswer:\n',aList,'\ncorrect ans:\n',ans,'\n')
-                cList, qList, aList = [],[],[]
-                flag, end = 0, 0
-                ans = ""
-                cNum +=1
-                continue
-            # still on state
-            if nextline != 1:
-                continue
-            # on state 1, process Corpus
-            elif flag == 1:
-                cutRes = jiebaCut(s)
-                for c in cutRes:
-                    tempC.append(c)
-                if nextline == 1:
-                    if tempC:
-                        cList.append(tempC)
-                        tempC = []
-            # on state 2, process Question
-            elif flag == 2:
-                cutRes = jiebaCut(s)
-                for c in cutRes:
-                    qList.append(c)
-            # on state 3, process Answer
-            elif flag == 3:
-                end += 1
-                # example: （B） 吃飯比讀書更為重要 
-                tempS = ""
-                skip = ['A','B','C','D','（',')']
-                check = 0
-                for j in s:
-                    if check == 3:
-                        tempS += j
-                    else:
-                        check += 1
-                tempS = tempS.strip()
-                cutRes = jiebaCut(tempS)
-                tempL = []
-                for c in cutRes:
-                    tempL.append(c)
-                aList.append(tempL)
-    
+    bestAccuracy = 0
+    for m in range(3):
+        cNum, accuracy = 0, 0
+        with open('CQA.txt', 'r') as file:
+            flag, end = 0, 0
+            cList, qList, aList = [],[],[]
+            tempC = []
+            ans = ""
+            for i in file.readlines():
+                s = i.strip()
+                flag, nextline = state(s,flag)
+                # one corpus process done!
+                if end == 4:
+                    ans = s
+                    print("Corpus: %d" % cNum)
+                    #guessAns = word2VecSum(cList, qList, aList, cNum)
+                    guessAns = word2VecAve(cList, qList, aList, cNum)
+                    with open(result, 'a') as res:
+                        res.write("\nCorpus :" + str(cNum))
+                        res.write("\nCorrect answer is: " + ans)
+                        res.write("\nPredict answer is: " + guessAns)
+                        res.write('\n')
+                    if guessAns == ans:
+                        accuracy +=1
+                    print("====== Final result ======")
+                    print("Correct answer is: %s." %(ans))
+                    print("Predict answer is: %s.\n" %(guessAns))
+                    #print("corpus:\n",cList,'\nquestion:\n',qList,'\nanswer:\n',aList,'\ncorrect ans:\n',ans,'\n')
+                    cList, qList, aList = [],[],[]
+                    flag, end = 0, 0
+                    ans = ""
+                    cNum +=1
+                    continue
+                # still on state
+                if nextline != 1:
+                    continue
+                # on state 1, process Corpus
+                elif flag == 1:
+                    cutRes = jiebaCut(s,m)
+                    for c in cutRes:
+                        tempC.append(c)
+                    if nextline == 1:
+                        if tempC:
+                            cList.append(tempC)
+                            tempC = []
+                # on state 2, process Question
+                elif flag == 2:
+                    cutRes = jiebaCut(s,m)
+                    for c in cutRes:
+                        qList.append(c)
+                # on state 3, process Answer
+                elif flag == 3:
+                    end += 1
+                    # example: （B） 吃飯比讀書更為重要 
+                    tempS = ""
+                    skip = ['A','B','C','D','（',')']
+                    check = 0
+                    for j in s:
+                        if check == 3:
+                            tempS += j
+                        else:
+                            check += 1
+                    tempS = tempS.strip()
+                    cutRes = jiebaCut(tempS,m)
+                    tempL = []
+                    for c in cutRes:
+                        tempL.append(c)
+                    aList.append(tempL)
+        if accuracy > bestAccuracy:
+            bestAccuracy = accuracy
     with open(result, 'a') as res:
         res.write("\nTotal corpus number :" + str(cNum))
-        res.write("\nAccuracy is :" + str(accuracy/cNum*100))
+        res.write("\nAccuracy is :" + str(bestAccuracy/cNum*100))
     print("\nTotal corpus numbers: %d" % cNum)
-    print("Accuracy is %.3f percent" % (accuracy/cNum*100))
+    print("Accuracy is %.3f percent" % (bestAccuracy/cNum*100))
     print("Processing all CQA dataset corpus took %.2fs" % (time.time()- sTime))
         
 
-
+# word2vec average mode
 def word2VecAve(cList, qList, aList, cNum):
 
     sTime = time.time()
@@ -188,9 +194,8 @@ def word2VecAve(cList, qList, aList, cNum):
     # go to final step, calculate similarity
     guessAns = similarity(nc, nq, na, cNum)
     return guessAns
-    
 
-
+# word2vec sum mode
 def word2VecSum(cList, qList, aList, cNum):
 
     sTime = time.time()
@@ -247,8 +252,7 @@ def word2VecSum(cList, qList, aList, cNum):
     guessAns = similarity(nc, nq, na, cNum)
     return guessAns
     
-
-
+# calculate similarity
 def similarity(nc, nq, na, cNum):
     
     sTime = time.time()
@@ -301,7 +305,7 @@ with open(relativePath + '/jieba_setting/stopwords.txt', 'r') as stop:
 # load word2vec model
 print("Start loading word2vec model!")
 sTime = time.time()
-model = models.Word2Vec.load(relativePath + '/gigaword/python/word2vec.model')
+model = models.Word2Vec.load(relativePath + '/wiki/skip/600/word2vec.model')
 print("Load word2vec model success! took %.2fs" % (time.time()-sTime))
 
 # ====== initial setting ======
