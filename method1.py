@@ -65,40 +65,43 @@ def generateAnswer(data):
             ans = i
         i += 1
 
-    print("The predict answer is %s." %(anslist[ans]))
+    #print("The predict answer is %s." %(anslist[ans]))
     return anslist[ans]
 
 
 def main():
     t = time.time()
-    pathData = './CQA/'
+    pathData = './Result/'
     totalData = 1500
-    
+    wrongid = 0
 #======  read data in for loop  ======
     for i in range(totalData):
-        print("Start reading data in" + pathData + str(i) + '.json')
+        #print("Start reading data in" + pathData + str(i) + '.json')
         jsonData = readData(pathData + str(i) + '.json')
         
-        print("Start generate output of" + pathData + str(i) + '.json')
+        #print("Start generate output of" + pathData + str(i) + '.json')
 
 #=== check format is correct or not ===
         randomNum = True
         if len(jsonData['answer']) != 4:
             randomNum = False
+            wrongid += 1
         if randomNum == False:
             ansTag = str(random.randint(1,4))
         elif randomNum == True:
             ansTag = generateAnswer(jsonData)
 
 #====== output data =======
-        
+        f = open('method1_result.txt', 'w')
+        f.close()
         with open("method1_result.txt", 'a+') as file:
             file.write(ansTag)
             file.write("\n")
 
-        print("Output done!")
+       # print("Output done!")
         
     print("=========Finished========")
+    print("Total wrong corpus format numbers are %d" % wrongid)
     print("It took %.2f sec to process" % (time.time() - t))
 
 
