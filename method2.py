@@ -81,6 +81,9 @@ def generateAnswer(data):
 def main():
     t = time.time()
     pathData = './Result/'
+    # clear result
+    f = open('method2_result.txt', 'w')
+    f.close()
     totalData = 1500
     wrongid = 0
 #======  read data in for loop  ======
@@ -101,9 +104,6 @@ def main():
             ansTag = generateAnswer(jsonData)
 
 #====== output data =======
-        # clear result
-        f = open('method2_result.txt', 'w')
-        f.close()
         with open("method2_result.txt", 'a+') as file:
             file.write(ansTag)
             file.write("\n")
