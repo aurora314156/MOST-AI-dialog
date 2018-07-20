@@ -2,3 +2,5 @@
 .ipynb_checkpoints
 # Visual studio code
 .vscode/*
+.Result
+.CQA

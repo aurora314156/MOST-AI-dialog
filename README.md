@@ -15,7 +15,6 @@ This repository is for MOST AI dialog contest.
 
 6. 最終同一層的檔案名稱有: CQA, gigaword, jieba_setting, wiki, CQA.txt, formatOutput.py
 
-
 ### Update history
 
 `2018/06/03 upload first version`
@@ -28,7 +27,7 @@ This repository is for MOST AI dialog contest.
 
 `2018/06/25 generate random answer`
 
-`2018/07/20 change output format to csv file`
+`2018/07/20 change output format to csv file, modify gitignore`
 
 
 
