@@ -10,6 +10,7 @@ import time
 import os
 import json
 import random
+import csv
 
 
 def readData(path):
@@ -77,6 +78,7 @@ def main():
     f.close()
     totalData = 1500
     wrongid = 0
+    ansList = []
 #======  read data in for loop  ======
     for i in range(totalData):
         #print("Start reading data in" + pathData + str(i) + '.json')
@@ -94,10 +96,31 @@ def main():
         elif randomNum == True:
             ansTag = generateAnswer(jsonData)
 
+        ansList.append(ansTag)
+
 #====== output data =======
         with open("method1_result.txt", 'a+') as file:
             file.write(ansTag)
             file.write("\n")
+
+        outputList = []
+        outputMerge = []
+    
+        #read question number from csv file
+        with open('readNumber.csv', newline= '') as csvfile:
+            spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+            outputList = list(spamreader)
+
+            for i in range(0, len(ansList), 1):
+                data = str(outputList[i+1][0])+ str(ansList[i])
+                outputMerge.append(data)
+
+        with open('method1.csv', 'w', newline='') as csvfile:
+            csvfile.write('ID,Answer')
+            csvfile.write('\n')
+            for i in outputMerge:                     
+                csvfile.write(i)    
+                csvfile.write('\n')
 
        # print("Output done!")
         

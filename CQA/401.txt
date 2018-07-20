@@ -5,5 +5,5 @@ Q
 A
 eachtimebas
 eortimedon't
-三高雄
-四花蓮
+
+eachtimebaseortimedon't三高雄四花蓮

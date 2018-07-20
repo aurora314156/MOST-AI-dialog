@@ -86,6 +86,7 @@ def main():
     f.close()
     totalData = 1500
     wrongid = 0
+    ansList = []
 #======  read data in for loop  ======
     for i in range(totalData):
         #print("Start reading data in" + pathData + str(i) + '.json')
@@ -103,17 +104,38 @@ def main():
         elif randomNum == True:
             ansTag = generateAnswer(jsonData)
 
+        ansList.append(ansTag)
+        
 #====== output data =======
         with open("method2_result.txt", 'a+') as file:
             file.write(ansTag)
             file.write("\n")
 
+    outputList = []
+    outputMerge = []
+    
+    #read question number from csv file
+    with open('readNumber.csv', newline= '') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+        outputList = list(spamreader)
+
+        for i in range(0, len(ansList), 1):
+            data = str(outputList[i+1][0])+ str(ansList[i])
+            outputMerge.append(data)
+
+    with open('method2.csv', 'w', newline='') as csvfile:
+        csvfile.write('ID,Answer')
+        csvfile.write('\n')
+        for i in outputMerge:                     
+            csvfile.write(i)    
+            csvfile.write('\n')
+        
         #print("Output done!")
         
     print("=========Finished========")
     print("Total wrong corpus format numbers are %d" % wrongid)
     print("It took %.2f sec to process" % (time.time() - t))
-
+    # print(ansList)
 
 pathModel = './word2vec/wiki/wiki_zh_tw(skip300)/word2vec.model'
 model = models.Word2Vec.load(pathModel)
