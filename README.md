@@ -1,8 +1,6 @@
 # MOST-AI-dialog
 This repository is for MOST AI dialog contest.
 
-
-
 ## format output using
 
 1. 需要把圖中的資料都按照對應的資料夾路徑放置
@@ -16,4 +14,21 @@ This repository is for MOST AI dialog contest.
 5. load 不同的word2vec model 需找到 models.Word2Vec.load 更改後方路徑參數
 
 6. 最終同一層的檔案名稱有: CQA, gigaword, jieba_setting, wiki, CQA.txt, formatOutput.py
+
+
+### Update history
+
+`2018/06/03 upload first version`
+
+`2018/06/04 modify algorithm with sum and avg`
+
+`2018/06/06 modify algorithm into C, Q+A two part`
+
+`2018/06/16 add algorithm of C+Q, A two part`
+
+`2018/06/25 generate random answer`
+
+`2018/07/20 change output format to csv file`
+
+
 
