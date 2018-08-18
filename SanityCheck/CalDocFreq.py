@@ -1,8 +1,7 @@
 
-
+from ReadCQA import ReadCQA
 # calculate all question term frequency
 class CalDocFreq:
-
     def __init__(self, qn):
         self.docFreq = {}
         self.qn = qn

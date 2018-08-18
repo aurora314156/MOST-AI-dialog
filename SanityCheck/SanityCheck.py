@@ -1,18 +1,17 @@
 
 
 import json
-from ReadCQA import ReadCQA
 from CalDocFreq import CalDocFreq
+from Initial import Initial
 
-class SanityCheck():
-    def __init__(self, qasp, mp, qn=1):
-        self.qasp = qasp
-        self.mp = mp
-        self.qn = qn
+
+class SanityCheck(Initial):
+    def __init__(self, qasp="none", mp="none", qn="none"):
+        super().__init__(qasp, mp, qn)
         
     def SanityCheckMain(self):
         docFreq = CalDocFreq(self.qn).CalDocFreqMain()
-        print(docFreq)
+        return docFreq
     
 
     # def calIdf():
