@@ -6,11 +6,12 @@ class EQDInitial(QuestionDataSetInitial):
         self.corpus = jf['corpus']
         self.question = jf['question']
         self.answer = jf['answer']
-    def getDataSetAttributes():
-        print(self.corpus)
-        print(self.question)
-        print(self.answer)
-
-
+    # get instance attributes
+    def getCorpus(self):
+        return self.corpus
+    def getQuestion(self):
+        return self.question
+    def getAnswer(self):
+        return self.answer
 
 

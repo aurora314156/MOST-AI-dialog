@@ -3,24 +3,34 @@
 import logging
 import sys
 from Initial import Initial
-
+from QuestionHandler import QuestionHandler
+from SanityCheck import SanityCheck
 """
     QuestionAnswerSetPath : qasp
     ModelPath : mp
-    QuestionNumber : qn
+    TotalQuestionNumber : tqn
+    CurrentQuestionNumber : cqn
     language : lang
     ChineseQuestionDataInitial : CQDInitial
     EnglishQuestionDataInitial : EQDInitial
 """
 
+def sanityCheck(CQADataSet, tqn):
+
+    for cqn in range(tqn):
+        SanityCheck = SanityCheck(CQADataSet, tqn, cqn)
+
+
 def main():
 
     qasp = sys.argv[1]
     mp = sys.argv[2]
-    qn = 1
-    lang = 'eng'
-    CQADataSet = Initial(qasp, mp, qn, lang).readCQAData()
-    print(CQADataSet[0].getDataSetAttributes())
+    tqn = 1
+    lang = 'ch'
+    # get all instance
+    CQADataSet = Initial(qasp, tqn, lang).getCQADataSet() 
+    
+    sanityCheck(CQADataSet, qn)
 
 if __name__ == "__main__":
     main()

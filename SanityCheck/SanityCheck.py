@@ -1,48 +1,37 @@
 
 
-import json
-from CalDocFreq import CalDocFreq
-from Initial import Initial
+import math
+from CQDInitial import CQDInitial
 
 
-class SanityCheck(Initial):
-    def __init__(self, qasp="none", mp="none", qn="none"):
-        super().__init__(qasp, mp, qn)
-        
+class SanityCheck():
+    def __init__(self, CQADataset, tqn, cqn):
+        self.CQADataset = CQADataset
+        self.tqn = tqn
+        self.cqn = cqn
+
     def SanityCheckMain(self):
-        docFreq = CalDocFreq(self.qn).CalDocFreqMain()
-        return docFreq
-    
-
-    # def calIdf():
-    #     return calIdf
-    # def calAlign():
-    #     return align
-    # def getAnser():
-    #     score=calIdf() * calAlign()
+        questionList = self.CQADataset[self.cqn].getQuestion()
+        print(questionList)
+        #IDFTable = calIDF()
         
-    # return score
 
+    # def calIDF(self):
+    #     idf = []
+    #     N = self.tqn
+    #     result = N - self.CQADataset[self.qn] + 0.5 
 
-
-
-# class CalIdf(SanityCheckMain):
-#     def __init__(self, path, num, docFreq):
-#         self.path = path
-#         self.questionNum = num
-#         self.docFreq = docFreq
-    
-#     def getTermFromQuestion(self):
-#         fileName = self.path + str(self.questionNum) + '.json'
-#         with open(fileName , 'r') as reader:
-#             jf = json.loads(reader.read())
-#         return jf
-
-#     def calIdf(self):
-#         jf = self.getTermFromQuestion()
-#         for q in jf['question']:
-#             if q in self.docFreq:
-#                 print(q,sequestionWordslf.docFreq[q])
+    # def docFreq(self):
+    #     for q in range(self.qn):
+    #         cqa = ReadCQA.readCQA(q)
+    #         for questionWords in cqa['question']:
+    #             if q not in self.docFreq:
+    #                 self.docFreq[q] = 1
+    #             else:
+    #                 self.docFreq[q] +=1
         
+    #     return self.docFreq
+
+
 
 

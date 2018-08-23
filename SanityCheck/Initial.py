@@ -5,18 +5,26 @@ from EQDInitial import EQDInitial
 
 # read cqa data from json
 class Initial:
-    def __init__(self, qasp, mp, qn, lang):
+    def __init__(self, qasp, tqn, lang):
         self.qasp = qasp
-        self.mp = mp
-        self.qn = qn
+        self.tqn = tqn
         self.lang = lang
 
-    def readCQAData(self):
-        fileName = self.qasp + '/' + str(self.qn) + '.json'
-        CQA = []
+    # create instance and append all instance to list
+    def getCQADataSet(self):
+
+        CQAInstanceList = []
+        for q in range(self.tqn):
+            CQAInstanceList.append(readCQAData(q))
+
+        return CQAInstanceList
+    
+    # get CQA Data from json
+    def readCQAData(self, q):
+        fileName = self.qasp + '/' + str(q) + '.json'
         with open(fileName , 'r') as reader:
             jf = json.loads(reader.read())
-            if self.lang == 'eng':
-                CQA.append(CQDInitial(jf))
-            
-        return CQA
+            if self.lang == 'ch':
+                return CQDInitial(jf)
+                
+        
