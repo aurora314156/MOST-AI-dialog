@@ -1,8 +1,8 @@
 
-
 import math
-from CQDInitial import CQDInitial
 
+from gensim.models import word2vec
+from CQDInitial import CQDInitial
 
 class SanityCheck():
     def __init__(self, CQADataset, tqn, cqn):
@@ -10,28 +10,58 @@ class SanityCheck():
         self.tqn = tqn
         self.cqn = cqn
 
-    def SanityCheckMain(self):
+    def SanityCheckMain(self, model, x):
+        
         questionList = self.CQADataset[self.cqn].getQuestion()
-        print(questionList)
-        #IDFTable = calIDF()
+        answerList = self.CQADataset[self.cqn].getAnswer()
         
+        finalAns, flag = 0, 0
+        ans = ['A','B','C','D']
+        for A in answerList:
+            currentAnsScore = 0
+            currentAnsHighScore = 0
+            for q in questionList:
+                currentAnsScore += self.calIDF(q) * self.align(model, x, q, A)
+            if currentAnsHighScore < currentAnsScore:
+                currentAnsHighScore = currentAnsScore
+                finalAns = flag
+            flag += 1
 
-    # def calIDF(self):
-    #     idf = []
-    #     N = self.tqn
-    #     result = N - self.CQADataset[self.qn] + 0.5 
+        return ans[finalAns]
 
-    # def docFreq(self):
-    #     for q in range(self.qn):
-    #         cqa = ReadCQA.readCQA(q)
-    #         for questionWords in cqa['question']:
-    #             if q not in self.docFreq:
-    #                 self.docFreq[q] = 1
-    #             else:
-    #                 self.docFreq[q] +=1
+    def calIDF(self, q):
+
+        docFreq = 0
+        for t in range(self.tqn):
+            otherQuestionList = self.CQADataset[t].getQuestion()
+            if q in otherQuestionList:
+                docFreq +=1
+
+        idf_qi = math.log( (self.tqn - docFreq + 0.5 ) / docFreq + 0.5 )
+        return idf_qi
+    
+    def align(self, model, x, q, A):
         
-    #     return self.docFreq
+        termScoreTable = self.similarTermScoreTable(model, q, A)
+        # if similar terms bigger than one, add neg to align
+        if len(termScoreTable) > 1:
+            align = termScoreTable[0] + x * termScoreTable[1]
+        else:
+            align = termScoreTable[0]        
+        return align
+        
+    def similarTermScoreTable(self, model, q, A):
 
-
-
-
+        similarTermScore = []
+        for cutWord in A:
+            # if word not in model append 0
+            try:
+                c = model[cutWord]
+                v = model[q]
+            except KeyError as e:
+                similarTermScore.append(0)
+                continue
+            
+            similarTermScore.append(model.similarity(q, cutWord))
+        similarTermScore = sorted(similarTermScore, reverse=True)
+        return similarTermScore

@@ -1,10 +1,8 @@
 
-
-import logging
 import sys
 from Initial import Initial
-from QuestionHandler import QuestionHandler
 from SanityCheck import SanityCheck
+
 """
     QuestionAnswerSetPath : qasp
     ModelPath : mp
@@ -15,22 +13,23 @@ from SanityCheck import SanityCheck
     EnglishQuestionDataInitial : EQDInitial
 """
 
-def sanityCheck(CQADataSet, tqn):
+def SanityCheckMethod(CQADataSet, model, tqn):
 
+    x = 0.1
     for cqn in range(tqn):
-        SanityCheck = SanityCheck(CQADataSet, tqn, cqn)
-
+        ans = SanityCheck(CQADataSet, tqn, cqn).SanityCheckMain(model, x)
+        print(ans)
 
 def main():
 
     qasp = sys.argv[1]
     mp = sys.argv[2]
-    tqn = 1
+    tqn = 100
     lang = 'ch'
     # get all instance
-    CQADataSet = Initial(qasp, tqn, lang).getCQADataSet() 
-    
-    sanityCheck(CQADataSet, qn)
+    CQADataSet, model = Initial(qasp, mp, tqn, lang).getCQADataSetAndModel()
+    # start SanityCheckMethod
+    SanityCheckMethod(CQADataSet, model, tqn)
 
 if __name__ == "__main__":
     main()

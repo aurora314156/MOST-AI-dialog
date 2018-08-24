@@ -1,23 +1,27 @@
 import json
-
+import logging
 from CQDInitial import CQDInitial
 from EQDInitial import EQDInitial
+from gensim import models
 
 # read cqa data from json
 class Initial:
-    def __init__(self, qasp, tqn, lang):
+    def __init__(self, qasp, mp, tqn, lang):
         self.qasp = qasp
+        self.mp = mp
         self.tqn = tqn
         self.lang = lang
-
     # create instance and append all instance to list
-    def getCQADataSet(self):
+    def getCQADataSetAndModel(self):
 
         CQAInstanceList = []
         for q in range(self.tqn):
-            CQAInstanceList.append(readCQAData(q))
+            CQAInstanceList.append(self.readCQAData(q))
 
-        return CQAInstanceList
+        logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
+        model = models.Word2Vec.load(self.mp)
+        
+        return CQAInstanceList, model
     
     # get CQA Data from json
     def readCQAData(self, q):
@@ -26,5 +30,5 @@ class Initial:
             jf = json.loads(reader.read())
             if self.lang == 'ch':
                 return CQDInitial(jf)
-                
+
         
