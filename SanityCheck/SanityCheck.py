@@ -29,6 +29,7 @@ class SanityCheck():
 
         return ans[finalAns]
 
+    # calculate IDF
     def calIDF(self, q):
 
         docFreq = 0
@@ -39,7 +40,7 @@ class SanityCheck():
 
         idf_qi = math.log( (self.tqn - docFreq + 0.5 ) / docFreq + 0.5 )
         return idf_qi
-    
+    # calculate align
     def align(self, model, x, q, A):
         
         termScoreTable = self.similarTermScoreTable(model, q, A)
@@ -49,7 +50,8 @@ class SanityCheck():
         else:
             align = termScoreTable[0]        
         return align
-        
+    
+    # calculate consine similarity table
     def similarTermScoreTable(self, model, q, A):
 
         similarTermScore = []
@@ -63,5 +65,6 @@ class SanityCheck():
                 continue
             
             similarTermScore.append(model.similarity(q, cutWord))
+        
         similarTermScore = sorted(similarTermScore, reverse=True)
         return similarTermScore
