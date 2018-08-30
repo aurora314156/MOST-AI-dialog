@@ -16,10 +16,10 @@ class SanityCheck():
         answerList = self.CQADataset[self.cqn].getAnswer()
         
         finalAns, flag = 0, 0
+		HighestScore = 0
         ans = ['A','B','C','D']
         for A in answerList:
             currentAnsScore = 0
-            HighestScore = 0
             for q in questionList:
                 currentAnsScore += self.calIDF(q) * self.align(model, x, q, A)
             if HighestScore < currentAnsScore:
