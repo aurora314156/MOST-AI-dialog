@@ -20,7 +20,7 @@ from SanityCheck import SanityCheck
 def SanityCheckMethod(CQADataSet, model, tqn):
 
     x = 0.1
-    for cqn in range(tqn):
+    for cqn in range(1):
         ans = SanityCheck(CQADataSet, tqn, cqn).SanityCheckMain(model, x)
         print(ans)
 

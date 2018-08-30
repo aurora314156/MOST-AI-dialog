@@ -19,14 +19,16 @@ class SanityCheck():
         ans = ['A','B','C','D']
         for A in answerList:
             currentAnsScore = 0
-            currentAnsHighScore = 0
+            HighestScore = 0
             for q in questionList:
                 currentAnsScore += self.calIDF(q) * self.align(model, x, q, A)
-            if currentAnsHighScore < currentAnsScore:
-                currentAnsHighScore = currentAnsScore
+            if HighestScore < currentAnsScore:
+                HighestScore = currentAnsScore
                 finalAns = flag
+            print("currentAnsScore {score}".format(score=currentAnsScore))
+            print("HighestScore {score}".format(score=HighestScore))
             flag += 1
-
+            print()
         return ans[finalAns]
 
     # calculate IDF
@@ -40,6 +42,7 @@ class SanityCheck():
 
         idf_qi = math.log( (self.tqn - docFreq + 0.5 ) / docFreq + 0.5 )
         return idf_qi
+
     # calculate align
     def align(self, model, x, q, A):
         
@@ -48,7 +51,7 @@ class SanityCheck():
         if len(termScoreTable) > 1:
             align = termScoreTable[0] + x * termScoreTable[1]
         else:
-            align = termScoreTable[0]        
+            align = termScoreTable[0]
         return align
     
     # calculate consine similarity table
@@ -58,13 +61,12 @@ class SanityCheck():
         for cutWord in A:
             # if word not in model append 0
             try:
-                c = model[cutWord]
-                v = model[q]
+                model.similarity(q, cutWord)
             except KeyError as e:
                 similarTermScore.append(0)
                 continue
-            
-            similarTermScore.append(model.similarity(q, cutWord))
+            else:
+                similarTermScore.append(model.similarity(q, cutWord))
         
         similarTermScore = sorted(similarTermScore, reverse=True)
         return similarTermScore
