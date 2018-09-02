@@ -7,6 +7,22 @@ import re
 from os import listdir
 
 
+def strQ2B(ustring):
+
+    ss = []
+    for s in ustring:
+        rstring = ""
+        for uchar in s:
+            inside_code = ord(uchar)
+            if inside_code == 12288: # 全形空格直接轉換
+                inside_code = 32
+            elif (inside_code >= 65281 and inside_code <= 65374): # 全形字元（除空格）根據關係轉化
+                inside_code -= 65248
+            rstring += chr(inside_code)
+            ss.append(rstring)
+    return ss
+
+
 # return list of cut word
 def cut_list(l):
     temp = []
@@ -14,6 +30,8 @@ def cut_list(l):
         if ll is not " ":
             temp.append(ll)
     return temp
+
+
 
 # read cutted data
 def processFile(line, fileName):
@@ -35,7 +53,7 @@ def processFile(line, fileName):
             temp.append(cl)
         elif flag == 9:
             result.append(temp)
-            result.append(cut_list(l))
+            result.append(strQ2B(l[:1]))
         flag += 1
     
     outputFile(result, fileName)
@@ -60,7 +78,7 @@ def main():
     # start process CQA data set
     for ff in files:
         with open(CQAPath + ff, 'r') as file:
-            check = processFile(file.readlines(), ff.strip('.txt'))
+            processFile(file.readlines(), ff.strip('.txt'))
             ind += 1
 
     print("\nTotal corpus numbers: %d" % ind)

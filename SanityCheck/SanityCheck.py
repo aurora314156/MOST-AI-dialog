@@ -1,6 +1,5 @@
 
 import math
-
 from gensim.models import word2vec
 from CQDInitial import CQDInitial
 
@@ -16,19 +15,17 @@ class SanityCheck():
         answerList = self.CQADataset[self.cqn].getAnswer()
         
         finalAns, flag = 0, 0
-		HighestScore = 0
+        highestScore = 0
         ans = ['A','B','C','D']
         for A in answerList:
             currentAnsScore = 0
             for q in questionList:
                 currentAnsScore += self.calIDF(q) * self.align(model, x, q, A)
-            if HighestScore < currentAnsScore:
-                HighestScore = currentAnsScore
+            if highestScore <= currentAnsScore:
+                highestScore = currentAnsScore
                 finalAns = flag
-            print("currentAnsScore {score}".format(score=currentAnsScore))
-            print("HighestScore {score}".format(score=HighestScore))
             flag += 1
-            print()
+
         return ans[finalAns]
 
     # calculate IDF
@@ -62,7 +59,7 @@ class SanityCheck():
             # if word not in model append 0
             try:
                 model.similarity(q, cutWord)
-            except KeyError as e:
+            except KeyError:
                 similarTermScore.append(0)
                 continue
             else:

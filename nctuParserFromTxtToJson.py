@@ -67,9 +67,10 @@ def main():
     ind, wrongtotal = 0, 0
     filePath = os.getcwd() + '/CQA/'
     # start process CQA data set
-    for f in range(5000):
+    for f in range(7000):
         if os.path.exists(filePath + str(f) + '.txt'):
             with open(filePath + str(f) + '.txt', 'r') as file:
+                print(f)
                 check = processFile(file.readlines(), ind)
                 if check == 0:
                     #print("\nCorpus : %d have wrong answer format." % f)
