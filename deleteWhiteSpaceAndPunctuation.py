@@ -7,7 +7,7 @@ import re
 
 
 
-# read cutted data
+# read cut data
 def processFile(line, ind):
     for l in line:
         l = l.strip()
@@ -40,9 +40,7 @@ def main():
 
 
 # ====== initial setting ======
-print("Start loading initial setting!")
-# jieba setting
-print("Start loading jieba dictionary!")
+
 relativePath = os.getcwd()
 
 # ====== initial setting ======
