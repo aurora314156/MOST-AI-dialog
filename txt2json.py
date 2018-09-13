@@ -36,9 +36,9 @@ class txt2json:
         self._check_range(start, stop)
         for q_number in range(self.min_q, self.max_q):
             try:
-                self.load_txt('test_data/'+str(q_number)+'.txt')
+                self.load_txt('txt_data/'+str(q_number)+'.txt')
                 self._assign2json()
-                self.save('result_data/'+str(q_number)+'.json')
+                self.save('json_data/'+str(q_number)+'.json')
             except FileNotFoundError:
                 print('Check your path, I cant find your file {0} '.format(q_number))
             self.reset()
