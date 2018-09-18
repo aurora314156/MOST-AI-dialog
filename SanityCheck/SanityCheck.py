@@ -1,9 +1,13 @@
 
 import math
+import time
 from gensim.models import word2vec
 from CQDInitial import CQDInitial
+from random import randint
+
 
 class SanityCheck():
+
     def __init__(self, CQADataset, tqn, cqn):
         self.CQADataset = CQADataset
         self.tqn = tqn
@@ -16,16 +20,21 @@ class SanityCheck():
         
         finalAns, flag = 0, 0
         highestScore = 0
-        ans = ['A','B','C','D']
-        for A in answerList:
-            currentAnsScore = 0
-            for q in questionList:
-                currentAnsScore += self.calIDF(q) * self.align(model, x, q, A)
-            if highestScore <= currentAnsScore:
-                highestScore = currentAnsScore
-                finalAns = flag
-            flag += 1
-
+        ans = [1,2,3,4]
+        if len(answerList) == 4:
+            
+            for A in answerList:
+                currentAnsScore = 0
+                for q in questionList:
+                    cal = self.calIDF(q)
+                    align = self.align(model, x, q, A)
+                    currentAnsScore += cal * align
+                if highestScore <= currentAnsScore:
+                    highestScore = currentAnsScore
+                    finalAns = flag
+                flag += 1
+        else:
+            finalAns = randint(0, 3)
         return ans[finalAns]
 
     # calculate IDF
@@ -49,6 +58,7 @@ class SanityCheck():
             align = termScoreTable[0] + x * termScoreTable[1]
         else:
             align = termScoreTable[0]
+        
         return align
     
     # calculate consine similarity table
@@ -64,6 +74,7 @@ class SanityCheck():
                 continue
             else:
                 similarTermScore.append(model.similarity(q, cutWord))
-        
-        similarTermScore = sorted(similarTermScore, reverse=True)
+
+        similarTermScore.sort(reverse=True)
+        #similarTermScore = sorted(similarTermScore, reverse=True)
         return similarTermScore
