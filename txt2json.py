@@ -11,7 +11,7 @@ import unicodedata
 
 
 min_question = 0
-max_question = 1500
+max_question = 1502
 
 
 
@@ -20,7 +20,7 @@ t2j_dict = {'C': 'corpus',
 'A': 'answer'}
 
 class txt2json:
-    def __init__(self, min_question=0, max_question=1500):
+    def __init__(self, min_question=0, max_question=1501):
         self.min_q = min_question
         self.max_q = max_question
         self.context = None
@@ -37,7 +37,8 @@ class txt2json:
         for q_number in range(self.min_q, self.max_q):
             try:
                 self.load_txt('txt_data/'+str(q_number)+'.txt')
-                self._assign2json()
+                if len(self.context)==10:
+                    self._assign2json()
                 self.save('json_data/'+str(q_number)+'.json')
             except FileNotFoundError:
                 print('Check your path, I cant find your file {0} '.format(q_number))
