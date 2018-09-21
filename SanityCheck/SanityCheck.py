@@ -13,7 +13,7 @@ class SanityCheck():
         self.tqn = tqn
         self.cqn = cqn
 
-    def SanityCheckMain(self, model, x):
+    def SanityCheckMain(self, model, x, idfTable):
         
         questionList = self.CQADataset[self.cqn].getQuestion()
         answerList = self.CQADataset[self.cqn].getAnswer()
@@ -21,14 +21,13 @@ class SanityCheck():
         finalAns, flag = 0, 0
         highestScore = 0
         ans = [1,2,3,4]
+
         if len(answerList) == 4:
-            
             for A in answerList:
                 currentAnsScore = 0
                 for q in questionList:
-                    cal = self.calIDF(q)
                     align = self.align(model, x, q, A)
-                    currentAnsScore += cal * align
+                    currentAnsScore += math.log(((self.tqn - idfTable[q]+ 0.5) / ( idfTable[q]+0.5 ))) * align
                 if highestScore <= currentAnsScore:
                     highestScore = currentAnsScore
                     finalAns = flag
@@ -37,17 +36,19 @@ class SanityCheck():
             finalAns = randint(0, 3)
         return ans[finalAns]
 
-    # calculate IDF
-    def calIDF(self, q):
+    # calculate IDF table
+    def calIDF(self):
 
-        docFreq = 0
+        idfTable = {}
         for t in range(self.tqn):
-            otherQuestionList = self.CQADataset[t].getQuestion()
-            if q in otherQuestionList:
-                docFreq +=1
-
-        idf_qi = math.log( (self.tqn - docFreq + 0.5 ) / docFreq + 0.5 )
-        return idf_qi
+            questionData = self.CQADataset[t].getQuestion()
+            for q in questionData:
+                if q not in idfTable:
+                    idfTable[q] = 1
+                else:
+                    idfTable[q] += 1
+        
+        return idfTable
 
     # calculate align
     def align(self, model, x, q, A):
