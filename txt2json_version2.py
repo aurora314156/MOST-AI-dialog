@@ -8,6 +8,8 @@ import json
 import os
 import unicodedata
 import re
+
+
 t2j_dict = {'C': 'corpus',
 'Q': 'question',
 'A': 'answer'}
@@ -16,12 +18,14 @@ t2j_dict = {'C': 'corpus',
 # In[21]:
 
 
+
 class txt2json:
-    def __init__(self, min_question=0, max_question=1500):
+    def __init__(self, min_question=0, max_question=1501):
         self.min_q = min_question
         self.max_q = max_question
         self.context = None
         self.ins_line = 0
+        self.errCount = 0
         self.json_context = {'corpus':[], 'answer':[], 'question':[]}
 
     def load_txt(self, file_name, path=os.getcwd(),  encoding='utf-8'):
@@ -31,15 +35,18 @@ class txt2json:
 
     def deal_txt(self, start=None, stop=None):
         self._check_range(start, stop)
-        for q_number in range(self.min_q, self.max_q):
+        for q_number in range(self.max_q):
             try:
                 self.load_txt('CutResult/'+str(q_number)+'.txt')
                 if len(self.context)==10:
                     self._assign2json()
-                self.save('CutResultJson/'+str(q_number)+'.json')
+                elif len(self.context)!=10:
+                    self.errCount+=1
+                self.save('JsonResult/'+str(q_number)+'.json')
             except FileNotFoundError:
                 print('Check your path, I cant find your file {0} '.format(q_number))
             self.reset()
+        print("Error format number: %d.",self.errCount)
 
     def save(self, file_name, path=os.getcwd()):
 #         print('output : '+os.path.join(path, file_name))

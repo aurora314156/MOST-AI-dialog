@@ -17,12 +17,14 @@ def processFile(line, ind):
 def main():
     sTime = time.time()
     print("Start delete CQA whitespace")
-    ind, wrongtotal = 1, 0
+    ind, wrongtotal = 0, 0
     filePath = os.getcwd() + '/preprocess/'
     # start process CQA data set
     for f in range(3000):
         if os.path.exists(filePath + str(f) + '.txt'):
             with open(filePath + str(f) + '.txt', 'r') as file:
+                with open("transfer-out/" +str(ind)+ '.txt', 'w') as f:
+                    f.close()
                 check = processFile(file.readlines(), ind)
                 if check == 0:
                     #print("\nCorpus : %d have wrong answer format." % f)

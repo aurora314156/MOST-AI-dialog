@@ -11,20 +11,19 @@ import os
 import json
 import random
 import csv
+from os import listdir
 
 
 def readData(path):
     t = time.time()
     with open(path, 'r') as reader:
         data = json.loads(reader.read())
-   #print("It took %.2f sec to read data" % (time.time() - t))
     return data
-
 
 # ==================
 #    method 1
 # ==================
-def generateAnswer(data):
+def generateAnswer(data, model):
     CQ_con = np.zeros(250, dtype = float)
     A_con = np.zeros((250, 250), dtype = float)
     #ca = data['correct_answer']
@@ -57,7 +56,6 @@ def generateAnswer(data):
     high_cq = 0
     i = 0
     ans = 0
-    
     for a in A_con:
         cos = 1 - spatial.distance.cosine(a, CQ_con)
         if cos > ini:
@@ -66,73 +64,72 @@ def generateAnswer(data):
             ans = i
         i += 1
 
-    #print("The predict answer is %s." %(anslist[ans]))
     return anslist[ans]
 
 
 def main():
+
     t = time.time()
-    pathData = './Result/'
+    pathModel = './word2vec/'
+    pathData = './JsonResult/'
+    pm = listdir(pathModel)
     # clear result
     f = open('method1_result.txt', 'w')
     f.close()
     totalData = 1500
-    wrongid = 0
-    ansList = []
+    correctAnsList = [4,1,3,4,3,2,3,2,1,1,3,2,3,3,3,4,2,2,3,2,4,1,2,4,2,3,1,3,2,3,4,3,4,2,1,4,2,2,3,2,3,1,4,3,4,3,4,1,2,3,2,1,4,1,2,3,3,1,2,1,1,3,2,3,2,3,1,3,4,4,1,3,3,2,4,2,1,4,1,2,3,2,1,3,2,3,1,3,1,2,4,3,4,4,2,2,1,4,2,1,1,3,4,1,1,1,2,1,3,2,4,1,3,2,2,2,2,3,3,2,4,1,4,2,2,3,1,1,1,3,1,1,4,1,3,2,3,1,1,4,2,1,2,1,3,1,3,1,1,1,2,2,2,3,1,2,3,1,3,4,3,3,2,1,4,1,2,4,2,2,1,4,1,2,3,1,4,2,2,3,3,2,1,2,4,3,4,1,1,1,4,4,1,4,3,3,1,4,4,3,1,1,1,4,4,4,3,4,1,4,1,3,2,3,2,4,2,2,2,2,1,1,1,2,3,1,2,2,3,1,3,3,1,3,1,4,2,2,1,2,3,2,1,3,1,4,2,3,2,4,1,1,3,4,3,2,3,1,2,1,4,2,3,1,3,2,2,4,2,3,1,4,4,2,3,3,3,2,1,4,1,1,2,2,3,3,3,4,4,4,1,3,3,2,4,4,4,3,1,3,1,4,2,3,4,2,4,1,3,1,2,4,3,1,3,2,4,3,4,3,2,1,2,3,2,2,3,3,1,3,3,1,4,4,1,3,4,1,4,3,2,4,3,3,1,2,1,3,2,1,3,1,2,3,2,1,3,4,3,2,2,1,4,2,3,3,3,2,4,2,2,3,1,1,4,3,1,2,3,1,3,1,4,3,3,1,1,2,1,3,2,3,2,3,2,1,2,3,4,1,2,2,1,2,3,2,1,1,1,3,3,4,3,2,3,1,3,4,1,4,3,4,2,3,3,3,3,4,2,4,3,4,4,1,3,4,1,3,1,2,2,1,2,1,1,4,1,3,2,3,4,1,2,3,4,4,3,2,2,2,1,4,4,3,3,2,2,1,4,3,2,1,4,4,3,1,4,4,1,4,4,4,3,1,4,2,2,3,4,3,2,2,4,2,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,4,4,4,4,4,4,4,2,2,2,3,3,3,3,2,1,2,4,1,3,4,4,3,3,4,1,3,2,3,2,4,3,2,1,1,4,2,3,2,2,4,1,3,2,3,2,1,4,3,1,3,3,4,4,2,1,2,3,4,3,3,3,1,3,4,2,1,1,3,2,4,2,3,1,2,4,1,1,3,2,2,4,1,2,1,3,2,4,1,2,2,2,3,2,2,3,1,3,2,3,2,2,3,1,1,2,3,2,3,1,2,3,2,1,3,1,4,3,2,3,4,2,1,4,1,4,3,1,4,2,1,2,4,1,4,2,3,1,2,1,1,2,4,4,1,3,3,4,2,4,2,2,1,3,3,1,4,3,2,4,2,2,2,3,2,4,3,4,1,3,4,2,2,3,4,1,3,2,1,4,1,1,2,4,2,1,3,1,2,1,1,2,1,3,1,3,1,1,2,2,1,1,4,4,2,4,2,1,3,4,3,4,4,2,4,1,4,3,4,4,4,2,4,4,3,1,1,2,4,4,3,4,3,4,3,2,2,3,2,4,2,4,3,1,3,4,3,4,4,2,3,3,1,3,2,1,2,2,3,4,2,1,4,3,2,4,2,3,2,2,3,1,2,3,2,3,4,3,2,3,3,2,4,2,3,4,2,3,2,1,3,4,3,3,2,1,2,4,1,3,2,2,1,3,2,4,3,1,4,2,4,2,4,2,1,1,4,2,1,3,2,3,1,4,2,2,1,2,3,1,3,1,3,1,3,2,1,4,4,1,2,3,1,3,1,2,3,1,2,4,3,1,2,1,3,1,3,3,1,3,3,1,1,3,4,1,3,2,4,4,2,4,3,4,1,3,2,1,4,3,2,2,1,2,2,2,1,1,2,1,1,2,3,2,1,1,2,2,2,2,1,3,1,3,2,3,1,1,2,1,3,1,1,1,1,1,3,4,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,3,1,1,1,2,1,1,1,1,1,1,1,1,1,2,1,1,4,2,1,2,1,1,1,1,3,1,1,2,4,2,1,1,2,1,1,3,2,3,1,1,1,3,1,2,2,4,1,1,1,1,1,2,4,3,1,3,2,3,2,1,2,3,4,3,2,3,3,2,1,2,3,1,1,2,1,3,1,2,2,4,3,1,1,1,1,2,1,2,1,2,1,3,1,4,1,3,1,4,3,2,1,3,1,1,3,2,2,1,4,3,2,2,3,1,3,4,3,2,2,3,2,3,3,2,1,3,4,4,2,2,2,2,2,2,2,3,4,2,1,2,3,2,4,3,3,3,3,4,2,2,2,3,3,3,2,2,3,3,2,1,4,4,3,2,3,3,2,4,2,4,3,2,3,3,3,4,4,2,3,1,1,3,2,2,2,4,3,4,2,3,2,1,2,3,4,2,2,4,4,2,2,3,2,2,2,2,3,4,3,3,1,2,3,2,2,4,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,4,4,3,4,3,4,4,4,3,4,4,4,3,4,4,4,1,1,4,4,1,3,3,4,4,4,1,3,4,4,1,4,3,1,3,4,4,1,1,4,1,4,3,4,3,1,4,4,3,4,4,3,1,2,1,4,1,4,2,3,2,1,3,4,2,3,2,2,3,2,4,4,1,2,2,3,1,2,3,1,4,3,1,4,3,3,2,2,3,4,2,4,1,1,2,2,3,2,4,3,3,4,1,2,3,2,3,1,4,3,3,1,2,4,1,3,2,2,4,3,2,4,4,3,2,1,3,2,4,2,1,4,2,1,4,3,4,3,2,1,4,2,3,3,2,1,3,4,3,2,3,1,4,4,3,2,3,4,3,3,2,1,4,3,1,2,1,3,4,1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,3,2,2,1,1,3,1,2,2,2,1,2,3,4,2,2,1,1,2,2,3,1,1,1,4,1,3,3,2,2,1,2,4,3,4,3,2,4,1,1,3,1,4,2,4,3,1,3,1,1,4,2,3,2,1,3,2,3,4,3,1,4,4,2,2,4,3,1,2,1,1,2,4,1,3,1,4,2,2,1,2,2,3,3,2,4,2,2,1]
+    wrongid, bestCount = 0, 0
 #======  read data in for loop  ======
-    for i in range(totalData):
-        #print("Start reading data in" + pathData + str(i) + '.json')
-        jsonData = readData(pathData + str(i) + '.json')
-        
-        #print("Start generate output of" + pathData + str(i) + '.json')
+    bestModel = ""
+    for p in pm:
+        count = 0
+        ansList = []
+        if p[len(p)-6:len(p)] == ".model":
+            model = models.Word2Vec.load(pathModel + p)
+            for i in range(totalData):
+                jsonData = readData(pathData + str(i) + '.json')
+                print("Processing file: %d." %i)
+        #====== output data =======
+                randomNum = True
+                if len(jsonData['answer']) != 4:
+                    randomNum = False
+                    wrongid += 1
+                if randomNum == False:
+                    ansTag = str(random.randint(1,4))
+                elif randomNum == True:
+                    ansTag = generateAnswer(jsonData, model)
+                # for evaluate correctness
+                # if ansTag == str(correctAnsList[i]):
+                #     count +=1
+                ansList.append(ansTag)
+                
+                outputList = []
+                outputMerge = []
+            
+                #read question number from csv file
+                with open('readNumber.csv', newline= '') as csvfile:
+                    spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+                    outputList = list(spamreader)
 
-#=== check format is correct or not ===
-        randomNum = True
-        if len(jsonData['answer']) != 4:
-            randomNum = False
-            wrongid += 1
-        if randomNum == False:
-            ansTag = str(random.randint(1,4))
-        elif randomNum == True:
-            ansTag = generateAnswer(jsonData)
+                    for i in range(0, len(ansList), 1):
+                        data = str(outputList[i+1][0])+ str(ansList[i])
+                        outputMerge.append(data)
 
-        ansList.append(ansTag)
-
-#====== output data =======
-        with open("method1_result.txt", 'a+') as file:
-            file.write(ansTag)
-            file.write("\n")
-
-        outputList = []
-        outputMerge = []
-    
-        #read question number from csv file
-        with open('readNumber.csv', newline= '') as csvfile:
-            spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
-            outputList = list(spamreader)
-
-            for i in range(0, len(ansList), 1):
-                data = str(outputList[i+1][0])+ str(ansList[i])
-                outputMerge.append(data)
-
-        with open('method1.csv', 'w', newline='') as csvfile:
-            csvfile.write('ID,Answer')
-            csvfile.write('\n')
-            for i in outputMerge:                     
-                csvfile.write(i)    
-                csvfile.write('\n')
-
-       # print("Output done!")
-        
-    print("=========Finished========")
-    print("Total wrong corpus format numbers are %d" % wrongid)
-    print("It took %.2f sec to process" % (time.time() - t))
-
-
-pathModel = './word2vec/wiki/wiki_zh_tw(cowb300)/word2vec.model'
-model = models.Word2Vec.load(pathModel)
-print("Success load model!")
-
+                with open('method1.csv', 'w', newline='') as csvfile:
+                    csvfile.write('ID,Answer')
+                    csvfile.write('\n')
+                    for i in outputMerge:                     
+                        csvfile.write(i)    
+                        csvfile.write('\n')
+            # for evaluate correctness
+            # if bestCount < count :
+            #     bestCount = count
+            #     bestModel = p
+            # print("current accuracy: %.3f" %(bestCount/1500))
+            # print(bestModel)
+            print("=========Finished========")
+            print("It took %.2f sec to process" % (time.time() - t))
+            del model
 if __name__ == "__main__":
     main()
 
