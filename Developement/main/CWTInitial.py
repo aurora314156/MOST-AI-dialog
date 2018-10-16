@@ -6,7 +6,7 @@ class CWTInitial(QuestionDataSetInitial):
         self.corpus = jf['corpus']
         self.question = jf['question']
         self.answer = jf['answer']
-        self.correct_answer = jf['correct_answer']
+    #    self.correct_answer = jf['correct_answer']
         
     # get instance attributes
     def getCorpus(self):
@@ -15,7 +15,7 @@ class CWTInitial(QuestionDataSetInitial):
         return self.question
     def getAnswer(self):
         return self.answer
-    def getCorrectAnswer(self):
-        return self.correct_answer
+    #def getCorrectAnswer(self):
+    #    return self.correct_answer
 
 

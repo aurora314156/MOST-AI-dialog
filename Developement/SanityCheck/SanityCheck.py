@@ -1,4 +1,5 @@
-
+import sys
+sys.path.append('../')
 import math
 import time
 from gensim.models import word2vec

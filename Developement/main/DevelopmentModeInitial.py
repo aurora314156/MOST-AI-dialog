@@ -7,7 +7,7 @@ from CQDInitial import CQDInitial
 from EQDInitial import EQDInitial
 
 # read cqa data from json
-class ContestModeInitial(Initial):
+class DevelopmentModeInitial(Initial):
 
     def __init__(self, qasp, mp, tqn, data):
         self.qasp = qasp

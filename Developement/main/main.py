@@ -1,9 +1,9 @@
 
 import sys
+sys.path.append('../')
 import random
 import logging
 from os import listdir
-from ContestModeInitial import ContestModeInitial
 from DevelopmentModeInitial import DevelopmentModeInitial
 from SanityCheck import SanityCheck
 
