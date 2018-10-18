@@ -12,10 +12,10 @@ def processFile(line, fileName):
     result = []
     error = {'＜','ＵＮＫ＞', '\n', ''}
     for l in line:
-		for word in l.split(" "):
-			if word not in error:
-				result.append(word)
-
+        print(l)
+        for word in l.split(" "):
+            if word not in error:
+                result.append(word)
     outputFile(result, fileName)
         
 

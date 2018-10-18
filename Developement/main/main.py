@@ -6,21 +6,8 @@ import logging
 from os import listdir
 from DevelopmentModeInitial import DevelopmentModeInitial
 from SanityCheck import SanityCheck
+from AttentionWithGRU import AttentionWithGRU
 
-"""
-    Parameters
-    --------------------------------------
-    QuestionAnswerSetPath: qasp
-    ModelPath: mp
-    TotalQuestionDataSetAmount: tqn
-    CurrentQuestionNumber: cqn
-    mode [different mode]: cwt, MOST ..... 
-    CWTInitial: 華語文能力檢定
-    ChineseQuestionDataInitial: CQDInitial
-    EnglishQuestionDataInitial: EQDInitial
-    
-    --------------------------------------
-"""
 
 def SanityCheckMethod(CQADataSet, model, tqn):
 
@@ -66,16 +53,20 @@ def main():
         if m[len(m)-6:len(m)] == ".model":
             modelPath = mp + m
             print("Process model: %s" %m)
-            CQADataSet, model = DevelopmentModeInitial(qasp, modelPath, tqn, data).getCQADataSetAndModel()
-            x, accuracy = SanityCheckMethod(CQADataSet, model, tqn)
-        if accuracy > bestAccuracy:
-            bestX = x
-            bestAccuracy = accuracy
-            bestModel = m
+            embeddingDim = 300
+            CQADataSet, w2vmodel = DevelopmentModeInitial(qasp, modelPath, tqn, data).getCQADataSetAndModel()
+            AttentionWithGRU(CQADataSet, w2vmodel, embeddingDim).AttenWithGRUMain()
+            
+            #x, accuracy = SanityCheckMethod(CQADataSet, model, tqn)
+            
+        # if accuracy > bestAccuracy:
+        #     bestX = x
+        #     bestAccuracy = accuracy
+        #     bestModel = m
 
-    print(bestAccuracy)
-    print(bestModel)
-    print(bestX)
+    # print(bestAccuracy)
+    # print(bestModel)
+    # print(bestX)
     
 if __name__ == "__main__":
     main()
