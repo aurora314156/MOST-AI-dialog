@@ -1,16 +1,17 @@
-
 import sys
 sys.path.append('../')
-import random
 import logging
 from os import listdir
 from DevelopmentModeInitial import DevelopmentModeInitial
-from SanityCheck import SanityCheck
-from AttentionWithGRU import AttentionWithGRU
+from SanityCheck.SanityCheck import SanityCheck
+from AttentionWithGRU.AttentionWithGRU import AttentionWithGRU
 
-
+def AttentionMethod(CQADataSet, w2vmodel, tqn):
+    for cqn in range(1):
+        guessAnsList = AttentionWithGRU(CQADataSet, w2vmodel, tqn).AttentionWithGRUMain()
+        print(guessAnsList)
 def SanityCheckMethod(CQADataSet, model, tqn):
-
+    
     x = 0.1
     bestX = 0
     highestCorrectCount  = 0
@@ -33,12 +34,13 @@ def SanityCheckMethod(CQADataSet, model, tqn):
 
     return bestX, highestCorrectCount/tqn
 
-def main():
+
+def main(argv=None):
 
     # initial setting
     data = 'MOST'
     # development mode
-    print("Start development mode.\nInput parameters [1]qasp [2]mp.\n")
+    print("\nStart development mode.\n\nInput parameters [1]qasp [2]mp.\n")
     qasp = sys.argv[1]
     mp = sys.argv[2]
     tqn = len(listdir(qasp))
@@ -46,27 +48,18 @@ def main():
     print("Start create CQA instance and load model.\n")
     
     # start SanityCheckMethod iteration
-    x, accuracy, bestX, bestAccuracy = 0, 0, 0, 0
+    #x, accuracy, bestX, bestAccuracy = 0, 0, 0, 0
+    
     modelFiles = listdir(mp)
     bestModel = ""
     for m in modelFiles:
         if m[len(m)-6:len(m)] == ".model":
             modelPath = mp + m
             print("Process model: %s" %m)
-            embeddingDim = 300
             CQADataSet, w2vmodel = DevelopmentModeInitial(qasp, modelPath, tqn, data).getCQADataSetAndModel()
-            AttentionWithGRU(CQADataSet, w2vmodel, embeddingDim).AttenWithGRUMain()
+            AttentionMethod(CQADataSet, w2vmodel, tqn)
+            #SanityCheckMethod(CQADataSet, w2vmodel, tqn)
             
-            #x, accuracy = SanityCheckMethod(CQADataSet, model, tqn)
-            
-        # if accuracy > bestAccuracy:
-        #     bestX = x
-        #     bestAccuracy = accuracy
-        #     bestModel = m
-
-    # print(bestAccuracy)
-    # print(bestModel)
-    # print(bestX)
     
 if __name__ == "__main__":
     main()
