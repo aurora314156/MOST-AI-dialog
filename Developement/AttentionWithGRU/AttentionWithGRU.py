@@ -1,17 +1,18 @@
 import os
 import sys
+import tensorflow as tf
 import logging
 import numpy as np
-from gensim.models import Word2Vec
+from numpy import array
+from numpy import argmax
+from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import OneHotEncoder
 sys.path.append('../')
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-
-
 class AttentionWithGRU():
-    def __init__(self, CQADataSet, w2vmodel, tqn):
+    def __init__(self, CQADataSet, tqn):
         self.CQADataSet = CQADataSet
-        self.w2vmodel = w2vmodel
         self.tqn = tqn
 
     def AttentionWithGRUMain(self):
@@ -20,7 +21,7 @@ class AttentionWithGRU():
         questionWordList = self.CQADataSet[0].getQuestion()
         
         # QuestionBidirectionalGRU
-        QueBidirGRU = QuestionBidirectionalGRU(questionWordList)
+        self.bidirectionalGRU(questionWordList)
 
         # StoryBidirectionalGRU 
         #SotryBidirectionalGRU()
@@ -33,11 +34,39 @@ class AttentionWithGRU():
 
         return guessAnsList
 
-    def QuestionBidirectionalGRU(self, questionWordList):
+    def bidirectionalGRU(self, questionWordList):
+        # forward vector
+        fOneHot = self.oneHotEncoding(questionWordList)
+        forwardVector = self.GRU(fOneHot)
+        #print(fOneHot.shape)
+        # backward vector
+        #bOneHot = self.oneHotEncoding(questionWordList.reverse())
+        #backwardVector = self.GRU(bOneHot)
+        # concat vector
+        #concat = tf.concat(0, [forward, backward])
+
+        #print(concat)
+
+    def GRU(self, oneHotEncoding):
+        # tf GRU cell
+        gru = tf.nn.rnn_cell.GRUCell(num_units=10)
+        init_state = cell.zero_state(3, dtype=tf.float32)
+        hiddens,states = tf.contrib.rnn.static_rnn(cell=gru_cell,inputs=input_x1,dtype=tf.float32)
+        print("done")
         
-        # forward
-        for q in questionWordList:
-            
-        # backward
-    
-    
+    def oneHotEncoding(self, WordList):
+        # dict transfer to array
+        values = array(WordList)
+        print(values)
+        # integer encode
+        label_encoder = LabelEncoder()
+        integer_encoded = label_encoder.fit_transform(values)
+        print(integer_encoded)
+        # binary encode
+        onehot_encoder = OneHotEncoder(sparse=False)
+        # create oneHotVector, only need to take maximum number building one-hot vector from array
+        oneHotV = np.zeros((len(integer_encoded), integer_encoded.max()+1))
+        oneHotV[np.arange(integer_encoded.max()+1), integer_encoded.tolist()] = 1
+        print(oneHotV)
+
+        return oneHotV

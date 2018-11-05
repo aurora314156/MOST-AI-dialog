@@ -6,10 +6,10 @@ from DevelopmentModeInitial import DevelopmentModeInitial
 from SanityCheck.SanityCheck import SanityCheck
 from AttentionWithGRU.AttentionWithGRU import AttentionWithGRU
 
-def AttentionMethod(CQADataSet, w2vmodel, tqn):
+def AttentionMethod(CQADataSet, tqn):
     for cqn in range(1):
-        guessAnsList = AttentionWithGRU(CQADataSet, w2vmodel, tqn).AttentionWithGRUMain()
-        print(guessAnsList)
+        guessAnsList = AttentionWithGRU(CQADataSet, tqn).AttentionWithGRUMain()
+        
 def SanityCheckMethod(CQADataSet, model, tqn):
     
     x = 0.1
@@ -55,9 +55,9 @@ def main(argv=None):
     for m in modelFiles:
         if m[len(m)-6:len(m)] == ".model":
             modelPath = mp + m
-            print("Process model: %s" %m)
+            print("W2V Model: %s" %m)
             CQADataSet, w2vmodel = DevelopmentModeInitial(qasp, modelPath, tqn, data).getCQADataSetAndModel()
-            AttentionMethod(CQADataSet, w2vmodel, tqn)
+            AttentionMethod(CQADataSet, tqn)
             #SanityCheckMethod(CQADataSet, w2vmodel, tqn)
             
     
