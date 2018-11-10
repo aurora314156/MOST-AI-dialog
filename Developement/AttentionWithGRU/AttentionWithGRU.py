@@ -1,12 +1,11 @@
-import os
-import sys
+import os, sys, logging
 import tensorflow as tf
-import logging
 import numpy as np
-from numpy import array
-from numpy import argmax
-from sklearn.preprocessing import LabelEncoder
-from sklearn.preprocessing import OneHotEncoder
+from numpy import array, argmax
+from keras.models import Sequential
+from keras.layers import LSTM, GRU, Dense, RepeatVector, TimeDistributed
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+import matplotlib.pyplot as plt
 sys.path.append('../')
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -37,36 +36,67 @@ class AttentionWithGRU():
     def bidirectionalGRU(self, questionWordList):
         # forward vector
         fOneHot = self.oneHotEncoding(questionWordList)
-        forwardVector = self.GRU(fOneHot)
+        print(fOneHot.shape)
+        self.GRU(fOneHot)
         #print(fOneHot.shape)
         # backward vector
-        #bOneHot = self.oneHotEncoding(questionWordList.reverse())
+        #bOneHot = self.oneHotEncoding(list(reversed(questionWordList)))
         #backwardVector = self.GRU(bOneHot)
+        #print(bOneHot.shape)
         # concat vector
-        #concat = tf.concat(0, [forward, backward])
-
+        #concat = tf.concat(0, [fOneHot, bOneHot])
         #print(concat)
 
     def GRU(self, oneHotEncoding):
-        # tf GRU cell
-        gru = tf.nn.rnn_cell.GRUCell(num_units=10)
-        init_state = cell.zero_state(3, dtype=tf.float32)
-        hiddens,states = tf.contrib.rnn.static_rnn(cell=gru_cell,inputs=input_x1,dtype=tf.float32)
-        print("done")
+        # keras GRU cell
+        # reshape input into [samples, timesteps, features]
+        train_x = oneHotEncoding
+        print(oneHotEncoding.shape)
+        n_in = len(oneHotEncoding)
+        train_x = train_x.reshape((1, n_in, 1))
+        # define model
+        model = Sequential()
+        model.add(GRU(50, activation='relu', input_shape=(n_in,1)))
+        model.add(RepeatVector(n_in))
+        model.add(GRU(50, activation='relu', return_sequences=True))
+        model.add(TimeDistributed(Dense(1, activation='relu')))
+        model.compile(optimizer='adam', loss='mean_squared_error')
+        print(model.summary())
+        history = model.fit(train_x, train_x, epochs = 30)
+        print()
+        # Plot training & validation accuracy values
+        # plt.plot(history.history['acc'])
+        # plt.plot(history.history['val_acc'])
+        # plt.title('Model accuracy')
+        # plt.ylabel('Accuracy')
+        # plt.xlabel('Epoch')
+        # plt.legend(['Train', 'Test'], loc='upper left')
+        # plt.show()
+
+        # Plot training & validation loss values
+        plt.plot(history.history['loss'])
+        #plt.plot(history.history['val_loss'])
+        plt.title('Model loss')
+        plt.ylabel('Loss')
+        plt.xlabel('Epoch')
+        plt.legend(['Train', 'Test'], loc='upper left')
+        plt.show()
+        print()
+
         
     def oneHotEncoding(self, WordList):
         # dict transfer to array
         values = array(WordList)
-        print(values)
         # integer encode
         label_encoder = LabelEncoder()
         integer_encoded = label_encoder.fit_transform(values)
-        print(integer_encoded)
         # binary encode
         onehot_encoder = OneHotEncoder(sparse=False)
-        # create oneHotVector, only need to take maximum number building one-hot vector from array
+        # create one-dim oneHotVector, only need to take maximum number building one-hot vector 
+        # from array then merge all one hot encodeing vector to one-dim vector.
         oneHotV = np.zeros((len(integer_encoded), integer_encoded.max()+1))
-        oneHotV[np.arange(integer_encoded.max()+1), integer_encoded.tolist()] = 1
-        print(oneHotV)
+        oneHotV[np.arange(len(integer_encoded)), integer_encoded] = 1
+        oneHotV = oneHotV.ravel()
+        #print(oneHotV)
 
         return oneHotV
