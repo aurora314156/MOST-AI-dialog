@@ -6,6 +6,7 @@ from keras.models import Sequential, Model
 from keras.layers import LSTM, GRU, Dense, RepeatVector, TimeDistributed, Input
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 import matplotlib.pyplot as plt
+from sklearn.metrics.pairwise import cosine_similarity
 sys.path.append('../')
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -18,13 +19,17 @@ class AttentionWithGRU():
         
         guessAnsList = []
         questionWordList = self.CQADataSet[0].getQuestion()
-        
+        storyWordList = self.CQADataSet[0].getCorpus()
+        print(len(storyWordList))
         # QuestionBidirectionalGRU
         questionVector = self.bidirectionalGRU(questionWordList)
 
         # StoryBidirectionalGRU 
-        #SotryBidirectionalGRU()
+        storyVector = self.bidirectionalStoryGRU(storyWordList)
         
+        # AttentionValue
+        print(cosine_similarity(questionVector, storyVector))
+
         # AnswersBidirectionalGRU 
         #AnswersBidirectionalGRU()
         
@@ -36,21 +41,58 @@ class AttentionWithGRU():
     def bidirectionalGRU(self, questionWordList):
         # forward vector
         fOneHot = self.oneHotEncoding(questionWordList)
-        forwardVector = self.GRUTest(fOneHot)
-        print(forwardVector.shape)
+        f_all_hidden_state, f_final_hidden_state = self.GRU(fOneHot)
         # backward vector
         bOneHot = self.oneHotEncoding(list(reversed(questionWordList)))
-        backwardVector = self.GRUTest(bOneHot)
-        print(backwardVector.shape)
+        b_all_hidden_state, b_final_hidden_state = self.GRU(bOneHot)
         # concat forward vector and backward vector
+        forwardVector, backwardVector = f_final_hidden_state, b_final_hidden_state
+        print(forwardVector.shape)
+        print(backwardVector.shape)
         quesitonVector = np.concatenate((forwardVector,backwardVector), axis=None)
         print(quesitonVector)
         print(quesitonVector.shape)
         print(type(quesitonVector))
 
-        return questionVector
+        return quesitonVector
+
+    def bidirectionalStoryGRU(self, storyWordList):
+        # forward vector
+        fOneHot = self.oneHotEncoding(storyWordList)
+        f_all_hidden_state, f_final_hidden_state = self.GRU(fOneHot)
+        print(f_all_hidden_state.shape)
+        # backward vector
+        bOneHot = self.oneHotEncoding(list(reversed(storyWordList)))
+        b_all_hidden_state, b_final_hidden_state = self.GRU(bOneHot)
+        print(b_all_hidden_state.shape)
+
+        # story vector
+        l = []
+        for index in range(len(f_all_hidden_state)):
+            l.append(f_all_hidden_state[0][index])
+            l.append(b_all_hidden_state[0][index])
+        
+        storyVector = np.array(l)
+        print(storyVector)
+        return storyVector
 
     def GRU(self, oneHotEncoding):
+        # define timesteps
+        seqlen = len(oneHotEncoding)
+        # define model, save GRU all hidden state and final hidden state for question vector representation
+        inputs = Input(shape=(seqlen,1))
+        temp_all_hidden_state, temp_final_hidden_state = GRU(1, return_sequences=True, return_state=True, activation='softmax')(inputs)
+        model = Model(inputs=inputs, outputs=[temp_all_hidden_state, temp_final_hidden_state])
+        # define input data
+        data = oneHotEncoding.reshape(1,seqlen,1)
+        # train model using encoder method
+        model.compile(optimizer='adam', loss='mean_squared_error', metrics=['accuracy'])
+        mp = model.predict(data, verbose = 1)
+        all_hidden_state, final_hidden_state = mp[0], mp[1]
+        
+        return all_hidden_state, final_hidden_state
+
+    def GRUModelEvalute(self, oneHotEncoding):
         # keras GRU cell
         # reshape input into [samples, timesteps, features]
         train_x = oneHotEncoding
@@ -80,35 +122,12 @@ class AttentionWithGRU():
         plt.show()
         print()
 
-    def GRUTest(self, oneHotEncoding):
-        # define timesteps
-        queVlen = len(oneHotEncoding)
-        # define model, save GRU all hidden state and final hidden state for question vector representation
-        inputs = Input(shape=(queVlen,1))
-        temp_all_hidden_state, temp_final_hidden_state = GRU(50, return_sequences=True, return_state=True, activation='softmax')(inputs)
-        model = Model(inputs=inputs, outputs=[temp_all_hidden_state, temp_final_hidden_state])
-        # define input data
-        data = oneHotEncoding.reshape(1,queVlen,1)
-        # train model using encoder method
-        model.compile(optimizer='adam', loss='mean_squared_error', metrics=['accuracy'])
-        mp = model.predict(data, verbose = 1)
-        all_hidden_state, final_hidden_state = mp[0], mp[1]
-        
-        #print(all_hidden_state)
-        #print("================================================")
-        #print(final_hidden_state)
-        
-        return final_hidden_state
-        
-
     def oneHotEncoding(self, WordList):
         # dict transfer to array
         values = array(WordList)
         # integer encode
         label_encoder = LabelEncoder()
         integer_encoded = label_encoder.fit_transform(values)
-        # binary encode
-        onehot_encoder = OneHotEncoder(sparse=False)
         # create one-dim oneHotVector, only need to take maximum number building one-hot vector 
         # from array then merge all one hot encodeing vector to one-dim vector.
         oneHotV = np.zeros((len(integer_encoded), integer_encoded.max()+1))
