@@ -5,8 +5,9 @@ from numpy import array, argmax
 from keras.models import Sequential, Model
 from keras.layers import LSTM, GRU, Dense, RepeatVector, TimeDistributed, Input
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+from numpy import linalg as LA
 import matplotlib.pyplot as plt
-from sklearn.metrics.pairwise import cosine_similarity
+from scipy.spatial.distance import cosine
 sys.path.append('../')
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -20,23 +21,23 @@ class AttentionWithGRU():
         guessAnsList = []
         questionWordList = self.CQADataSet[0].getQuestion()
         storyWordList = self.CQADataSet[0].getCorpus()
-        print(len(storyWordList))
         # QuestionBidirectionalGRU
         questionVector = self.bidirectionalGRU(questionWordList)
-
+        print("questionVector len:", len(questionVector))
         # StoryBidirectionalGRU 
         storyVector = self.bidirectionalStoryGRU(storyWordList)
-        
-        # AttentionValue
-        print(cosine_similarity(questionVector, storyVector))
-
-        # AnswersBidirectionalGRU 
-        #AnswersBidirectionalGRU()
-        
-        # Attention 
-        #Attention()
+        print("storyVector len:", len(storyVector))
+        # AttentionValue with normalization
+        attentionValue = []
+        for index in range(len(storyVector)):
+            attentionValue.append(cosine(storyVector[index], np.square(questionVector)))
+        LA.norm(attentionValue, axis = 0)
+        print("attentionValue length:",len(attentionValue))
+        # WordLevelAttetion
+        #WordLevelAttention(storyVector, attentionValue)
 
         return guessAnsList
+    #def WordLevelAttention(self, storyVector, attentionValue):
 
     def bidirectionalGRU(self, questionWordList):
         # forward vector
@@ -47,33 +48,30 @@ class AttentionWithGRU():
         b_all_hidden_state, b_final_hidden_state = self.GRU(bOneHot)
         # concat forward vector and backward vector
         forwardVector, backwardVector = f_final_hidden_state, b_final_hidden_state
-        print(forwardVector.shape)
-        print(backwardVector.shape)
+        # print(forwardVector.shape)
+        # print(backwardVector.shape)
         quesitonVector = np.concatenate((forwardVector,backwardVector), axis=None)
-        print(quesitonVector)
-        print(quesitonVector.shape)
-        print(type(quesitonVector))
-
+        # print(quesitonVector)
+        # print(quesitonVector.shape)
+        # print(type(quesitonVector))
         return quesitonVector
 
+    
     def bidirectionalStoryGRU(self, storyWordList):
         # forward vector
         fOneHot = self.oneHotEncoding(storyWordList)
         f_all_hidden_state, f_final_hidden_state = self.GRU(fOneHot)
-        print(f_all_hidden_state.shape)
+        # print(f_all_hidden_state.shape)
         # backward vector
         bOneHot = self.oneHotEncoding(list(reversed(storyWordList)))
         b_all_hidden_state, b_final_hidden_state = self.GRU(bOneHot)
-        print(b_all_hidden_state.shape)
-
-        # story vector
-        l = []
-        for index in range(len(f_all_hidden_state)):
-            l.append(f_all_hidden_state[0][index])
-            l.append(b_all_hidden_state[0][index])
+        # print(b_all_hidden_state.shape)
+        # The word vector representation of the t-th word St is constructed 
+        # by concatenating the hidden layer outputs of forward and backward GRU networks
+        storyVector = []
+        for index in range(len(f_all_hidden_state[0])):
+           storyVector.append(np.concatenate((f_all_hidden_state[0][index],b_all_hidden_state[0][index]), axis=None))
         
-        storyVector = np.array(l)
-        print(storyVector)
         return storyVector
 
     def GRU(self, oneHotEncoding):
@@ -133,8 +131,7 @@ class AttentionWithGRU():
         oneHotV = np.zeros((len(integer_encoded), integer_encoded.max()+1))
         oneHotV[np.arange(len(integer_encoded)), integer_encoded] = 1
         oneHotV = oneHotV.ravel()
-        #print(oneHotV)
-
+        
         return oneHotV
 
 
