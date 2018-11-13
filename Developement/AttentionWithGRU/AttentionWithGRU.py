@@ -22,29 +22,39 @@ class AttentionWithGRU():
         questionWordList = self.CQADataSet[0].getQuestion()
         storyWordList = self.CQADataSet[0].getCorpus()
         # QuestionBidirectionalGRU
-        questionVector = self.bidirectionalGRU(questionWordList)
+        questionVector = self.BidirectionalGRU(questionWordList)
         print("questionVector len:", len(questionVector))
         # StoryBidirectionalGRU 
-        storyVector = self.bidirectionalStoryGRU(storyWordList)
+        storyVector = self.BidirectionalStoryGRU(storyWordList)
         print("storyVector len:", len(storyVector))
-        # AttentionValue with normalization
-        attentionValue = []
-        for index in range(len(storyVector)):
-            attentionValue.append(cosine(storyVector[index], np.square(questionVector)))
-        LA.norm(attentionValue, axis = 0)
-        print("attentionValue length:",len(attentionValue))
+        # AttentionValue
+        attentionValueVector = self.AttentionValue(storyVector, questionVector)
+        print("attentionValue length:",len(attentionValueVector))
+        print("attentionValue sum:", sum(attentionValueVector))
         # WordLevelAttetion
         #WordLevelAttention(storyVector, attentionValue)
 
         return guessAnsList
     #def WordLevelAttention(self, storyVector, attentionValue):
 
-    def bidirectionalGRU(self, questionWordList):
+    def AttentionValue(self, storyVector, questionVector):
+        # calculate AttentionValue
+        attentionValue = []
+        for index in range(len(storyVector)):
+            attentionValue.append(cosine(storyVector[index], np.square(questionVector)))
+        # normalization (actually is softmax in this paper...)
+        exps = [np.exp(i) for i in attentionValue]
+        sum_of_exps = sum(exps)
+        attentionValue_softmax = [j/sum_of_exps for j in exps]
+
+        return attentionValue_softmax
+
+    def BidirectionalGRU(self, questionWordList):
         # forward vector
-        fOneHot = self.oneHotEncoding(questionWordList)
+        fOneHot = self.OneHotEncoding(questionWordList)
         f_all_hidden_state, f_final_hidden_state = self.GRU(fOneHot)
         # backward vector
-        bOneHot = self.oneHotEncoding(list(reversed(questionWordList)))
+        bOneHot = self.OneHotEncoding(list(reversed(questionWordList)))
         b_all_hidden_state, b_final_hidden_state = self.GRU(bOneHot)
         # concat forward vector and backward vector
         forwardVector, backwardVector = f_final_hidden_state, b_final_hidden_state
@@ -56,14 +66,13 @@ class AttentionWithGRU():
         # print(type(quesitonVector))
         return quesitonVector
 
-    
-    def bidirectionalStoryGRU(self, storyWordList):
+    def BidirectionalStoryGRU(self, storyWordList):
         # forward vector
-        fOneHot = self.oneHotEncoding(storyWordList)
+        fOneHot = self.OneHotEncoding(storyWordList)
         f_all_hidden_state, f_final_hidden_state = self.GRU(fOneHot)
         # print(f_all_hidden_state.shape)
         # backward vector
-        bOneHot = self.oneHotEncoding(list(reversed(storyWordList)))
+        bOneHot = self.OneHotEncoding(list(reversed(storyWordList)))
         b_all_hidden_state, b_final_hidden_state = self.GRU(bOneHot)
         # print(b_all_hidden_state.shape)
         # The word vector representation of the t-th word St is constructed 
@@ -120,7 +129,7 @@ class AttentionWithGRU():
         plt.show()
         print()
 
-    def oneHotEncoding(self, WordList):
+    def OneHotEncoding(self, WordList):
         # dict transfer to array
         values = array(WordList)
         # integer encode
