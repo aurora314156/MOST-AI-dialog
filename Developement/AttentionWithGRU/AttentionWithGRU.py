@@ -8,6 +8,7 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from numpy import linalg as LA
 import matplotlib.pyplot as plt
 from scipy.spatial.distance import cosine
+import gc
 sys.path.append('../')
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -29,20 +30,36 @@ class AttentionWithGRU():
         print("storyVector len:", len(storyVector))
         # AttentionValue
         attentionValueVector = self.AttentionValue(storyVector, questionVector)
-        print("attentionValue length:",len(attentionValueVector))
-        print("attentionValue sum:", sum(attentionValueVector))
+        print("attentionValueVector length:",len(attentionValueVector))
+        print("attentionValueVector sum:", sum(attentionValueVector))
         # WordLevelAttetion
-        #WordLevelAttention(storyVector, attentionValue)
-
+        self.WordLevelAttention(storyVector, attentionValueVector)
+        # avoid tensorflow error
+        gc.collect()
         return guessAnsList
-    #def WordLevelAttention(self, storyVector, attentionValue):
+
+    def WordLevelAttention(self, storyVector, attentionValueVector):
+
+        storyVector = np.ravel(array(storyVector))
+        storyVector = storyVector.tolist()
+        print(storyVector[0])
+        print(len(storyVector))
+        wordLevelStoryVector = []
+        for i in range(len(attentionValueVector)):
+            wordLevelStoryVector.append(storyVector[i]*attentionValueVector[i])
+            wordLevelStoryVector.append(storyVector[i+1]*attentionValueVector[i])
+
+        print(wordLevelStoryVector[0])
+        wordLevelStoryVector = np.array(wordLevelStoryVector)
+        print(wordLevelStoryVector.shape)
+        print(123)
 
     def AttentionValue(self, storyVector, questionVector):
-        # calculate AttentionValue
+        # calculate AttentionValue, using cosine similarity between storyVector and questionVector^2
         attentionValue = []
         for index in range(len(storyVector)):
             attentionValue.append(cosine(storyVector[index], np.square(questionVector)))
-        # normalization (actually is softmax in this paper...)
+        # AttentionValue normalization (actually is softmax in this paper...)
         exps = [np.exp(i) for i in attentionValue]
         sum_of_exps = sum(exps)
         attentionValue_softmax = [j/sum_of_exps for j in exps]
