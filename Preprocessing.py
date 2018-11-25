@@ -12,6 +12,16 @@ resultFolder = os.getcwd() +'/PreResultFile/'
 files = listdir(originFile)
 
 
+def reserveLang(char):
+    appendWord = ""
+    # reserve zh
+    if '\u4e00' <= char <= '\u9fff' or '\u2e80'<= char <= '\u2fdf' or '\u3400'<= char <= '\u4dbf':
+       appendWord = char
+    # reserve number
+    elif char >= u'\u0030' and char <= u'\u0039':
+       appendWord = char
+    return appendWord
+
 i = 0
 for ff in files:
     sTime = time.time()
@@ -23,15 +33,12 @@ for ff in files:
             for l in line:
                 if l is not "\\" and l is not " ":
                     # remove punctuation
-                    word = re.sub("[<UNK>\s+\.\%-;:﹑=<>「 」!\/_,﹐，$%^*(+\"\')]+|[+——()?【】：；“”！，、《》『』％—＝。？、~@#￥%……&*（）]+","",l)
-                    if word is not "":
-                        for char in word.encode('utf-8', 'ignore').decode('utf-8'):
-                            # remove all word without zh
-                            #if '\u4e00' <= char <= '\u9fff' or '\u2e80'<= char <= '\u2fdf' or '\u3400'<= char <= '\u4dbf':
-                            result+=char
-                    else:
-                        word = " "
-                        result += word
+                    word = re.sub("[\s+\.\!\/_,$%^*(+\"\']+|[+——！，。？、~@#￥%……&*（）「」；:：；]+","",l)
+                    for char in word.encode('utf-8', 'ignore').decode('utf-8'):
+                        # reserve option function
+                        #result += reserveLang(char)
+                        # reserve all
+                        result += char
             ind = 0
             tmp = ""
             for r in result:
