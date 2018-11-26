@@ -15,7 +15,7 @@ def AttentionMethod(CQADataSet, tqn):
     guessAnsList = AttentionWithGRU(CQADataSet, tqn).AttentionWithGRUMain()
     print("Gru took: %.2fs" % (time.time()-sTime))
     for i in range(len(tqn)):
-        if guessAnsList[i] == guess_correct[i]:
+        if guessAnsList[i] == correct_answer[i]:
             guess_correct +=1
     print("Final guess correctness: ", guess_correct)
         
