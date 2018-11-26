@@ -1,6 +1,7 @@
 import os, sys, logging
 import tensorflow as tf
 import numpy as np
+import time
 from numpy import array, argmax
 from keras.models import Sequential, Model
 from keras.layers import LSTM, GRU, Dense, RepeatVector, TimeDistributed, Input
@@ -14,71 +15,78 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 class AttentionWithGRU():
     def __init__(self, CQADataSet, tqn):
+        self.gru_units = 50
+        self.model_fit_epochs = 10
+        self.hops = 5
         self.CQADataSet = CQADataSet
         self.tqn = tqn
-
+        
     def AttentionWithGRUMain(self):
         
+        # final answer list
         guessAnsList = []
-        questionWordList = self.CQADataSet[0].getQuestion()
-        storyWordList = self.CQADataSet[0].getCorpus()
-        answerList = self.CQADataSet[0].getAnswer()
 
-        # QuestionBidirectionalGRU input Vector
-        forwardV, backwardV = self.OneHotEncoding(questionWordList), self.OneHotEncoding(list(reversed(questionWordList)))
-        # StoryBidirectionalGRU 
-        storyV = self.BidirectionalStoryGRU(storyWordList)
-        print("storyVector len:", len(storyV))
+        for i in range(self.tqn):
+            # corpus content initial
+            questionWordList = self.CQADataSet[i].getQuestion()
+            storyWordList = self.CQADataSet[i].getCorpus()
+            answerList = self.CQADataSet[i].getAnswer()
+            sTime = time.time()
+            # hops for n iteration
+            for h in range(self.hops):
+                # QuestionBidirectionalGRU input Vector
+                forwardV, backwardV = self.OneHotEncoding(questionWordList), self.OneHotEncoding(list(reversed(questionWordList)))
+                # StoryBidirectionalGRU 
+                storyV = self.BidirectionalStoryGRU(storyWordList)
+                #print("storyVector len:", len(storyV))
+                # QuestionBidirectionalGRU
+                questionV = self.BidirectionalGRU(forwardV, backwardV)
+                #print("questionVector len:", len(questionV))
+                # AttentionValue
+                attentionValueV = self.AttentionValue(storyV, questionV)
+                #print("attentionValueVector length:",len(attentionValueV))
+                # WordLevelAttetion
+                storyWordLevelV = self.WordLevelAttention(storyV, attentionValueV)
+                #print("storyWordLevelV Shape:",storyWordLevelV.shape)
+                # hops, VQn and VSn+1 summed to form a new question Vector VQn+1
+                for j in range(len(questionV)):
+                    storyWordLevelV[j] += questionV[j]
+                
+                # use final attention VS vector as next VQ vector
+                questionV = storyWordLevelV
+                forwardV, backwardV = questionV, np.flip(questionV, axis = 0)
+                #print("forwardV len:", len(forwardV))
+                print("Finished {} hops summed!".format(h+1))
 
-        # hops for n iteration
-        for i in range(1):
-            # QuestionBidirectionalGRU
-            questionV = self.BidirectionalGRU(forwardV, backwardV)
-            print("questionVector len:", len(questionV))
-            # AttentionValue
-            attentionValueV = self.AttentionValue(storyV, questionV)
-            print("attentionValueVector length:",len(attentionValueV))
-            print("attentionValueVector sum:", sum(attentionValueV))
-            # WordLevelAttetion
-            storyWordLevelV = self.WordLevelAttention(storyV, attentionValueV)
-            print("storyWordLevelV Shape:",storyWordLevelV.shape)
-            # hops, VQn and VSn+1 summed to form a new question Vector VQn+1
-            for j in range(len(questionV)):
-                storyWordLevelV[j] += questionV[j]
+                # avoid tensorflow error
+                gc.collect()
             
-            # use final attention VS vector as next VQ vector
-            questionV = storyWordLevelV
-            forwardV, backwardV = questionV, np.flip(questionV, axis = 0)
-            print("forwardV len:", len(forwardV))
-            print("Finished {} hops summed!".format(i+1))
+            # guess answer
+            highestScoreAnswer = 0
+            guessAnswer = 1
+            ind = 1
+            for a in answerList:
+                # AnswerBidirectionalGRU input Vector
+                ansForwardV, ansBackwardV = self.OneHotEncoding(a), self.OneHotEncoding(list(reversed(a)))
+                # AnswerBidirectionalGRU
+                answerV = self.BidirectionalGRU(ansForwardV, ansBackwardV)
 
-            # avoid tensorflow error
-            gc.collect()
-        
-        # guess answer
-        highestScoreAnswer = 0
-        guessAnswer = 1
-        ind = 1
-        for a in answerList:
-            # AnswerBidirectionalGRU input Vector
-            ansForwardV, ansBackwardV = self.OneHotEncoding(a), self.OneHotEncoding(list(reversed(a)))
-            # AnswerBidirectionalGRU
-            answerV = self.BidirectionalGRU(ansForwardV, ansBackwardV)
+                # use final attention VS vector as FINAL VQ vector
+                forwardV, backwardV = questionV, np.flip(questionV, axis = 0)
+                # FINAL GRU QuestionBidirectionalGRU
+                questionV = self.BidirectionalGRU(forwardV, backwardV)
 
-            # use final attention VS vector as FINAL VQ vector
-            forwardV, backwardV = questionV, np.flip(questionV, axis = 0)
-            # FINAL GRU QuestionBidirectionalGRU
-            questionV = self.BidirectionalGRU(forwardV, backwardV)
-
-            # guess answer by calculate cosine value between storyV and answerV
-            tempScoreAnswer = cosine(questionV, answerV)
-            if highestScoreAnswer < tempScoreAnswer:
-                highestScoreAnswer = tempScoreAnswer
-                guessAnswer = ind
-            print("CurrentAnswer score",tempScoreAnswer)
-            print("HighestScoreAnswer score",highestScoreAnswer)
-            ind += 1
-        print("GuessAnswer: ", guessAnswer)
+                # guess answer by calculate cosine value between storyV and answerV
+                tempScoreAnswer = cosine(questionV, answerV)
+                if highestScoreAnswer < tempScoreAnswer:
+                    highestScoreAnswer = tempScoreAnswer
+                    guessAnswer = ind
+                print("CurrentAnswer score",tempScoreAnswer)
+                print("HighestScoreAnswer score",highestScoreAnswer)
+                ind += 1
+            print("GuessAnswer: ", guessAnswer)
+            guessAnsList.append(guessAnswer)
+            print("Gru took: %.2fs" % (time.time()-sTime))
         return guessAnsList
 
     def WordLevelAttention(self, storyVector, attentionValueVector):
@@ -136,7 +144,7 @@ class AttentionWithGRU():
         seqlen = len(inputV)
         # define model, save GRU all hidden state and final hidden state for question vector representation
         inputs = Input(shape=(seqlen,1))
-        temp_all_hidden_state, temp_final_hidden_state = GRU(50, return_sequences=True, return_state=True, activation='softmax')(inputs)
+        temp_all_hidden_state, temp_final_hidden_state = GRU(self.gru_units, return_sequences=True, return_state=True, activation='softmax')(inputs)
         model = Model(inputs=inputs, outputs=[temp_all_hidden_state, temp_final_hidden_state])
         # define input data
         data = inputV.reshape(1,seqlen,1)
@@ -154,17 +162,15 @@ class AttentionWithGRU():
         print(inputV.shape)
         n_in = len(inputV)
         train_x = train_x.reshape((1, n_in, 1))
-        #parameter
-        n_units = 50
         # define model
         model = Sequential()
-        model.add(GRU(n_units, activation='relu', input_shape=(n_in,1)))
+        model.add(GRU(self.gru_units, activation='relu', input_shape=(n_in,1)))
         model.add(RepeatVector(n_in))
-        model.add(GRU(n_units, activation='relu', return_sequences=True, return_state=True))
+        model.add(GRU(self.gru_units, activation='relu', return_sequences=True, return_state=True))
         model.add(TimeDistributed(Dense(1, activation='relu')))
         model.compile(optimizer='adam', loss='mean_squared_error')
         print(model.summary())
-        history = model.fit(train_x, train_x, epochs = 30)
+        history = model.fit(train_x, train_x, self.model_fit_epochs)
         print()
         
         # Plot training & validation loss values
