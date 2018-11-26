@@ -33,7 +33,7 @@ for ff in files:
             for l in line:
                 if l is not "\\" and l is not " ":
                     # remove punctuation
-                    word = re.sub("[\s+\.\!\/_,$%^*(+\"\']+|[+——！，。？、~@#￥%……&*（）「」；:：；]+","",l)
+                    word = re.sub("[\s+\.\!\/_,$%^*(+\"\']+|[+——！，。？?、~@#￥%……&*（）「」；:：；]+","",l)
                     for char in word.encode('utf-8', 'ignore').decode('utf-8'):
                         # reserve option function
                         #result += reserveLang(char)
