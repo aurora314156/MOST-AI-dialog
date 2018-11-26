@@ -19,7 +19,7 @@ class DevelopmentModeInitial(Initial):
     def getCQADataSetAndModel(self):
 
         CQAInstanceList = []
-        for q in range(self.tqn):
+        for q in range(1, self.tqn+1):
             CQAInstanceList.append(self.readCQAData(q))
 
         #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
