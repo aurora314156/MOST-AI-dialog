@@ -15,9 +15,9 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 class AttentionWithGRU():
     def __init__(self, CQADataSet, tqn):
-        self.gru_units = 50
-        self.model_fit_epochs = 10
-        self.hops = 5
+        self.gru_units = 30
+        self.model_fit_epochs = 2
+        self.hops = 2
         self.CQADataSet = CQADataSet
         self.tqn = tqn
         
@@ -25,23 +25,23 @@ class AttentionWithGRU():
         
         # final answer list
         guessAnsList = []
-
         for i in range(self.tqn):
+            print("Processing number: ", i)
             # corpus content initial
             questionWordList = self.CQADataSet[i].getQuestion()
             storyWordList = self.CQADataSet[i].getCorpus()
             answerList = self.CQADataSet[i].getAnswer()
             sTime = time.time()
+            # QuestionBidirectionalGRU input Vector
+            forwardV, backwardV = self.OneHotEncoding(questionWordList), self.OneHotEncoding(list(reversed(questionWordList)))
+            # StoryBidirectionalGRU 
+            storyV = self.BidirectionalStoryGRU(storyWordList)
+            #print("storyVector len:", len(storyV))
+            # QuestionBidirectionalGRU
+            questionV = self.BidirectionalGRU(forwardV, backwardV)
+            #print("questionVector len:", len(questionV))
             # hops for n iteration
             for h in range(self.hops):
-                # QuestionBidirectionalGRU input Vector
-                forwardV, backwardV = self.OneHotEncoding(questionWordList), self.OneHotEncoding(list(reversed(questionWordList)))
-                # StoryBidirectionalGRU 
-                storyV = self.BidirectionalStoryGRU(storyWordList)
-                #print("storyVector len:", len(storyV))
-                # QuestionBidirectionalGRU
-                questionV = self.BidirectionalGRU(forwardV, backwardV)
-                #print("questionVector len:", len(questionV))
                 # AttentionValue
                 attentionValueV = self.AttentionValue(storyV, questionV)
                 #print("attentionValueVector length:",len(attentionValueV))
@@ -55,9 +55,9 @@ class AttentionWithGRU():
                 # use final attention VS vector as next VQ vector
                 questionV = storyWordLevelV
                 forwardV, backwardV = questionV, np.flip(questionV, axis = 0)
-                #print("forwardV len:", len(forwardV))
+                # QuestionBidirectionalGRU
+                questionV = self.BidirectionalGRU(forwardV, backwardV)
                 print("Finished {} hops summed!".format(h+1))
-
                 # avoid tensorflow error
                 gc.collect()
             
@@ -99,6 +99,10 @@ class AttentionWithGRU():
 
     def AttentionValue(self, storyVector, questionVector):
         # calculate AttentionValue, using cosine similarity between storyVector and questionVector^2
+        # transpose question vector length to match up storyVector for calculate cosine similarity
+
+        #qwe = np.pad(questionVector, pad_width = (0, len(storyVector)-len(questionVector)), mode = 'constant')
+       
         attentionValue = []
         for index in range(len(storyVector)):
             attentionValue.append(cosine(storyVector[index], np.square(questionVector)))
@@ -151,6 +155,7 @@ class AttentionWithGRU():
         # train model using encoder method
         model.compile(optimizer='adam', loss='mean_squared_error', metrics=['accuracy'])
         mp = model.predict(data, verbose = 1)
+        
         all_hidden_state, final_hidden_state = mp[0], mp[1]
         
         return all_hidden_state, final_hidden_state
