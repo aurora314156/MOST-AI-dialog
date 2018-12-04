@@ -27,7 +27,7 @@ def AttentionMethod(CQADataSet, tqn):
                 with open('log.txt', 'a') as log:
                     log.write("\n ******This epoch experiment result******\n")
                     log.write("Total cost time: %.2fs.\n" % (time.time()-sTime))
-                    log.write("Correctness: %.2f", %(guess_correct/len(correct_answer)))
+                    log.write("Correctness: %.2f\n" % (guess_correct/len(correct_answer)))
                     log.write("Gru_units: %s, model_fit_epochs: %s, hops: %s\n" % (g, m, h))
 
 def SanityCheckMethod(CQADataSet, model, tqn):
