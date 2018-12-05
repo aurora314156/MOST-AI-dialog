@@ -5,7 +5,6 @@ from numpy import array, argmax
 from numpy import linalg as LA
 from keras.models import Sequential, Model
 from keras.layers import LSTM, CuDNNGRU, Dense, RepeatVector, TimeDistributed, Input, GRU
-from keras import backend as K
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.metrics.pairwise import cosine_similarity
 import matplotlib.pyplot as plt
@@ -14,86 +13,72 @@ sys.path.append('../')
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 class AttentionWithGRU():
-    def __init__(self, CQADataSet, tqn, gru_units, model_fit_epochs, hops):
-        self.CQADataSet = CQADataSet
-        self.tqn = tqn
+    def __init__(self, questionWordList, storyWordList, answerList, gru_units, model_fit_epochs, hops):
+        self.questionWordList = questionWordList
+        self.storyWordList = storyWordList
+        self.answerList = answerList
         self.gru_units = gru_units
         self.model_fit_epochs = model_fit_epochs
         self.hops = hops
         
     def AttentionWithGRUMain(self):
-
-        # final answer list
-        guessAnsList = []
-        for i in range(self.tqn):
-            eachTime = time.time()
-            print("Processing number: ", i)
-            # corpus content initial
-            questionWordList = self.CQADataSet[i].getQuestion()
-            storyWordList = self.CQADataSet[i].getCorpus()
-            answerList = self.CQADataSet[i].getAnswer()
-            # QuestionBidirectionalGRU input Vector
-            forwardV, backwardV = self.OneHotEncoding(questionWordList), self.OneHotEncoding(list(reversed(questionWordList)))
-            #print("forV len:",len(forwardV))
-            # StoryBidirectionalGRU 
-            storyV = self.BidirectionalStoryGRU(storyWordList)
+       
+        # QuestionBidirectionalGRU input Vector
+        forwardV, backwardV = self.OneHotEncoding(self.questionWordList), self.OneHotEncoding(list(reversed(self.questionWordList)))
+        #print("forV len:",len(forwardV))
+        # StoryBidirectionalGRU 
+        storyV = self.BidirectionalStoryGRU(self.storyWordList)
+        #print("storyVector len:", len(storyV))
+        # QuestionBidirectionalGRU
+        questionV = self.BidirectionalGRU(forwardV, backwardV)
+        #print(questionV.shape)
+        # hops for n iteration
+        for h in range(self.hops):
+            print("Start processing hops summed.")
+            # AttentionValue
             #print("storyVector len:", len(storyV))
+            attentionValueV = self.AttentionValue(storyV, questionV)
+            #print("attentionValueVector length:",len(attentionValueV))
+            # WordLevelAttetion
+            storyWordLevelV = self.WordLevelAttention(storyV, attentionValueV)
+            #print(storyWordLevelV.shape)
+            # hops, VQn and VSn+1 summed to form a new question Vector VQn+1
+            if len(questionV)> len(storyWordLevelV):
+                summend_len = len(storyWordLevelV)
+            else:
+                summend_len = len(questionV)
+
+            for j in range(summend_len):
+                storyWordLevelV[j] += questionV[j]
+            # use final attention VS vector as next VQ vector
+            forwardV, backwardV = storyWordLevelV, np.flip(storyWordLevelV, axis = 0)
             # QuestionBidirectionalGRU
             questionV = self.BidirectionalGRU(forwardV, backwardV)
-            #print(questionV.shape)
-            # hops for n iteration
-            for h in range(self.hops):
-                print("Start processing hops summed.")
-                # AttentionValue
-                #print("storyVector len:", len(storyV))
-                attentionValueV = self.AttentionValue(storyV, questionV)
-                #print("attentionValueVector length:",len(attentionValueV))
-                # WordLevelAttetion
-                storyWordLevelV = self.WordLevelAttention(storyV, attentionValueV)
-                #print(storyWordLevelV.shape)
-                # hops, VQn and VSn+1 summed to form a new question Vector VQn+1
-                if len(questionV)> len(storyWordLevelV):
-                    summend_len = len(storyWordLevelV)
-                else:
-                    summend_len = len(questionV)
+            print("Finished {} hops summed!".format(h+1))
 
-                for j in range(summend_len):
-                    storyWordLevelV[j] += questionV[j]
-                # use final attention VS vector as next VQ vector
-                forwardV, backwardV = storyWordLevelV, np.flip(storyWordLevelV, axis = 0)
-                # QuestionBidirectionalGRU
-                questionV = self.BidirectionalGRU(forwardV, backwardV)
+        # guess answer
+        print("Start calculate answer vector.")
+        highestScoreAnswer = 0
+        guessAnswer = 1
+        ind = 1
+        for a in self.answerList:
+            # AnswerBidirectionalGRU input Vector
+            ansForwardV, ansBackwardV = self.OneHotEncoding(a), self.OneHotEncoding(list(reversed(a)))
+            # AnswerBidirectionalGRU
+            answerV = self.BidirectionalGRU(ansForwardV, ansBackwardV)
+            # use final attention VS vector as FINAL VQ vector
+            # guess answer by calculate cosine value between storyV and answerV
+            #tempScoreAnswer = cosine(questionV, answerV)
+            tempScoreAnswer = cosine_similarity(questionV.reshape(1,-1), answerV.reshape(1,-1))
+            if highestScoreAnswer < tempScoreAnswer:
+                highestScoreAnswer = tempScoreAnswer
+                guessAnswer = ind
+            #print("CurrentAnswer score",tempScoreAnswer)
+            #print("HighestScoreAnswer score",highestScoreAnswer)
+            ind += 1
 
-                print("Finished {} hops summed!".format(h+1))
-
-            # guess answer
-            print("Start calculate answer vector.")
-            highestScoreAnswer = 0
-            guessAnswer = 1
-            ind = 1
-            for a in answerList:
-                # AnswerBidirectionalGRU input Vector
-                ansForwardV, ansBackwardV = self.OneHotEncoding(a), self.OneHotEncoding(list(reversed(a)))
-                # AnswerBidirectionalGRU
-                answerV = self.BidirectionalGRU(ansForwardV, ansBackwardV)
-                # use final attention VS vector as FINAL VQ vector
-                # guess answer by calculate cosine value between storyV and answerV
-                #tempScoreAnswer = cosine(questionV, answerV)
-                tempScoreAnswer = cosine_similarity(questionV.reshape(1,-1), answerV.reshape(1,-1))
-                if highestScoreAnswer < tempScoreAnswer:
-                    highestScoreAnswer = tempScoreAnswer
-                    guessAnswer = ind
-                #print("CurrentAnswer score",tempScoreAnswer)
-                #print("HighestScoreAnswer score",highestScoreAnswer)
-                ind += 1
-
-            guessAnsList.append(guessAnswer)
-            # clear tensorflow draw graph
-            K.clear_session()
-            print("GuessAnswer: ", guessAnswer)
-            print("This epoch took: %.2fs" % (time.time()-eachTime))
-    
-        return guessAnsList
+        print("GuessAnswer: ", guessAnswer)
+        return guessAnswer
 
     def WordLevelAttention(self, storyVector, attentionValueVector):
 
