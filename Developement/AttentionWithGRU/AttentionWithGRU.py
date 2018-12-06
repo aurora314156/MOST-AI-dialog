@@ -143,7 +143,7 @@ class AttentionWithGRU():
         seqlen = len(inputV)
         # define model, save GRU all hidden state and final hidden state for question vector representation
         inputs = Input(shape=(seqlen,1))
-        temp_all_hidden_state, temp_final_hidden_state = GRU(self.gru_units, return_sequences=True, return_state=True)(inputs)
+        temp_all_hidden_state, temp_final_hidden_state = CuDNNGRU(self.gru_units, return_sequences=True, return_state=True)(inputs)
         model = Model(inputs=inputs, outputs=[temp_all_hidden_state, temp_final_hidden_state])
         # define input data
         data = inputV.reshape((1,seqlen,1))
