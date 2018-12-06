@@ -11,6 +11,7 @@ import os
 import json
 import csv
 import random
+from os import listdir
 
 
 def readData(path):
@@ -80,7 +81,7 @@ def generateAnswer(data):
 
 def main():
     t = time.time()
-    pathData = './Result/'
+    pathData = './JsonResult/'
     # clear result
     f = open('method2_result.txt', 'w')
     f.close()
@@ -88,8 +89,8 @@ def main():
     wrongid = 0
     ansList = []
 #======  read data in for loop  ======
-    for i in range(totalData):
-        #print("Start reading data in" + pathData + str(i) + '.json')
+    print("Processing method2.")
+    for i in range(1,totalData+1):
         jsonData = readData(pathData + str(i) + '.json')
         
         #print("Start generate output of" + pathData + str(i) + '.json')
@@ -97,6 +98,7 @@ def main():
 #=== check format is correct or not ===
         randomNum = True
         if len(jsonData['answer']) != 4:
+            print(i)
             randomNum = False
             wrongid += 1
         if randomNum == False:
@@ -137,8 +139,14 @@ def main():
     print("It took %.2f sec to process" % (time.time() - t))
     # print(ansList)
 
-pathModel = './word2vec/wiki/wiki_zh_tw(skip300)/word2vec.model'
-model = models.Word2Vec.load(pathModel)
+pathModel = './word2vec/'
+pm = listdir(pathModel)
+for p in pm:
+    count = 0
+    ansList = []
+    if p[len(p)-6:len(p)] == ".model":
+        model = models.Word2Vec.load(pathModel + p)
+#model = models.Word2Vec.load(pathModel)
 print("Success load model!")
 
 if __name__ == "__main__":

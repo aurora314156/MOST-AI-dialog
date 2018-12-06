@@ -70,8 +70,8 @@ def generateAnswer(data, model):
 def main():
 
     t = time.time()
-    pathModel = './word2vec/'
     pathData = './JsonResult/'
+    pathModel = './word2vec/'
     pm = listdir(pathModel)
     # clear result
     f = open('method1_result.txt', 'w')
@@ -86,9 +86,9 @@ def main():
         ansList = []
         if p[len(p)-6:len(p)] == ".model":
             model = models.Word2Vec.load(pathModel + p)
-            for i in range(totalData):
+            for i in range(1,totalData+1):
                 jsonData = readData(pathData + str(i) + '.json')
-                print("Processing file: %d." %i)
+                print("Processing method1")
         #====== output data =======
                 randomNum = True
                 if len(jsonData['answer']) != 4:

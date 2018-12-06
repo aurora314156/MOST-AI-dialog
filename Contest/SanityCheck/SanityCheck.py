@@ -1,10 +1,10 @@
-
+import sys
+sys.path.append('../')
 import math
 import time
 from gensim.models import word2vec
 from CQDInitial import CQDInitial
 from random import randint
-
 
 class SanityCheck():
 
@@ -18,8 +18,7 @@ class SanityCheck():
         questionList = self.CQADataset[self.cqn].getQuestion()
         answerList = self.CQADataset[self.cqn].getAnswer()
         
-        finalAns, flag = 0, 0
-        highestScore = 0
+        finalAns, flag, highestScore, errorCount = 0, 0, 0, False
         ans = [1,2,3,4]
 
         if len(answerList) == 4:
@@ -33,13 +32,13 @@ class SanityCheck():
                     finalAns = flag
                 flag += 1
         else:
+            errorCount = True
             finalAns = randint(0, 3)
-            
-        return ans[finalAns]
+        
+        return ans[finalAns], errorCount
 
     # calculate IDF table
     def calIDF(self):
-
         idfTable = {}
         for t in range(self.tqn):
             questionData = self.CQADataset[t].getQuestion()
@@ -78,4 +77,5 @@ class SanityCheck():
                 similarTermScore.append(model.similarity(q, cutWord))
 
         similarTermScore.sort(reverse=True)
+        #similarTermScore = sorted(similarTermScore, reverse=True)
         return similarTermScore

@@ -2,10 +2,12 @@ import json
 import logging
 from gensim import models
 from Initial import Initial
+from CWTInitial import CWTInitial
 from CQDInitial import CQDInitial
+from EQDInitial import EQDInitial
 
 # read cqa data from json
-class ContestModeInitial(Initial):
+class DevelopmentModeInitial(Initial):
 
     def __init__(self, qasp, mp, tqn, data):
         self.qasp = qasp
@@ -17,10 +19,10 @@ class ContestModeInitial(Initial):
     def getCQADataSetAndModel(self):
 
         CQAInstanceList = []
-        for q in range(self.tqn):
+        for q in range(1, self.tqn+1):
             CQAInstanceList.append(self.readCQAData(q))
 
-        logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
+        #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
         model = models.Word2Vec.load(self.mp)
         
         return CQAInstanceList, model
@@ -30,7 +32,9 @@ class ContestModeInitial(Initial):
         fileName = self.qasp + '/' + str(q) + '.json'
         with open(fileName , 'r') as reader:
             jf = json.loads(reader.read())
-            if self.data == 'MOST':
+            if self.data == 'cwt':
+                return CWTInitial(jf)
+            elif self.data == 'MOST':
                 return CQDInitial(jf)
 
         
