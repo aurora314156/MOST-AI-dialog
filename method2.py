@@ -71,10 +71,7 @@ def generateAnswer(data):
             high = qa
             ans = i
         i += 1
-    
-    #tag = (anslist[ans] == ca )
-    #print("The predict answer is %s." %(anslist[ans]))
-    #print("The correct answer is %s." %ca)
+        
     return anslist[ans]
 
 

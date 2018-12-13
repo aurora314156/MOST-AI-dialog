@@ -19,7 +19,7 @@ class txt2json:
         self.errCount = 0
         self.json_context = {'corpus':[], 'answer':[], 'question':[]}
 
-    def load_txt(self, file_name, path=os.getcwd(),  encoding='utf-8'):
+    def load_txt(self, file_name, path=os.getcwd(), encoding='utf-8'):
         #print('input : '+os.path.join(path, file_name))
         with open(os.path.join(path, file_name)) as f:
             self.context = f.read().splitlines()
