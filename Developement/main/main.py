@@ -84,7 +84,7 @@ def main(argv=None):
     print("Start create CQA instance and load model.\n")
     
     # start SanityCheckMethod iteration
-    #x, accuracy, bestX, bestAccuracy = 0, 0, 0, 0
+    x, accuracy, bestX, bestAccuracy = 0, 0, 0, 0
     
     modelFiles = listdir(mp)
     bestModel = ""
@@ -93,9 +93,10 @@ def main(argv=None):
             modelPath = mp + m
             print("W2V Model: %s" %m)
             CQADataSet, w2vmodel = DevelopmentModeInitial(qasp, modelPath, tqn, data).getCQADataSetAndModel()
-            AttentionMethod(CQADataSet, tqn)
-            #SanityCheckMethod(CQADataSet, w2vmodel, tqn)
-            
+            #AttentionMethod(CQADataSet, tqn)
+            bestX, accuracy = SanityCheckMethod(CQADataSet, w2vmodel, tqn)
+            print(bestX)
+            print(accuracy)
     
 if __name__ == "__main__":
     main()
