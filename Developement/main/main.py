@@ -14,47 +14,47 @@ from SanityCheck.SanityCheck import SanityCheck
 # CWT = [2, 3, 4, 1, 3, 4, 1, 2, 3, 1, 4, 3, 2, 3, 3, 3, 1, 3, 2, 1, 2, 2, 3, 3, 2, 1, 3, 2, 4, 4, 1, 4, 2, 1, 2, 3, 1, 1, 3, 2, 3, 3, 4, 4, 2, 3, 1, 3, 2, 3, 3, 4, 1, 2, 1, 4, 4, 3, 4, 1, 3, 3, 1, 3, 1, 1, 2, 3, 4, 2, 4, 3, 1, 2, 2, 4, 4, 4, 4, 4, 2, 4, 2, 4, 3, 3, 4, 3, 1, 1, 2, 1, 4, 4, 4, 1, 2, 1, 4, 4, 1, 2, 3, 4, 1, 3, 2, 3, 4, 1, 2, 1, 2, 3, 3, 1, 1, 2, 4, 3, 3, 4, 2, 2, 1, 4, 1, 3, 2, 4, 3, 2, 2, 4, 3, 1, 2, 1, 3, 4, 3, 1, 3, 1, 4, 1, 2, 4, 2, 3, 4, 4, 3, 1, 4, 2, 1, 4, 4, 3, 4, 2, 1, 1, 3, 3, 3, 4, 1, 1, 3, 4, 2, 4, 2, 2, 3, 3, 2, 2, 1, 4, 4, 2, 2, 3, 4, 4, 2, 1, 1, 3, 3, 4, 1, 3, 1, 4, 3, 1, 4, 4, 1, 2, 3, 4, 1, 4, 3, 3, 3, 1, 2, 1, 1, 3, 1, 3, 2, 4, 3, 1, 4, 4, 1, 1, 4, 1, 3, 2, 2, 1, 3, 3, 4, 1, 4, 2, 3, 4, 1, 1, 3, 3, 4, 1, 4, 1, 3, 3, 1, 4, 4, 2, 4, 1, 1, 2, 4, 2, 4, 3, 2, 4, 3, 2, 1, 1, 3, 3, 4, 2, 1, 1, 2, 3, 4, 2, 2, 2, 4, 4, 3, 2, 4, 2, 3, 2, 1, 2, 3, 4, 1, 3, 1, 4, 2, 1, 3, 4, 4, 3, 3, 2, 3, 2, 2, 1, 4, 3, 3, 4, 3, 1, 1, 1, 4, 1, 3, 3, 4, 2, 1, 3, 2, 1, 2, 2, 3, 4, 1, 3, 4, 1, 4, 2, 4, 2, 1, 3, 4, 1, 1, 2, 2, 4, 3, 4, 2, 3, 2, 1, 4, 3, 4, 1, 1, 3, 2, 2, 3, 2, 1, 1, 4, 4, 1, 2, 3, 2, 4, 4, 3, 1, 1, 4, 4, 1, 2, 3, 2, 1, 3, 4, 2, 2, 3, 2, 3, 2, 4, 2, 3,1]
 
 
-def AttentionMethod(CQADataSet, tqn):
+# def AttentionMethod(CQADataSet, tqn):
     
-    # model parameters
-    gru_units, model_fit_epochs, hops = [10,50,100,200], [2,4], [2,4,6]
-    # correct answer
-    correct_answer = [1,1,2,2,2,3,1,4,2,1,1,3,3,2,3,2,3,1,3,2,1,4,2,4,2,2,2,4,2,2,4,1,3,2,2,3,1,2,3,2,1,3,1,1,3,4,1,4,2,2,3,3,3,2,2,3,4,2,4,3,3,3,1,4,1,3,3,3,1,4,2,2,4,3,3,1,3,1,4,4,2,3,4,3,4,1,4,1,1,2,1,3,4,1,3,1,1,1,2,2,2,1,4,3,2,1,3,1,3,4,4,1,3,1,3,2,4,4,1,2,3,2,3,3,2,4,2,3,1,2,1,3,1,3,1,4,2,2,1,1,2,4,1,3,1,3,1,2,2,1,3,4,2,1,2,4,2,2,2,4,1,2,3,3,1,3,4,1,3,4,3,1,3,4,4,2,3,4,3,1,4,2,2,4,1,1,2,2,2,4,4,2,3,3,1,4,3,2,4,2,2,3,1,3,4,2,1,4,2,4,1,3,2,4,2,2,4,3,2,4,1,4,2,3,1,2,4,3,2,1,3,4,3,4,2,4,2,2,4,2,3,1,1,4,4,2,3,3,2,4,1,2,2,1,3,3,3,4,1,2,2,3,2,3,3,2,4,2,3,1,3,3,4,1,2,1,4,4,2,4,1,3,2,3,4,1,4,3,1,2,2,1,4,3,4,3,4,1,4,3,4,1,2,3,4,3,1,3,2,2,2,4,4,1,2,3,1,2,4,2,3,3,2,4,4,1,4,1,3,3,4,2,4,1,3,2,1,2,2,2,1,1,3,2,2,4,3,2,4,4,3,1,2,4,4,1,1,3,2,4,2,3,3,1,3,2,3,2,1,2,2,4,4,1,3,3,2,3,3,4,1,3,1,2,1,3,4,3,3,2,4,4,4,1,3,4,4,2,1,3,2,4,2,3,1,4,1,2,3,3,2,4,3,1,2,3,1,2,1,2,1,2,4,4,2,2,3,2,4,1,2,1,2,3,4,1,1,1,3,4,4,4,1,3,1,2,2,4,1,2,2,4,2,4,2,4,1,1,3,2,3,1,4,2,1,1,4,4,3,2,1,4,4,3,3,4,3,1,4,1,2,4,2,2,2,2,3,4,1,4,1,3,4,3,4,3,4,2,1,3,4,3,4,1,1,4,4,1,4,2,2,4,4,2,3,4,3,3,3,4,3,2,1,1,3,1,4,1,2,4,1,2,3,3,1,2,2,3,1,4,3,3,4,4,3,2,4,4,2,1,4,3,4,1,2,3,3,1,2,4,3,4,2,3,1,3,2,4,4,3,3,3,4,2,3,1,2,4,2,1,3,4,2,3,2,2,1,2,4,2,4,2,1,3,4,4,2,2,4,4,3,2,1,3,4,3,3,3,1,4,1,2,2,2,2,3,4,2,1,3,2,4,3,1,1,1,2,4,4,2,1,4,4,2,1,1,2,3,2,3,2,4,4,4,1,4,3,3,1,3,3,3,3,1,4,2,3,2,4,2,2,4,1,4,2,1,4,2,1,3,1,1,3,1,2,4,2,2,2,3,2,3,4,1,2,1,3,2,4,4,1,4,3,1,3,1,4,2,3,3,2,4,2,3,2,3,3,3,1,4,3,4,4,3,4,1,4,2,4,1,3,1,2,3,2,3,2,1,4,2,4,1,3,4,4,1,1,4,3,1,2,1,4,1,3,2,3,3,3,2,1,4,3,4,2,1,1,2,2,4,4,1,3,3,1,1,1,4,4,3,2,2,3,4,1,3,4,1,1,1,3,3,2,3,2,3,1,3,2,1,1,1,2,4,1,4,2,3,3,3,4,4,1,1,4,2,1,4,3,1,2,3,4,4,2,2,1,2,4,2,1,3,4,2,3,4,4,4,1,2,1,2,4,4,4,1,3,2,1,4,4,4,3,1,3,2,2,2,2,2,4,4,3,1,2,2,2,4,3,3,2,4,2,1,4,1,3,4,1,1,1,3,2,3,4,4,1,2,1,3,4,2,1,3,1,3,3,3,1,1,2,2,2,3,1,3,4,3,3,3,4,4,2,3,1,4,4,4,1,2,4,3,3,3,1,4,4,1,2,1,4,1,3,2,2,1,1,3,3,2,1,4,4,3,4,2,4,1,1,3,1,4,2,4,2,1,1,4,1,3,4,4,2,2,1,1,2,4,1,2,2,2,3,1,3,2,3,3,2,2,1,1,4,1,1,3,3,3,2,1,1,1,1,2,3,1,4,4,3,4,1,2,2,4,2,4,4,1,3,2,4,3,1,3,1,4,2,3,4,2,3,1,4,4,2,3,1,4,3,1,2,4,2,1,3,2,2,1,4,3,3,2,3,4,2,1,2,3,2,4,2,1,3,1,2,4,3,4,2,3,1,2,4,1,3,2,1,4,2,4,2,3,1,2,1,4,3,3,2,4,3,1,2,4,3,1,3,4,2,3,1,4,3,3,1,4,2,4,3,4,2,1,4,3,2,1,3,2,4,1,2,3,4,2,4,3,4,2,3,4,2,1,4,3,2,1,3,3,1,4,1,2,1,1,3,2,1,3,2,2,4,4,2,4,3,2,3,3,4,2,1,4,3,2,4,2,4,3,1,4,2,3,1,2,3,1,4,1,3,4,1,2,3,4,1,3,2,2,4,4,1,3,2,4,4,2,3,4,2,1,4,1,3,4,3,2,1,4,2,1,3,1,3,4,4,3,1,4,4,4,3,3,2,1,4,1,1,2,3,2,4,2,3,1,4,1,2,3,1,2,3,4,2,3,4,2,1,3,4,2,1,3,1,4,3,2,2,3,4,1,3,1,3,2,3,4,3,3,1,4,2,1,4,2,3,2,1,3,4,1,2,2,1,3,4,2,1,2,1,2,3,4,1,2,3,4,2,1,3,4,2,3,2,3,4,1,2,1,1,4,2,1,2,4,1,3,2,4,1,2,3,4,1,2,3,1,2,4,2,1,4,4,3,1,2,4,2,1,2,4,1,1,4,3,1,4,3,2,1,3,4,3,1,4,2,4,1,2,3,4,2,3,1,2,4,3,2,3,1,1,3,4,2,1,3,1,4,1,3,2,3,4,4,2,3,4,1,3,1,2,3,1,2,4,4,2,1,3,2,1,3,2,1,4,1,2,4,1,3,1,3,1,4,1,2,4,3,4,1,4,4,2,4,3,4,2,4,1,3,2,1,2,3,4,1,2,1,2,3,1,3,3,1,4,2,2,1,3,1,2,3,4,2,1,3,4,1,2,3,4,1,2,3,4,1,2,1,3,2,1,3,4,1,2,3,1,2,3,4,1,2,3,1,2,4,1,3,1,3,4,1,2,3,4,3,1,2,1,3,4,2,4,1,3,4,2,1,3,4,4,1,4,2,3,4,2,1,3,4,4]
+#     # model parameters
+#     gru_units, model_fit_epochs, hops = [10,50,100,200], [2,4], [2,4,6]
+#     # correct answer
+#     correct_answer = [1,1,2,2,2,3,1,4,2,1,1,3,3,2,3,2,3,1,3,2,1,4,2,4,2,2,2,4,2,2,4,1,3,2,2,3,1,2,3,2,1,3,1,1,3,4,1,4,2,2,3,3,3,2,2,3,4,2,4,3,3,3,1,4,1,3,3,3,1,4,2,2,4,3,3,1,3,1,4,4,2,3,4,3,4,1,4,1,1,2,1,3,4,1,3,1,1,1,2,2,2,1,4,3,2,1,3,1,3,4,4,1,3,1,3,2,4,4,1,2,3,2,3,3,2,4,2,3,1,2,1,3,1,3,1,4,2,2,1,1,2,4,1,3,1,3,1,2,2,1,3,4,2,1,2,4,2,2,2,4,1,2,3,3,1,3,4,1,3,4,3,1,3,4,4,2,3,4,3,1,4,2,2,4,1,1,2,2,2,4,4,2,3,3,1,4,3,2,4,2,2,3,1,3,4,2,1,4,2,4,1,3,2,4,2,2,4,3,2,4,1,4,2,3,1,2,4,3,2,1,3,4,3,4,2,4,2,2,4,2,3,1,1,4,4,2,3,3,2,4,1,2,2,1,3,3,3,4,1,2,2,3,2,3,3,2,4,2,3,1,3,3,4,1,2,1,4,4,2,4,1,3,2,3,4,1,4,3,1,2,2,1,4,3,4,3,4,1,4,3,4,1,2,3,4,3,1,3,2,2,2,4,4,1,2,3,1,2,4,2,3,3,2,4,4,1,4,1,3,3,4,2,4,1,3,2,1,2,2,2,1,1,3,2,2,4,3,2,4,4,3,1,2,4,4,1,1,3,2,4,2,3,3,1,3,2,3,2,1,2,2,4,4,1,3,3,2,3,3,4,1,3,1,2,1,3,4,3,3,2,4,4,4,1,3,4,4,2,1,3,2,4,2,3,1,4,1,2,3,3,2,4,3,1,2,3,1,2,1,2,1,2,4,4,2,2,3,2,4,1,2,1,2,3,4,1,1,1,3,4,4,4,1,3,1,2,2,4,1,2,2,4,2,4,2,4,1,1,3,2,3,1,4,2,1,1,4,4,3,2,1,4,4,3,3,4,3,1,4,1,2,4,2,2,2,2,3,4,1,4,1,3,4,3,4,3,4,2,1,3,4,3,4,1,1,4,4,1,4,2,2,4,4,2,3,4,3,3,3,4,3,2,1,1,3,1,4,1,2,4,1,2,3,3,1,2,2,3,1,4,3,3,4,4,3,2,4,4,2,1,4,3,4,1,2,3,3,1,2,4,3,4,2,3,1,3,2,4,4,3,3,3,4,2,3,1,2,4,2,1,3,4,2,3,2,2,1,2,4,2,4,2,1,3,4,4,2,2,4,4,3,2,1,3,4,3,3,3,1,4,1,2,2,2,2,3,4,2,1,3,2,4,3,1,1,1,2,4,4,2,1,4,4,2,1,1,2,3,2,3,2,4,4,4,1,4,3,3,1,3,3,3,3,1,4,2,3,2,4,2,2,4,1,4,2,1,4,2,1,3,1,1,3,1,2,4,2,2,2,3,2,3,4,1,2,1,3,2,4,4,1,4,3,1,3,1,4,2,3,3,2,4,2,3,2,3,3,3,1,4,3,4,4,3,4,1,4,2,4,1,3,1,2,3,2,3,2,1,4,2,4,1,3,4,4,1,1,4,3,1,2,1,4,1,3,2,3,3,3,2,1,4,3,4,2,1,1,2,2,4,4,1,3,3,1,1,1,4,4,3,2,2,3,4,1,3,4,1,1,1,3,3,2,3,2,3,1,3,2,1,1,1,2,4,1,4,2,3,3,3,4,4,1,1,4,2,1,4,3,1,2,3,4,4,2,2,1,2,4,2,1,3,4,2,3,4,4,4,1,2,1,2,4,4,4,1,3,2,1,4,4,4,3,1,3,2,2,2,2,2,4,4,3,1,2,2,2,4,3,3,2,4,2,1,4,1,3,4,1,1,1,3,2,3,4,4,1,2,1,3,4,2,1,3,1,3,3,3,1,1,2,2,2,3,1,3,4,3,3,3,4,4,2,3,1,4,4,4,1,2,4,3,3,3,1,4,4,1,2,1,4,1,3,2,2,1,1,3,3,2,1,4,4,3,4,2,4,1,1,3,1,4,2,4,2,1,1,4,1,3,4,4,2,2,1,1,2,4,1,2,2,2,3,1,3,2,3,3,2,2,1,1,4,1,1,3,3,3,2,1,1,1,1,2,3,1,4,4,3,4,1,2,2,4,2,4,4,1,3,2,4,3,1,3,1,4,2,3,4,2,3,1,4,4,2,3,1,4,3,1,2,4,2,1,3,2,2,1,4,3,3,2,3,4,2,1,2,3,2,4,2,1,3,1,2,4,3,4,2,3,1,2,4,1,3,2,1,4,2,4,2,3,1,2,1,4,3,3,2,4,3,1,2,4,3,1,3,4,2,3,1,4,3,3,1,4,2,4,3,4,2,1,4,3,2,1,3,2,4,1,2,3,4,2,4,3,4,2,3,4,2,1,4,3,2,1,3,3,1,4,1,2,1,1,3,2,1,3,2,2,4,4,2,4,3,2,3,3,4,2,1,4,3,2,4,2,4,3,1,4,2,3,1,2,3,1,4,1,3,4,1,2,3,4,1,3,2,2,4,4,1,3,2,4,4,2,3,4,2,1,4,1,3,4,3,2,1,4,2,1,3,1,3,4,4,3,1,4,4,4,3,3,2,1,4,1,1,2,3,2,4,2,3,1,4,1,2,3,1,2,3,4,2,3,4,2,1,3,4,2,1,3,1,4,3,2,2,3,4,1,3,1,3,2,3,4,3,3,1,4,2,1,4,2,3,2,1,3,4,1,2,2,1,3,4,2,1,2,1,2,3,4,1,2,3,4,2,1,3,4,2,3,2,3,4,1,2,1,1,4,2,1,2,4,1,3,2,4,1,2,3,4,1,2,3,1,2,4,2,1,4,4,3,1,2,4,2,1,2,4,1,1,4,3,1,4,3,2,1,3,4,3,1,4,2,4,1,2,3,4,2,3,1,2,4,3,2,3,1,1,3,4,2,1,3,1,4,1,3,2,3,4,4,2,3,4,1,3,1,2,3,1,2,4,4,2,1,3,2,1,3,2,1,4,1,2,4,1,3,1,3,1,4,1,2,4,3,4,1,4,4,2,4,3,4,2,4,1,3,2,1,2,3,4,1,2,1,2,3,1,3,3,1,4,2,2,1,3,1,2,3,4,2,1,3,4,1,2,3,4,1,2,3,4,1,2,1,3,2,1,3,4,1,2,3,1,2,3,4,1,2,3,1,2,4,1,3,1,3,4,1,2,3,4,3,1,2,1,3,4,2,4,1,3,4,2,1,3,4,4,1,4,2,3,4,2,1,3,4,4]
 
-    for g in gru_units:
-        for m in model_fit_epochs:
-            for h in hops:
-                sTime = time.time()
-                # final answer list
-                guessAnsList = []
-                for i in range(tqn):    
-                    # clear tensorflow draw graph
-                    K.clear_session()
-                    eachTime = time.time()
-                    print("Processing number: %s\n"%(i))
-                    print("******Parameters******\nGru_units: %s, model_fit_epochs: %s, hops: %s\n"%(g, m, h))
-                    # corpus content initial
-                    questionWordList = CQADataSet[i].getQuestion()
-                    storyWordList = CQADataSet[i].getCorpus()
-                    answerList = CQADataSet[i].getAnswer()
-                    guessAnswer = AttentionWithGRU(questionWordList, storyWordList, answerList, g, m, h).AttentionWithGRUMain()
-                    guessAnsList.append(guessAnswer)
+#     for g in gru_units:
+#         for m in model_fit_epochs:
+#             for h in hops:
+#                 sTime = time.time()
+#                 # final answer list
+#                 guessAnsList = []
+#                 for i in range(tqn):    
+#                     # clear tensorflow draw graph
+#                     K.clear_session()
+#                     eachTime = time.time()
+#                     print("Processing number: %s\n"%(i))
+#                     print("******Parameters******\nGru_units: %s, model_fit_epochs: %s, hops: %s\n"%(g, m, h))
+#                     # corpus content initial
+#                     questionWordList = CQADataSet[i].getQuestion()
+#                     storyWordList = CQADataSet[i].getCorpus()
+#                     answerList = CQADataSet[i].getAnswer()
+#                     guessAnswer = AttentionWithGRU(questionWordList, storyWordList, answerList, g, m, h).AttentionWithGRUMain()
+#                     guessAnsList.append(guessAnswer)
                     
-                    print("This epoch tooks: %.2fs" % (time.time()-eachTime))
-                    print("Total tooks: %.2fs" % (time.time()-sTime))
-                guess_correct = 0
-                for i in range(tqn):
-                    if guessAnsList[i] == correct_answer[i]:
-                        guess_correct += 1
-                print("Final guess correctness: ", guess_correct)
+#                     print("This epoch tooks: %.2fs" % (time.time()-eachTime))
+#                     print("Total tooks: %.2fs" % (time.time()-sTime))
+#                 guess_correct = 0
+#                 for i in range(tqn):
+#                     if guessAnsList[i] == correct_answer[i]:
+#                         guess_correct += 1
+#                 print("Final guess correctness: ", guess_correct)
 
-                with open('log.txt', 'a') as log:
-                    log.write("\n ******This epoch experiment result******\n")
-                    log.write("Total cost time: %.2fs.\n" % (time.time()-sTime))
-                    log.write("Correctness: %.2f\n" % (guess_correct/len(correct_answer)))
-                    log.write("Gru_units: %s, model_fit_epochs: %s, hops: %s\n" % (g, m, h))
+#                 with open('log.txt', 'a') as log:
+#                     log.write("\n ******This epoch experiment result******\n")
+#                     log.write("Total cost time: %.2fs.\n" % (time.time()-sTime))
+#                     log.write("Correctness: %.2f\n" % (guess_correct/len(correct_answer)))
+#                     log.write("Gru_units: %s, model_fit_epochs: %s, hops: %s\n" % (g, m, h))
 
-def SanityCheckMethod(CQADataSet, model, tqn):
+def SanityCheckMethod(CQADataSet, model, tqn, lim_start, lim_end):
     with open('correct_list.json' , 'r') as reader:
         ans_list = json.loads(reader.read())
         def filterDataset(CQADataSet):
@@ -72,7 +72,7 @@ def SanityCheckMethod(CQADataSet, model, tqn):
         while x < 1:
             tempCorrectCount = 0
             for cqn in range(tqn):
-                if cqn > 6840 and cqn <= 8550:
+                if cqn > lim_start and cqn <= lim_end:
                     continue
                 # if filterDataset(CQADataSet) == False:
                 #     filterCount += 1
@@ -80,16 +80,14 @@ def SanityCheckMethod(CQADataSet, model, tqn):
                 ans = SanityCheck(CQADataSet, tqn, cqn).SanityCheckMain(model, x, idfTable)
                 if ans == ans_list['correct_answer'][cqn]:
                     tempCorrectCount += 1
-            
             if highestCorrectCount < tempCorrectCount:
                 highestCorrectCount = tempCorrectCount
                 bestX = x
             
             x += 0.1
+        return bestX
 
-        return bestX, (highestCorrectCount/ (tqn * 0.8 - filterCount))
-
-def SanityCheckMethodTest(CQADataSet, model, tqn, x):
+def SanityCheckMethodTest(CQADataSet, model, tqn, x, lim_start, lim_end):
 
     with open('correct_list.json' , 'r') as reader:
         ans_list = json.loads(reader.read())
@@ -98,11 +96,12 @@ def SanityCheckMethodTest(CQADataSet, model, tqn, x):
     
     CorrectCount = 0
     for cqn in range(tqn):
-        ans = SanityCheck(CQADataSet, tqn, cqn).SanityCheckMain(model, x, idfTable)
-        if ans == ans_list['correct_answer'][cqn]:
-            CorrectCount += 1
+        if cqn > lim_start-1 and cqn < lim_end:
+            ans = SanityCheck(CQADataSet, tqn, cqn).SanityCheckMain(model, x, idfTable)
+            if ans == ans_list['correct_answer'][cqn]:
+                CorrectCount += 1
 
-    return CorrectCount /(tqn)
+    return CorrectCount /(8550*0.2)
 
 
 def main(argv=None):
@@ -119,8 +118,9 @@ def main(argv=None):
     print("Start create CQA instance and load model.\n")
     
     # start SanityCheckMethod iteration
-    x, accuracy, bestX, bestAccuracy = 0, 0, 0, 0
-    
+    bestAccuracy = 0
+    lim_start = [6840, 0, 1710, 3420, 5130]
+    lim_end = [8549, 1709, 3419, 5129, 6839]
     modelFiles = listdir(mp)
     bestModel = ""
     for m in modelFiles:
@@ -129,20 +129,24 @@ def main(argv=None):
             print("W2V Model: %s" %m)
             CQADataSet, w2vmodel = DevelopmentModeInitial(qasp, modelPath, tqn, data).getCQADataSetAndModel()
             #AttentionMethod(CQADataSet, tqn)
-            x, accuracy = SanityCheckMethod(CQADataSet, w2vmodel, tqn)
-            #accuracy = SanityCheckMethodTest(CQADataSet, model, tqn, x)
-            print(x)
-            print(bestX)
-            print(accuracy)
+            accuracy = 0
+            for l in range(5):
+                tmpBestx = SanityCheckMethod(CQADataSet, w2vmodel, tqn, lim_start[l], lim_end[l])
+                accuracy += SanityCheckMethodTest(CQADataSet, w2vmodel, tqn, tmpBestx, lim_start[l], lim_end[l])
+            accuracy /= 5
         if accuracy > bestAccuracy:
             bestAccuracy = accuracy
             bestModel = m
-            bestX = x
+
     print("-----------------------")
-    print("bestX: ", bestX)
     print("bestModel: ", bestModel)
     print("bestAccuracy: ", bestAccuracy)
     print("-----------------------")
 
 if __name__ == "__main__":
     main()
+# 6840~8549
+# 0~1709
+# 1710~3419
+# 3420~5129
+# 5130~6839
