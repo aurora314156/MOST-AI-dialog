@@ -63,7 +63,7 @@ def SanityCheckMethod(CQADataSet, model, tqn):
         tmpLen = 0
         for q in self.CQADataset[self.cqn].getQuestion():
             tmpLen += len(q) 
-        if tmpLen < 20
+        if tmpLen < 20:
             return False
         else:
             return True
