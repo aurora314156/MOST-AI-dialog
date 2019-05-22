@@ -55,51 +55,51 @@ def AttentionMethod(CQADataSet, tqn):
                     log.write("Gru_units: %s, model_fit_epochs: %s, hops: %s\n" % (g, m, h))
 
 def SanityCheckMethod(CQADataSet, model, tqn):
-    with open('correct_list.json' , 'r') as correct_list:
-        jf = json.loads(correct_list.read())
-        print(jf[0])
-        print(jf[1])
-    def filterDataset(CQADataSet):
-        tmpLen = 0
-        for q in self.CQADataset[self.cqn].getQuestion():
-            tmpLen += len(q) 
-        if tmpLen < 20:
-            return False
-        else:
-            return True
+    with open('correct_list.json' , 'r') as reader:
+        ans_list = json.loads(reader.read())
+        def filterDataset(CQADataSet):
+            tmpLen = 0
+            for q in self.CQADataset[self.cqn].getQuestion():
+                tmpLen += len(q) 
+            if tmpLen < 20:
+                return False
+            else:
+                return True
 
-    x, bestX, highestCorrectCount, filterCount = 0.1, 0, 0, 0
-    # initital idfTable
-    idfTable = SanityCheck(CQADataSet, tqn, 0).calIDF()
-    while x < 1:
-        tempCorrectCount = 0
-        for cqn in range(tqn):
-            if cqn > 6840 and cqn <= 8550:
-                continue
-            # if filterDataset(CQADataSet) == False:
-            #     filterCount += 1
-            #     continue
-            ans = SanityCheck(CQADataSet, tqn, cqn).SanityCheckMain(model, x, idfTable)
-            if ans == correct_list[cqn]:
-                tempCorrectCount += 1
-        
-        if highestCorrectCount < tempCorrectCount:
-            highestCorrectCount = tempCorrectCount
-            bestX = x
-        
-        x += 0.1
+        x, bestX, highestCorrectCount, filterCount = 0.1, 0, 0, 0
+        # initital idfTable
+        idfTable = SanityCheck(CQADataSet, tqn, 0).calIDF()
+        while x < 1:
+            tempCorrectCount = 0
+            for cqn in range(tqn):
+                if cqn > 6840 and cqn <= 8550:
+                    continue
+                # if filterDataset(CQADataSet) == False:
+                #     filterCount += 1
+                #     continue
+                ans = SanityCheck(CQADataSet, tqn, cqn).SanityCheckMain(model, x, idfTable)
+                if ans == ans_list['correct_answer'][cqn]:
+                    tempCorrectCount += 1
+            
+            if highestCorrectCount < tempCorrectCount:
+                highestCorrectCount = tempCorrectCount
+                bestX = x
+            
+            x += 0.1
 
-    return bestX, (highestCorrectCount/ (tqn * 0.8 - filterCount))
+        return bestX, (highestCorrectCount/ (tqn * 0.8 - filterCount))
 
 def SanityCheckMethodTest(CQADataSet, model, tqn, x):
-    
+
+    with open('correct_list.json' , 'r') as reader:
+        ans_list = json.loads(reader.read())
     # initital idfTable
     idfTable = SanityCheck(CQADataSet, tqn, 0).calIDF()
     
     CorrectCount = 0
     for cqn in range(tqn):
         ans = SanityCheck(CQADataSet, tqn, cqn).SanityCheckMain(model, x, idfTable)
-        if ans == correct_answer[cqn]:
+        if ans == ans_list['correct_answer'][cqn]:
             CorrectCount += 1
 
     return CorrectCount /(tqn)
