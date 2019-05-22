@@ -54,14 +54,24 @@ def AttentionMethod(CQADataSet, tqn):
 
 def SanityCheckMethod(CQADataSet, model, tqn):
     
-    x = 0.1
-    bestX = 0
-    highestCorrectCount  = 0
+    def filterDataset(CQADataSet):
+        tmpLen = 0
+        for q in self.CQADataset[self.cqn].getQuestion():
+            tmpLen += len(q) 
+        if tmpLen < 15:
+            return False
+        else:
+            return True
+
+    x, bestX, highestCorrectCount, filterCount = 0.1, 0, 0, 0
     # initital idfTable
     idfTable = SanityCheck(CQADataSet, tqn, 0).calIDF()
     while x < 1:
         tempCorrectCount = 0
         for cqn in range(tqn):
+            if filterDataset(CQADataSet) == False:
+                filterCount += 1
+                continue
             ans = SanityCheck(CQADataSet, tqn, cqn).SanityCheckMain(model, x, idfTable)
             if ans == correct_answer_4[cqn]:
                 tempCorrectCount += 1
@@ -71,8 +81,9 @@ def SanityCheckMethod(CQADataSet, model, tqn):
             bestX = x
         
         x += 0.1
-
-    return bestX, highestCorrectCount/tqn
+        
+    print(filterCount)
+    return bestX, (highestCorrectCount/ (tqn - filterCount))
 
 
 def main(argv=None):
