@@ -118,7 +118,7 @@ def main(argv=None):
     print("Start create CQA instance and load model.\n")
     
     # start SanityCheckMethod iteration
-    bestAccuracy = 0
+    bestAccuracy, accuracy = 0, 0
     lim_start = [6840, 0, 1710, 3420, 5130]
     lim_end = [8549, 1709, 3419, 5129, 6839]
     modelFiles = listdir(mp)
