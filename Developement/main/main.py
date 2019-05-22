@@ -69,9 +69,9 @@ def SanityCheckMethod(CQADataSet, model, tqn):
     while x < 1:
         tempCorrectCount = 0
         for cqn in range(tqn):
-            if filterDataset(CQADataSet) == False:
-                filterCount += 1
-                continue
+            # if filterDataset(CQADataSet) == False:
+            #     filterCount += 1
+            #     continue
             ans = SanityCheck(CQADataSet, tqn, cqn).SanityCheckMain(model, x, idfTable)
             if ans == correct_answer_4[cqn]:
                 tempCorrectCount += 1
