@@ -137,6 +137,9 @@ def main(argv=None):
         if accuracy > bestAccuracy:
             bestAccuracy = accuracy
             bestModel = m
+            print(bestAccuracy)
+            print(bestModel)
+
 
     print("-----------------------")
     print("bestModel: ", bestModel)
