@@ -22,9 +22,8 @@ class DevelopmentModeInitial(Initial):
         for q in range(1, self.tqn+1):
             CQAInstanceList.append(self.readCQAData(q))
 
-        #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
-        #model = models.Word2Vec.load(self.mp)
-        model = []
+        logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
+        model = models.Word2Vec.load(self.mp)
         
         return CQAInstanceList, model
     
