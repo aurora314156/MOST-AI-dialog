@@ -96,7 +96,7 @@ def SanityCheckMethodTest(CQADataSet, model, tqn, x, lim_start, lim_end):
     
     CorrectCount = 0
     for cqn in range(tqn):
-        if cqn > lim_start-1 and cqn < lim_end:
+        if cqn >= lim_start and cqn <= lim_end:
             ans = SanityCheck(CQADataSet, tqn, cqn).SanityCheckMain(model, x, idfTable)
             if ans == ans_list['correct_answer'][cqn]:
                 CorrectCount += 1
@@ -133,6 +133,7 @@ def main(argv=None):
             for l in range(5):
                 tmpBestx = SanityCheckMethod(CQADataSet, w2vmodel, tqn, lim_start[l], lim_end[l])
                 accuracy += SanityCheckMethodTest(CQADataSet, w2vmodel, tqn, tmpBestx, lim_start[l], lim_end[l])
+                print(accuracy)
             accuracy /= 5
         if accuracy > bestAccuracy:
             bestAccuracy = accuracy
