@@ -100,6 +100,8 @@ def SanityCheckMethodTest(CQADataSet, model, tqn, x, lim_start, lim_end):
             ans = SanityCheck(CQADataSet, tqn, cqn).SanityCheckMain(model, x, idfTable)
             if ans == ans_list['correct_answer'][cqn]:
                 CorrectCount += 1
+        else:
+            continue
 
     return CorrectCount /(8550*0.2)
 
