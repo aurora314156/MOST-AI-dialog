@@ -141,7 +141,7 @@ def main(argv=None):
                 tmpBestx = SanityCheckMethod(CQADataSet, w2vmodel, tqn, lim_start[l], lim_end[l])
                 eachTestAccuracy, eachTestwrongSet= SanityCheckMethodTest(CQADataSet, w2vmodel, tqn, tmpBestx, lim_start[l], lim_end[l])
                 accuracy += eachTestAccuracy
-                tmpWrongNumList.append(eachTestwrongList)
+                tmpWrongNumList.append(eachTestwrongSet)
                 print(accuracy)
             accuracy /= 10
         if accuracy > bestAccuracy:
