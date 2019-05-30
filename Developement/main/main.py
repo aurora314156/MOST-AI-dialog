@@ -66,7 +66,7 @@ def SanityCheckMethod(CQADataSet, model, tqn, lim_start, lim_end):
             else:
                 return True
 
-        x, bestX, highestCorrectCount, filterCount = 0.1, 0, 0, 0
+        x, bestX, highestCorrectCount, filterCount, tmpC = 0.1, 0, 0, 0, 0
         # initital idfTable
         idfTable = SanityCheck(CQADataSet, tqn, 0).calIDF()
         while x < 1:
@@ -77,13 +77,14 @@ def SanityCheckMethod(CQADataSet, model, tqn, lim_start, lim_end):
                 # if filterDataset(CQADataSet) == False:
                 #     filterCount += 1
                 #     continue
+                tmpC+=1
                 ans = SanityCheck(CQADataSet, tqn, cqn).SanityCheckMain(model, x, idfTable)
                 if ans == ans_list['correct_answer'][cqn]:
                     tempCorrectCount += 1
             if highestCorrectCount < tempCorrectCount:
                 highestCorrectCount = tempCorrectCount
                 bestX = x
-            
+            print(tmpC)
             x += 0.1
         return bestX
 
@@ -94,16 +95,18 @@ def SanityCheckMethodTest(CQADataSet, model, tqn, x, lim_start, lim_end):
     # initital idfTable
     idfTable = SanityCheck(CQADataSet, tqn, 0).calIDF()
     
-    CorrectCount = 0
+    CorrectCount,tmpC = 0, 0
+    wrongNumSet = {}
     for cqn in range(tqn):
         if cqn >= lim_start and cqn <= lim_end:
-            ans = SanityCheck(CQADataSet, tqn, cqn).SanityCheckMain(model, x, idfTable)
-            if ans == ans_list['correct_answer'][cqn]:
+            tmpC +=1
+            guessAns = SanityCheck(CQADataSet, tqn, cqn).SanityCheckMain(model, x, idfTable)
+            if guessAns == ans_list['correct_answer'][cqn]:
                 CorrectCount += 1
-        else:
-            continue
+            else:
+                wrongNumSet[cqn] = guessAns
 
-    return CorrectCount /(8550*0.2)
+    return CorrectCount /(8550*0.1), wrongNumSet
 
 
 def main(argv=None):
@@ -121,29 +124,36 @@ def main(argv=None):
     
     # start SanityCheckMethod iteration
     bestAccuracy, accuracy = 0, 0
-    lim_start = [6840, 0, 1710, 3420, 5130]
-    lim_end = [8549, 1709, 3419, 5129, 6839]
+    lim_start = [7694, 0, 855, 1710, 2565, 3420, 4275, 5130, 5985, 6840]
+    lim_end = [8549, 854, 1709, 2564, 3419, 4274, 5129, 5984, 6839, 7693]
     modelFiles = listdir(mp)
     bestModel = ""
+    wrongNumList, wrongNumJson = [], {}
     for m in modelFiles:
         if m[len(m)-6:len(m)] == ".model":
+            tmpWrongNumList = []
             modelPath = mp + m
             print("W2V Model: %s" %m)
             CQADataSet, w2vmodel = DevelopmentModeInitial(qasp, modelPath, tqn, data).getCQADataSetAndModel()
             #AttentionMethod(CQADataSet, tqn)
             accuracy = 0
-            for l in range(5):
+            for l in range(10):
                 tmpBestx = SanityCheckMethod(CQADataSet, w2vmodel, tqn, lim_start[l], lim_end[l])
-                accuracy += SanityCheckMethodTest(CQADataSet, w2vmodel, tqn, tmpBestx, lim_start[l], lim_end[l])
+                eachTestAccuracy, eachTestwrongSet= SanityCheckMethodTest(CQADataSet, w2vmodel, tqn, tmpBestx, lim_start[l], lim_end[l])
+                accuracy += eachTestAccuracy
+                tmpWrongNumList.append(eachTestwrongList)
                 print(accuracy)
-            accuracy /= 5
+            accuracy /= 10
         if accuracy > bestAccuracy:
             bestAccuracy = accuracy
             bestModel = m
+            wrongNumList = tmpWrongNumList
             print(bestAccuracy)
             print(bestModel)
-
-
+    
+    wrongNumJson[str(0)] = wrongNumList
+    with open('Experiment/'+ m +'.json', 'w') as json_file:
+        json.dump(wrongNumJson, json_file)
     print("-----------------------")
     print("bestModel: ", bestModel)
     print("bestAccuracy: ", bestAccuracy)
